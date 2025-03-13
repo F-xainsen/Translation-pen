@@ -1,0 +1,140 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.11.2.0
+Copyright (C) 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: YK User, Microsoft, LIC=X9F56-DTDHD-29IGB-255UX-4LU2U-GGC4N
+ 
+Tool Versions:
+Toolchain:       PK51 Prof. Developers Kit  Version: 9.01
+Toolchain Path:  C:\Keil\C51\BIN
+C Compiler:      C51.exe V9.01
+Assembler:       A51.exe V8.02
+Linker/Locator:  BL51.exe V6.22
+Library Manager: LIB51.exe V4.24
+Hex Converter:   OH51.exe V2.6
+CPU DLL:         S8051.DLL V3.72
+Dialog DLL:      DP51.DLL V2.59 
+<h2>Project:</h2>
+E:\2019工作项目（叶坤）\2.4G\20190624-巨资\20200325_增加配对\20200409_增加恢复出厂设置功能\dongle - 副本（改描述）\Beken_Turnkey_BK5100_Dongle_V1.0.uvproj
+Project File Date:  03/27/2020
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling application_main.c...
+APPLICATION\APPLICATION_MAIN.C(52): warning C280: 'value': unreferenced local variable
+compiling application_mode_page.c...
+APPLICATION\APPLICATION_MODE_PAGE.C(26): warning C280: 'power_value': unreferenced local variable
+compiling application_mode_normal.c...
+APPLICATION\APPLICATION_MODE_NORMAL.C(240): warning C280: 'j': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(242): warning C280: 'cur_keytemp': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(411): warning C280: 'shift_esc_flag': unreferenced local variable
+compiling application_rf.c...
+APPLICATION\APPLICATION_RF.C(28): warning C280: 'count': unreferenced local variable
+compiling application_mode_test.c...
+compiling driver_initial.c...
+compiling driver_interrupt.c...
+compiling driver_memory.c...
+compiling driver_rf.c...
+compiling driver_usb_standard_requests.c...
+compiling driver_timer.c...
+compiling driver_uart.c...
+assembling .\output\driver_uart.src...
+compiling driver_usb_descriptor.c...
+compiling driver_usb_interrupt.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_APPLICATION_DONGLE_RF_CD_DETECT?APPLICATION_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_BUFFER_COPY?DRIVER_INITIAL
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_OUPUT_POWER_VALUE_SET?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_RF_CHANNEL_SWITCH?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_MODE_SET_SINGLE_WAVE?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_TIMER0_RESET?DRIVER_TIMER
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DRIVER_USB_FIFO_WRITE?DRIVER_USB_INTERRUPT
+    CALLER1: ?PR?DRIVER_ISR_USB?DRIVER_INTERRUPT
+    CALLER2: ?C_C51STARTUP
+Program Size: data=140.2 xdata=230 code=7594
+creating hex file from ".\output\bk_fw"...
+User command #1: "E:\2019工作项目（叶坤）\2.4G\20190624-巨资\20200325_增加配对\20200409_增加恢复出厂设置功能\dongle - 副本（改描述）\output\GenTXT.BAT"
+E:\2019工作项目（叶坤）\2.4G\20190624-巨资\20200325_增加配对\20200409_增加恢复出厂设置功能\dongle - 副本（改描述）>.\output\HEXBIN.exe .\output\bk_fw.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1DD5H
+E:\2019工~1\2.4G\201906~2\202003~1\202004~1\DONGLE~1>.\output\bin_to_crcbin.exe .\output\bk_fw.bin 32768 
+aaaaaaab.\output\bk_fw.bin;The file .\output\bk_fw.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 86
+End!
+E:\2019工~1\2.4G\201906~2\202003~1\202004~1\DONGLE~1>del .\output\*.obj 
+E:\2019工~1\2.4G\201906~2\202003~1\202004~1\DONGLE~1>del .\*.lst 
+".\output\bk_fw" - 0 Error(s), 13 Warning(s).
+</pre>
+</body>
+</html>
+

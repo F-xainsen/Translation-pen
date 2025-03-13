@@ -1,0 +1,555 @@
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE _RF
+OBJECT MODULE PLACED IN .\obj\_rf.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\_rf.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) DEBUG 
+                    -OBJECTEXTEND PRINT(.\obj\_rf.lst) TABS(2) OBJECT(.\obj\_rf.obj)
+
+line level    source
+
+   1          #include "includes.h"
+   2          
+   3          
+   4          
+   5          
+   6          // rx0 tx  addr
+   7          unsigned char xdata RX0_Address[5];//={0x15,0x29,0x23,0xC6,0x00};   
+   8          //XDATA UINT8 TX_Address[]={0x10,0x76,0x14,0xCD,0x16};
+   9          
+  10          XDATA UINT8 rf_address_rx2[5]={0xC3,0x00,22,32,42};
+  11          
+  12          unsigned char code PUBLIC_Address[5] = {PROJECT_ID, ~PROJECT_ID, PROJECT_ID, ~PROJECT_ID, PROJECT_ID};
+  13          BYTE JumpFreq_Buf[4]={25,78,65,43};
+  14          
+  15          //        RF
+  16          //latest config txt,//please optimize code here.
+  17          CODE UINT32 Bank1_Reg0_8[9] =     
+  18          {
+  19          #if RF_BAND==RF_250kbps   // 目前用的为250kbps
+  20            //250k
+  21            0x9C23C053,         
+  22            0x80FC3DC8,
+  23            0x00009A40,
+  24            0xC086E419,
+  25            0x49DCEDB4,
+  26            0x81780780,
+  27            0x0002FEFF,
+  28            0x262808E0, //0x262808E1, //  0x262808E2, 
+  29            0x1111130C,
+  30          #elif RF_BAND==RF_1Mbps
+                //1M
+                0x53C0239C,
+                0x80FC3DC8,
+                0x00009A40,
+                0x8086E419,
+                0x49DCEDB4,
+                0x81780480,
+                0x0002FEFF,
+                0x262848A0, //0x262848A1,
+                0x1111130C,
+              #elif RF_BAND==RF_2Mbps
+                //2M
+                0x53C0239C,
+                0x80FC3DC8,
+                0x00009A40,
+                0x8086E419,
+                0x49DCEDB4,
+                0x81780780,
+                0x0002FEFF,
+                0x262808E0, //0x262808E1,
+                0x1111130C,
+              #endif
+  53          };
+  54          
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 2   
+
+  55          // 0 - 1.2v, 1 - vdd/2
+  56          void adc_set_ref(bit ref, bit cel)
+  57          {
+  58   1        unsigned long reg7 = little2big32(Bank1_Reg0_8[7]);
+  59   1      
+  60   1        if (cel)  //bit25
+  61   1          reg7 |= 0x02000000;
+  62   1        else 
+  63   1          reg7 &= ~0x02000000;
+  64   1          
+  65   1      
+  66   1        if (ref)  //bit24
+  67   1          reg7 |= 0x01000000;
+  68   1        else
+  69   1          reg7 &= ~0x01000000;
+  70   1      
+  71   1        W_BANK1_ANALOG_REG2(7, reg7);
+  72   1      }
+  73          
+  74          
+  75          
+  76          /*
+  77          // bank1 reg C value
+  78          CODE UINT8 Bank1_RegC[]={0x80, 0x01, 0x33, 0x10};
+  79          // bank1 reg D value
+  80          CODE UINT8 Bank1_RegD[]={0x94, 0xB7, 0x80, 0x01};  //bk2535  pll 130us  兼容2433
+  81          CODE UINT8 Bank1_Ramp_Table[11] = 
+  82          {
+  83              0x1A, 0x28, 0x92, 0x26, 0xCA, 0xC2, 0xB4, 0x8D, 0xEB, 0xFC, 0x0F
+  84          };
+  85          
+  86          
+  87          //CODE UINT8 Bank1_RegC[]={0x80, 0x03, 0x33, 0x10};
+  88          //CODE UINT8 Bank1_RegD[]={0x14, 0xB7, 0x80, 0x01};
+  89          CODE UINT8 Bank1_Ramp_Table[11] = 
+  90          {
+  91             0x41, 0x20, 0x08, 0x04, 0x81, 0x20, 0xCF, 0xF7, 0xFE, 0xFF, 0xFF //41 20 08 04 81 20 CF F7 FE FF FF
+  92          };
+  93          */
+  94          
+  95          ////CODE UINT8 Bank1_RegD[]={0x14, 0xB4, 0x80, 0x01};   //40us
+  96          ////CODE UINT8 Bank1_RegD[]={0x94, 0xB4, 0x80, 0x01};   //50us
+  97          ////CODE UINT8 Bank1_RegD[]={0x14, 0xB5, 0x80, 0x01};   //60us
+  98          ////CODE UINT8 Bank1_RegD[]={0x94, 0xB5, 0x80, 0x01};   //70us
+  99          ////CODE UINT8 Bank1_RegD[]={0x14, 0xB6, 0x80, 0x01};   //80us    bk2535  pll default
+ 100          ////CODE UINT8 Bank1_RegD[]={0x94, 0xB6, 0x80, 0x01};   //100us
+ 101          ////CODE UINT8 Bank1_RegD[]={0x14, 0xB7, 0x80, 0x01};   //120us   bk2535  pll 兼容2533
+ 102          ////CODE UINT8 Bank1_RegD[]={0x94, 0xB7, 0x80, 0x01};     //130us   bk2535  pll 兼容2433
+ 103          
+ 104          CODE UINT8 Bank1_RegC[]={0x00, 0x12, 0x73, 0x00};
+ 105          CODE UINT8 Bank1_RegD[]={0xb6, 0xB7, 0x80, 0x00};     //bk2535  pll 120us  兼容2533
+ 106          CODE UINT8 Bank1_Ramp_Table[11] = 
+ 107          {
+ 108             0x41, 0x20, 0x08, 0x04, 0x81, 0x20, 0xCF, 0xF7, 0xFE, 0xFF, 0xFF //41 20 08 04 81 20 CF F7 FE FF FF
+ 109          };
+ 110          
+ 111          
+ 112          //-------------------------------------------------------
+ 113          //Function:
+ 114          //Desc  :
+ 115          //Input :
+ 116          //Output:
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 3   
+
+ 117          //Return:
+ 118          //Others:
+ 119          //Date  : 2011/03/01
+ 120          //-------------------------------------------------------
+ 121          void BK2433_RF_Initial(void)
+ 122          {
+ 123   1        UINT8 i;
+ 124   1        
+ 125   1          for(i=0; i<=8; i++)
+ 126   1              W_BANK1_ANALOG_REG1(i, Bank1_Reg0_8[i]);
+ 127   1            
+ 128   1        W_BANK1_DIGITAL_REG(BK2401_CFG_0C_ARRAY,Bank1_RegC,4);
+ 129   1        W_BANK1_DIGITAL_REG(BK2401_CFG_0D_ARRAY,Bank1_RegD,4);
+ 130   1        W_BANK1_DIGITAL_REG(BK2401_RAMP_TAB_ARRAY,Bank1_Ramp_Table,11);
+ 131   1      
+ 132   1        TX_FREQ_OFFSET[0] = 0x00;
+ 133   1          TX_FREQ_OFFSET[1] = 0x00;
+ 134   1          TX_FREQ_OFFSET[2] = 0x00;
+ 135   1          TX_FREQ_OFFSET[3] = 0x96;
+ 136   1          RX_FREQ_OFFSET[0] = 0x00;
+ 137   1          RX_FREQ_OFFSET[1] = 0x00;
+ 138   1          RX_FREQ_OFFSET[2] = 0x00;
+ 139   1          RX_FREQ_OFFSET[3] = 0xA0;
+ 140   1      
+ 141   1        MOD_DELAY = 0x0A;
+ 142   1          PLL_SDM = 0x00;    
+ 143   1          FM_GAIN_H = 0x00;
+ 144   1          FM_GAIN_L = 0xB0;
+ 145   1          FM_KMOD_SET_H = 0x01;
+ 146   1          FM_KMOD_SET_L = 0x00;
+ 147   1          MOD_COEFFICIENT_H = 0x09;
+ 148   1          MOD_COEFFICIENT_L = 0xAA;
+ 149   1          ANA_CTRL10 = 0x82;
+ 150   1        ANA_CTRL11 = 0xff;
+ 151   1          ANA_CTRL12 = 0x07;
+ 152   1          ANA_CTRL13 = 0x81;
+ 153   1        //------------------------------------------------  同 bk2423 寄存器，初始化bank0
+ 154   1        BK2401_CONFIG     = 0x7f;//0x3f;  // 开启 中断触发 。 接收模式 
+ 155   1        
+ 156   1        BK2401_ENAA       = 0X3f; // 所有通道使能自动应答
+ 157   1          //BK2401_ENAA       = 0X01; // 所有通道使能自动应答
+ 158   1        BK2401_ENRX       = 0X01;  //  使能通道0
+ 159   1        
+ 160   1        BK2401_AW         = 0x03;  // 地址宽度为5 byte
+ 161   1        BK2401_RETR       = 0x14;   // delay 500us ，自动重发4次
+ 162   1          BK2401_RFCH       = 40;    // 设置 初始通道
+ 163   1        
+ 164   1        BK2401_SETUP      = RF_BAND|RF_5dbm|RF_LNA_GAIN_HIGH; //2mbps/1mbps/250kbps, 5dbm
+ 165   1                    // 250kbps /  5db 
+ 166   1          //RX0_Address[0] = 0;
+ 167   1        memcpy(BK2401_R0_ADDR,rf_address_rx2,5);
+ 168   1        memcpy(BK2401_R1_ADDR,RX0_Address,5);  
+ 169   1       //   RX0_Address[4] = ~RX0_Address[4];
+ 170   1      //  memcpy(BK2401_R1_ADDR,RX0_Address,5); 
+ 171   1        //  RX0_Address[4] = ~RX0_Address[4];
+ 172   1          BK2401_R2_ADDR    = 0X12;
+ 173   1          BK2401_R3_ADDR    = 0X13;   
+ 174   1          BK2401_R4_ADDR    = 0X14;
+ 175   1          BK2401_R5_ADDR    = 0X15;
+ 176   1        memcpy(BK2401_TX_ADDR,RX0_Address,5);  
+ 177   1      
+ 178   1        
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 4   
+
+ 179   1          BK2401_R0_PW      = 0X10;    //32 byte  change 16 byte 
+ 180   1          BK2401_R1_PW      = 0X20;
+ 181   1          BK2401_R2_PW      = 0X20;
+ 182   1          BK2401_R3_PW      = 0X20;
+ 183   1          BK2401_R4_PW      = 0X20;
+ 184   1          BK2401_R5_PW      = 0X20;
+ 185   1        
+ 186   1          BK2401_DYNPD      = 0X3f;
+ 187   1        
+ 188   1          BK2401_FEATURE    = 0X07;
+ 189   1        //------------------------------------------------      
+ 190   1        PowerDown_RF();
+ 191   1          PowerUp_RF();
+ 192   1          PowerDown_RF();
+ 193   1          BK2401_CE         = 0X00;
+ 194   1          BK2401_CE         = 0X01;
+ 195   1      
+ 196   1        //SwitchToRxMode(); 
+ 197   1      //  AIE |= 0x08;              // enable rf interrupt
+ 198   1      }
+ 199          
+ 200          
+ 201          
+ 202          void W_BANK1_ANALOG_REG2(UINT8 addr, UINT32 value)
+ 203          {
+ 204   1          while(!(BK2401_SCTRL&0x80));
+ 205   1      
+ 206   1          BK2401_SDATA[3] = value>>24;
+ 207   1          BK2401_SDATA[2] = value>>16;
+ 208   1          BK2401_SDATA[1] = value>>8;
+ 209   1          BK2401_SDATA[0] = value>>0;
+ 210   1      
+ 211   1          BK2401_SCTRL  = addr;
+ 212   1      }
+ 213          
+ 214          void W_BANK1_ANALOG_REG1(UINT8 addr, UINT32 value)
+ 215          {
+ 216   1          while(!(BK2401_SCTRL&0x80));
+ 217   1      
+ 218   1          BK2401_SDATA[0] = value>>24;
+ 219   1          BK2401_SDATA[1] = value>>16;
+ 220   1          BK2401_SDATA[2] = value>>8;
+ 221   1          BK2401_SDATA[3] = value>>0;
+ 222   1      
+ 223   1          BK2401_SCTRL  = addr;
+ 224   1      }
+ 225          
+ 226          //-------------------------------------------------------
+ 227          //Function:
+ 228          //Desc  :
+ 229          //Input :
+ 230          //Output:
+ 231          //Return:
+ 232          //Others:
+ 233          //Date  : 2011/03/01
+ 234          //-------------------------------------------------------
+ 235          void W_BANK1_ANALOG_REG(UINT8 addr, UINT8* pvalue)
+ 236          {
+ 237   1          while(!(BK2401_SCTRL&0x80));
+ 238   1      
+ 239   1          memcpy(BK2401_SDATA,pvalue,4);
+ 240   1      
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 5   
+
+ 241   1          BK2401_SCTRL  = addr;
+ 242   1      }
+ 243          
+ 244          //-------------------------------------------------------
+ 245          //Function:
+ 246          //Desc  :
+ 247          //Input :
+ 248          //Output:
+ 249          //Return:
+ 250          //Others:
+ 251          //Date  : 2011/03/01
+ 252          //-------------------------------------------------------
+ 253          void W_BANK1_DIGITAL_REG(UINT8 *paddr, UINT8* pvalue,int len)
+ 254          {
+ 255   1          UINT8 i;
+ 256   1          for(i=0;i<len;i++)
+ 257   1              paddr[i]=pvalue[i];
+ 258   1      }
+ 259          
+ 260          
+ 261          
+ 262          //-------------------------------------------------------
+ 263          //Function:
+ 264          //Input :
+ 265          //Output:
+ 266          //Return:
+ 267          //Others:
+ 268          //Date  : 2011/03/01
+ 269          //-------------------------------------------------------
+ 270          void RF_Set_Mode(BYTE mode)
+ 271          {
+ 272   1      //  UINT32 reg_val = 0;
+ 273   1        UINT8 WriteArr[4];
+ 274   1        UINT8 j;
+ 275   1        
+ 276   1        for ( j = 0; j < 4; j ++ )
+ 277   1        {    
+ 278   2          WriteArr[j] =  ( Bank1_Reg0_8[2] >> ( 8 * ( 3 - j ) ) ) & 0xff; 
+ 279   2        }
+ 280   1      
+ 281   1        if(0 == mode)   // Single Wave
+ 282   1        {
+ 283   2          WriteArr[2] &= ~0x80;
+ 284   2          WriteArr[3] &= 0x80;
+ 285   2          WriteArr[3] |= 0x40;
+ 286   2          W_BANK1_ANALOG_REG(2,WriteArr);
+ 287   2          ANA_CTRL13 |= 0x20;
+ 288   2        }
+ 289   1        else
+ 290   1        {
+ 291   2          WriteArr[2] |= 0x80;
+ 292   2          WriteArr[3] &= 0x80;
+ 293   2          WriteArr[3] |= 0x40;
+ 294   2          W_BANK1_ANALOG_REG(2,WriteArr);
+ 295   2          ANA_CTRL13 &= ~0x20;
+ 296   2        }
+ 297   1        BK2401_CE = 0X00;
+ 298   1        BK2401_CE = 0X01;
+ 299   1      }
+ 300          
+ 301          
+ 302          //-------------------------------------------------------
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 6   
+
+ 303          //Function:
+ 304          //Desc  :
+ 305          //Input :
+ 306          //Output:
+ 307          //Return:
+ 308          //Others:
+ 309          //Date  : 2011/03/01
+ 310          //-------------------------------------------------------
+ 311          void SwitchToRxMode(void)
+ 312          {
+ 313   1          FLUSH_RX;
+ 314   1          FLUSH_TX;
+ 315   1        RFX2401C_RX();
+ 316   1          BK2401_CE=0;
+ 317   1          BK2401_CONFIG=BK2401_CONFIG|0x01;//set bit 1
+ 318   1          BK2401_CE=1;
+ 319   1      }
+ 320          
+ 321          //-------------------------------------------------------
+ 322          //Function:
+ 323          //Desc  :
+ 324          //Input :
+ 325          //Output:
+ 326          //Return:
+ 327          //Others:
+ 328          //Date  : 2011/03/01
+ 329          //-------------------------------------------------------
+ 330          void SwitchToTxMode(void)
+ 331          {
+ 332   1          FLUSH_TX;
+ 333   1          FLUSH_RX;
+ 334   1        RFX2401C_TX();
+ 335   1          BK2401_CE=0;
+ 336   1          BK2401_CONFIG=BK2401_CONFIG&0xfe;//clear bit 1
+ 337   1          BK2401_CE=1;
+ 338   1      }
+ 339          
+ 340          
+ 341          //-------------------------------------------------------
+ 342          //void SetChannel(void)
+ 343          //{
+ 344          //    BK2401_CE=0;
+ 345          //  BK2401_RFCH = hooping[rf_channel];
+ 346          //    BK2401_CE=1;
+ 347          //}
+ 348          
+ 349          
+ 350          void rf_set_channel(unsigned char ch)
+ 351          {
+ 352   1          BK2401_CE=0;
+ 353   1        BK2401_RFCH = ch;
+ 354   1          BK2401_CE=1;
+ 355   1      }
+ 356          
+ 357          void rf_set_baud(unsigned char baud)
+ 358          {
+ 359   1          BK2401_CE=0;
+ 360   1        BK2401_SETUP  = (BK2401_SETUP & ~0x28) | baud;
+ 361   1          BK2401_CE=1;  
+ 362   1      }
+ 363          void rf_set_dbm(unsigned char dbm)
+ 364          {
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 7   
+
+ 365   1          BK2401_CE=0;
+ 366   1        BK2401_SETUP  = (BK2401_SETUP & ~6) | dbm;
+ 367   1          BK2401_CE=1;  
+ 368   1      }
+ 369          void rf_set_retr(unsigned char retr)
+ 370          {
+ 371   1          BK2401_CE=0;
+ 372   1        BK2401_RETR   = (BK2401_RETR & ~0xf) | retr;
+ 373   1          BK2401_CE=1;  
+ 374   1      }
+ 375          
+ 376          
+ 377          
+ 378          
+ 379          //-------------------------------------------------------
+ 380          //Function:
+ 381          //Desc  :
+ 382          //Input :
+ 383          //Output:
+ 384          //Return:
+ 385          //Others:
+ 386          //Date  : 2011/03/01
+ 387          //-------------------------------------------------------
+ 388          //void PowerUp_RF(void)
+ 389          //{
+ 390          //    BK2401_CONFIG=BK2401_CONFIG|0x02;
+ 391          //}
+ 392          
+ 393          //-------------------------------------------------------
+ 394          //Function:
+ 395          //Desc  :
+ 396          //Input :
+ 397          //Output:
+ 398          //Return:
+ 399          //Others:
+ 400          //Date  : 2011/03/01
+ 401          //-------------------------------------------------------
+ 402          //void PowerDown_RF(void)
+ 403          //{
+ 404          //    BK2401_CONFIG=BK2401_CONFIG&0xfd;
+ 405          //}
+ 406          
+ 407          
+ 408          //-----------------------------------------------------------
+ 409          void set_rf_constant_address(void)
+ 410          {
+ 411   1      //  UINT8 Address_constant[5];
+ 412   1      //  Address_constant[0] = CONSTANT_NETID;
+ 413   1      //  Address_constant[1] = ~CONSTANT_NETID;
+ 414   1      //  Address_constant[2] = CONSTANT_NETID;
+ 415   1      //  Address_constant[3] = ~CONSTANT_NETID;
+ 416   1      //  Address_constant[4] = CONSTANT_NETID;
+ 417   1        memcpy(BK2401_R0_ADDR,PUBLIC_Address,5);
+ 418   1        memcpy(BK2401_TX_ADDR,PUBLIC_Address,5);
+ 419   1        BK2401_AW = 0x03;    //3//3b ADDRESS
+ 420   1      }
+ 421          
+ 422          //-----------------------------------------------------------
+ 423          //void rf_set_tx_addr(void)
+ 424          //{
+ 425          //  memcpy(BK2401_R0_ADDR,TX_Address,5);
+ 426          //  memcpy(BK2401_TX_ADDR,TX_Address,5);
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 8   
+
+ 427          //  BK2401_AW = 0x03;    //5B ADDRESS
+ 428          //}
+ 429          void rf_set_rx_addr(void)
+ 430          {
+ 431   1        memcpy(BK2401_R0_ADDR,RX0_Address,5);
+ 432   1        memcpy(BK2401_TX_ADDR,RX0_Address,5);
+ 433   1        BK2401_AW = 0x03;    //5B ADDRESS
+ 434   1      }
+ 435          
+ 436          void set_rf_5byte_address(unsigned char addr0)
+ 437          {
+ 438   1        RX0_Address[0] = addr0;
+ 439   1        memcpy(BK2401_R0_ADDR,RX0_Address,5);
+ 440   1        memcpy(BK2401_TX_ADDR,RX0_Address,5);
+ 441   1        BK2401_AW = 0x03;    // 地址长度为 5byte
+ 442   1      }
+ 443          
+ 444          
+ 445          void rf_clrint(void)
+ 446          {
+ 447   1        unsigned char sta;
+ 448   1        sta = BK2401_STATUS;
+ 449   1        while(sta & 0x71) 
+ 450   1        {
+ 451   2          if(sta&STATUS_MAX_RT) 
+ 452   2          {
+ 453   3            FLUSH_TX;
+ 454   3      //      FLUSH_RX;
+ 455   3      //      BK2401_CONFIG=BK2401_CONFIG&0xfd;  //rf power down
+ 456   3      //      BK2401_CONFIG=BK2401_CONFIG|0x02;  //rf power up
+ 457   3            BK2401_STATUS = STATUS_MAX_RT;
+ 458   3      //      delay_us(10);
+ 459   3          }
+ 460   2      
+ 461   2          if(sta&STATUS_RX_DR) 
+ 462   2          {
+ 463   3            FLUSH_RX;
+ 464   3            BK2401_STATUS = STATUS_RX_DR;
+ 465   3          }
+ 466   2      
+ 467   2          if(sta&STATUS_TX_DS) 
+ 468   2          {
+ 469   3            BK2401_STATUS = STATUS_TX_DS ;
+ 470   3          }
+ 471   2          FLUSH_TX;
+ 472   2          sta = BK2401_STATUS;
+ 473   2        }
+ 474   1      }
+ 475          
+ 476          // gpa:   0 -- 0x1f
+ 477          // hq:    0, 1, 3
+ 478          // paldo: 0, 3
+ 479          // pcsel: 0, 1
+ 480          // 数字越大，功率越大, 初始化默认 5dbm
+ 481          //              gpa        hq        paldo         pcsel
+ 482          //  5dbm        1f       3         1             3
+ 483          //  3dbm        1f       3         1             0
+ 484          //  0dbm        1f       1         1             0
+ 485          // -3dbm        10       1         1             0
+ 486          // -6dbm         b       1         1             0
+ 487          // -9dbm         7       1         1             0
+ 488          // -12dbm        4       1         1             0
+C51 COMPILER V9.01   _RF                                                                   04/09/2020 16:23:07 PAGE 9   
+
+ 489          // -18dbm        3       1         1             0
+ 490          // -23dbm        1       1         1             0
+ 491          // -27dbm        6       0         0             0
+ 492          // -30dbm        4       0         0             0
+ 493          // -33dbm        3       0         0             0
+ 494          // -36dbm        1       0         0             0
+ 495          // -54dbm        0       0         0             0
+ 496          void set_tx_power(unsigned char gpa, unsigned char hq, unsigned char paldo, bit pcsel)
+ 497          {
+ 498   1        ANA_CTRL11 = (ANA_CTRL11 & ~0x1f) | (gpa&0x1f);
+ 499   1        ANA_CTRL11 = (ANA_CTRL11 & ~0x60) | ((hq&3)<<5);
+ 500   1      
+ 501   1        if (pcsel)        //bit16
+ 502   1          W_BANK1_ANALOG_REG2(4, 0xB4EDDC49); //0x49DCEDB4
+ 503   1        else 
+ 504   1          W_BANK1_ANALOG_REG2(4, 0xB4ECDC49);
+ 505   1      
+ 506   1        //bit23:22
+ 507   1      #if RF_BAND==RF_250kbps
+ 508   1        //W_BANK1_ANALOG_REG2(3, 0x19E486C0)  //0xC086E419
+ 509   1        W_BANK1_ANALOG_REG2(3, 0x192486C0|((paldo&3)<<22)); 
+ 510   1      #else
+                //W_BANK1_ANALOG_REG2(3, 0x19E48680)  //0x8086E419
+                W_BANK1_ANALOG_REG2(3, 0x19248680|((paldo&3)<<22)); 
+              #endif
+ 514   1      }
+ 515          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1207    ----
+   CONSTANT SIZE    =     60    ----
+   XDATA SIZE       =     10    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4      29
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       3
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

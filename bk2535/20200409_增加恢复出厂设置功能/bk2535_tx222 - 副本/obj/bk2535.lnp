@@ -1,0 +1,16 @@
+".\obj\STARTUP.obj",
+".\obj\utils.obj",
+".\obj\MCUInital.obj",
+".\obj\timer.obj",
+".\obj\AD.obj",
+".\obj\_rf.obj",
+".\obj\nvr.obj",
+".\obj\rf.obj",
+".\obj\main.obj",
+".\obj\global.obj",
+".\obj\keys.obj",
+".\obj\Function.obj",
+".\obj\pairfunc.obj",
+".\obj\sleep.obj" 
+TO ".\obj\bk2535" 
+PRINT(".\obj\bk2535.m51") RAMSIZE(256) 

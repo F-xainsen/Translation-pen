@@ -1,0 +1,189 @@
+C51 COMPILER V9.01   TIMER                                                                 04/09/2020 16:23:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN .\obj\timer.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\timer.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) DEBU
+                    -G OBJECTEXTEND PRINT(.\obj\timer.lst) TABS(2) OBJECT(.\obj\timer.obj)
+
+line level    source
+
+   1          /***********************************************************
+   2          FileName  :
+   3          Date    : 2011/03/01
+   4          Description :
+   5          Version   : v0.1
+   6          Function List:
+   7          ----
+   8          History:
+   9          <author> <time> <version > <desc>
+  10          ***********************************************************/
+  11          
+  12          #include "includes.h"
+  13          UINT8 XDATA Time_100MS_cont = 0;
+  14          
+  15          bit Time_1ms_flag = 0;    // 1 = 10MS计时到了
+  16          
+  17          
+  18          void timer0_inital(void)
+  19          {
+  20   1        SPC_FNC |= 0x40 ;
+  21   1        ET0 = 0;
+  22   1        TR0 = 0;
+  23   1        TF0 = 0;
+  24   1        TMOD &= 0xf0;
+  25   1        TMOD |= 0x01;           //using Timer0 as tick base
+  26   1        TL0 = (us2tcnt(TICK_PERIOD) & 0x00FF);
+  27   1        TH0 = (us2tcnt(TICK_PERIOD) >> 8);
+  28   1      //  ET0 = 1;              //enable Timer0 int
+  29   1        TR0 = 1;
+  30   1      }
+  31          
+  32          //-------------------------------------------------------
+  33          void timer1_inital(void)
+  34          {
+  35   1        SPC_FNC |= 0x40 ;
+  36   1        ET1 = 0;
+  37   1        TR1 = 0;
+  38   1        TF1 = 0;
+  39   1        TMOD &= 0x0f;
+  40   1        TMOD |= 0x10;           //using Timer0 as tick base
+  41   1        TL1 = (us2tcnt(500) & 0x00FF);
+  42   1        TH1 = (us2tcnt(500) >> 8);
+  43   1      //  ET1 = 1;              //enable Timer1 int
+  44   1        TR1 = 1;
+  45   1      }
+  46          
+  47          //-------------------------------------------------------
+  48          void timer2_inital(void)
+  49          {
+  50   1        SPC_FNC |= 0x40 ;
+  51   1      //  ET2 = 0;
+  52   1        TR2 = 0;
+  53   1        TF2 = 0;
+  54   1        T2CON  = 0x00;
+C51 COMPILER V9.01   TIMER                                                                 04/09/2020 16:23:07 PAGE 2   
+
+  55   1        RCAP2H = (us2tcnt(5) >> 8);
+  56   1        RCAP2L = (us2tcnt(5) & 0x00FF); 
+  57   1        TL2 = (us2tcnt(2000) & 0x00FF);
+  58   1        TH2 = (us2tcnt(2000) >> 8);
+  59   1      //  ET2 = 1;              //enable Timer2 int
+  60   1      //  TR2 = 1;
+  61   1      }
+  62          
+  63          
+  64          
+  65          
+  66          void timer0_isr (void) interrupt 1 //using 2       1ms  进一次中断
+  67          {
+  68   1        TR0 = 0;
+  69   1        TF0 = 0;
+  70   1        TL0 = (us2tcnt(TICK_PERIOD1) & 0x00FF);
+  71   1        TH0 = (us2tcnt(TICK_PERIOD1) >> 8);
+  72   1        TR0 = 1;
+  73   1        timer0_flag = 1;
+  74   1        if(system_mode == system_pair_mode)
+  75   1        {
+  76   2          Pair_to_sleep++;
+  77   2          if(Pair_to_sleep > 200)
+  78   2            Pair_to_sleep = 200;
+  79   2        }
+  80   1      
+  81   1        Time_1ms_flag = 1;
+  82   1        Check_1ms_fun();
+  83   1        normal_to_sleep_int = 1;
+  84   1        Normal_to_sleep();      //这里是做静止判断休眠的
+  85   1        SendData++;     //发射数据的时间计数器
+  86   1        if(SendData> 200)
+  87   1          SendData = 200;
+  88   1        Time_100MS_cont++;
+  89   1        if(Time_100MS_cont >= 100)
+  90   1        {
+  91   2          Time_100MS_cont = 0;    //100ms 的时基
+  92   2      //    if(system_mode == system_normal_mode)
+  93   2      //      normal_to_sleep_int = 1;
+  94   2          if(system_mode == system_pair_mode)
+  95   2            Pair_to_sleep_int  = 1;
+  96   2        }
+  97   1      }
+  98          
+  99          void timer1_isr(void) interrupt 3 using 2
+ 100          {
+ 101   1        TR1 = 0;  //STOP
+ 102   1        TF1 = 0;  //CLEAR FLAG
+ 103   1        TL1 = (us2tcnt(500) & 0x00FF);
+ 104   1        TH1 = (us2tcnt(500) >> 8);
+ 105   1        TR1 = 1;  //RUN
+ 106   1      }
+ 107          
+ 108          void timer2_isr(void) interrupt 5 using 3
+ 109          {
+ 110   1        TF2 = 0;
+ 111   1        ET2 = 0;  //diable Interrupt
+ 112   1        TR2 = 0;    
+ 113   1      }
+ 114          
+ 115          /*
+ 116          
+C51 COMPILER V9.01   TIMER                                                                 04/09/2020 16:23:07 PAGE 3   
+
+ 117          （2+ div） * ( 1+count) / 32   ms
+ 118          
+ 119          */
+ 120          //8ms div = 2, count = 63
+ 121          //rtc 32khz
+ 122          //void rtc_set(unsigned char div, unsigned short count)
+ 123          //{
+ 124          //  RTC_TIMER_CTL = div & 0x03;
+ 125          //  RTC_COUNT_H = count/0x100;
+ 126          //  RTC_COUNT_L = count%0x100;      //rtc timer num
+ 127          //  RTC_TIMER_CTL |= 0x04;        //open rtc
+ 128          //  EX6 = 1;
+ 129          //  EA = 1;
+ 130          //}
+ 131          //#define us2rct(us) ((us) * 16UL/1000) // 32khz/2
+ 132          #define us2rct(us) ((us) * 8UL/1000)  // 32khz/2
+ 133          void rtc_init(void)
+ 134          {
+ 135   1        RTC_TIMER_CTL = 0;
+ 136   1        RTC_COUNT_H = (us2rct(8400)-1) >> 8;
+ 137   1        RTC_COUNT_L = (us2rct(8400)-1) & 0xff;      //rtc timer num
+ 138   1        RTC_TIMER_CTL |= 0x04;        //open rtc
+ 139   1        EX6 = 1;
+ 140   1      //  EA = 1;
+ 141   1        EXSLEEP = 2;
+ 142   1      //  PCON2 |= 0x03;  //slect RC32K  
+ 143   1      }
+ 144          void rtc_int() interrupt 12
+ 145          {
+ 146   1      //  EX6 = 0;
+ 147   1      //  RTC_TIMER_CTL |= 0x10;       //write 1 to clear int_flag
+ 148   1      //  EXSLEEP = 0;
+ 149   1      //  AIF &= 0xef;
+ 150   1      //  EX6 = 1;
+ 151   1        
+ 152   1        AIF &= ~0x10;
+ 153   1        RTC_TIMER_CTL |= 0x10;       //write 1 to clear int_flag
+ 154   1      //  RTC_TIMER_CTL = 0;
+ 155   1      //  RTC_COUNT_H = us2rct(TICK_PERIOD) >> 8;
+ 156   1      //  RTC_COUNT_L = us2rct(TICK_PERIOD) & 0xff;       //rtc timer num
+ 157   1        RTC_TIMER_CTL |= 0x04;       //open rtc
+ 158   1      
+ 159   1        timer0_flag = 1;
+ 160   1      }
+ 161          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    293    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

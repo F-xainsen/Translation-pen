@@ -1,0 +1,15 @@
+BYTE0  同步字   0－3位为同步字  4－7：0表示是键盘  1表示是鼠标
+
+鼠标模式：(总共发送4个字节）
+BYTE1  MOUSE X
+BYTE2  MOUSE Y
+BYTE3  MOUSE KEY
+
+键盘模式：（总共发送2个字节）
+用一个字节表示
+0X00 KEY RELEASE
+0X01 PAGE UP
+0X02 PAGE DOWN
+0X03 B
+0X04 SHIFT+F5/ESC
+0X05 TAB 

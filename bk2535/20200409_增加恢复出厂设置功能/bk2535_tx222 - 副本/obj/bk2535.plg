@@ -1,0 +1,1855 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本\bk2535_tx.uvproj
+Project File Date:  11/15/2019
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.2 xdata=297 code=14630
+creating hex file from ".\obj\bk2535"...
+--- Error: failed to execute 'C:\Keil\C51\BIN\OH51.EXE'
+".\obj\bk2535" - 1 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.2 xdata=297 code=14630
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     392BH
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 44
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.2 xdata=297 code=14633
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     392EH
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 47
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14643
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     3938H
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 57
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14645
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     393AH
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 59
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14645
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     393AH
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 59
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14649
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     393EH
+E:\软件工程\201911~1\巨资20~2\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 63
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14649
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     393EH
+E:\软件工程\201911~1\巨资20~2\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 63
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14651
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     3940H
+E:\软件工程\201911~1\巨资20~2\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 65
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+compiling global.c...
+compiling keys.c...
+MCU\KEYS.C(329): warning C173: missing return-expression
+MCU\KEYS.C(329): warning C290: missing return value
+compiling Function.c...
+compiling pairfunc.c...
+compiling sleep.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESS_RF_COMMUNICATION?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MUL13_16?KEYS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SYSTEM_TO_SLEEP?FUNCTION
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  SYSTEM_MODE_TEST
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 0FEBH
+Program Size: data=134.3 xdata=297 code=14653
+creating hex file from ".\obj\bk2535"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\bk2535_tx222 - 副本\GenTXT.BAT"
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\bk2535_tx222 - 副本>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     3942H
+E:\软件工程\201911~1\巨资20~2\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 67
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).

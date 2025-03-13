@@ -1,0 +1,1 @@
+"driver\driver_uart.c" LARGE OPTIMIZE (9,SIZE) BROWSE NOAREGS DEBUG OBJECTEXTEND PRINT(.\driver_uart.lst) TABS (2) SRC (.\output\driver_uart.SRC)

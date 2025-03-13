@@ -1,0 +1,11 @@
+---- driver_rf_receive_package Matches (7 in 4 files) ----
+APPLICATION_MODE_NORMAL.c (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):       	if(driver_rf_receive_package())
+Application_mode_page.c (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):        driver_rf_receive_package();
+Application_mode_page.c (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):					driver_rf_receive_package();
+Application_mode_page.c (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):					driver_rf_receive_package();
+Driver_rf.c (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):/*! \fn void driver_rf_receive_package(void)
+Driver_rf.c (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):void driver_rf_receive_package(void)
+Driver_rf.h (sdk\projects\app_2.4g\app_usb_2.4g\app\src\2.4):void driver_rf_receive_package(void);
+---- driver_rf_receive_package Search Errors Encountered (1) ----
+The following 1 files could not be processed:
+C:\Users\Administrator\Desktop\BK3633-24\RX\SDK\projects\app_2.4g\app_usb_2.4g\obj\bk3633_app.build_log.htm : File could not be opened.

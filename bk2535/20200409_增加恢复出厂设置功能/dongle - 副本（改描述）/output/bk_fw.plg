@@ -1,0 +1,390 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）\Beken_Turnkey_BK5100_Dongle_V1.0.uvproj
+Project File Date:  11/20/2019
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling application_main.c...
+APPLICATION\APPLICATION_MAIN.C(52): warning C280: 'value': unreferenced local variable
+compiling application_mode_page.c...
+APPLICATION\APPLICATION_MODE_PAGE.C(26): warning C280: 'power_value': unreferenced local variable
+compiling application_mode_normal.c...
+APPLICATION\APPLICATION_MODE_NORMAL.C(197): warning C280: 'j': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(199): warning C280: 'cur_keytemp': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(362): warning C280: 'shift_esc_flag': unreferenced local variable
+compiling application_rf.c...
+APPLICATION\APPLICATION_RF.C(28): warning C280: 'count': unreferenced local variable
+compiling application_mode_test.c...
+compiling driver_initial.c...
+compiling driver_interrupt.c...
+compiling driver_memory.c...
+compiling driver_rf.c...
+compiling driver_usb_standard_requests.c...
+compiling driver_timer.c...
+compiling driver_uart.c...
+assembling .\output\driver_uart.src...
+compiling driver_usb_descriptor.c...
+compiling driver_usb_interrupt.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_APPLICATION_DONGLE_RF_CD_DETECT?APPLICATION_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_BUFFER_COPY?DRIVER_INITIAL
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_OUPUT_POWER_VALUE_SET?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_RF_CHANNEL_SWITCH?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_MODE_SET_SINGLE_WAVE?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_TIMER0_RESET?DRIVER_TIMER
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DRIVER_USB_FIFO_WRITE?DRIVER_USB_INTERRUPT
+    CALLER1: ?PR?DRIVER_ISR_USB?DRIVER_INTERRUPT
+    CALLER2: ?C_C51STARTUP
+Program Size: data=140.1 xdata=230 code=7439
+creating hex file from ".\output\bk_fw"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\dongle - 副本（改描述）\output\GenTXT.BAT"
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>.\output\HEXBIN.exe .\output\bk_fw.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1D3AH
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>.\output\bin_to_crcbin.exe .\output\bk_fw.bin 32768 
+".\output\bk_fw" - 0 Error(s), 13 Warning(s).
+Build target 'Target 1'
+compiling application_main.c...
+APPLICATION\APPLICATION_MAIN.C(52): warning C280: 'value': unreferenced local variable
+compiling application_mode_page.c...
+APPLICATION\APPLICATION_MODE_PAGE.C(26): warning C280: 'power_value': unreferenced local variable
+compiling application_mode_normal.c...
+APPLICATION\APPLICATION_MODE_NORMAL.C(197): warning C280: 'j': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(199): warning C280: 'cur_keytemp': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(362): warning C280: 'shift_esc_flag': unreferenced local variable
+compiling application_rf.c...
+APPLICATION\APPLICATION_RF.C(28): warning C280: 'count': unreferenced local variable
+compiling application_mode_test.c...
+compiling driver_initial.c...
+compiling driver_interrupt.c...
+compiling driver_memory.c...
+compiling driver_rf.c...
+compiling driver_usb_standard_requests.c...
+compiling driver_timer.c...
+compiling driver_uart.c...
+assembling .\output\driver_uart.src...
+compiling driver_usb_descriptor.c...
+compiling driver_usb_interrupt.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_APPLICATION_DONGLE_RF_CD_DETECT?APPLICATION_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_BUFFER_COPY?DRIVER_INITIAL
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_OUPUT_POWER_VALUE_SET?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_RF_CHANNEL_SWITCH?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_MODE_SET_SINGLE_WAVE?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_TIMER0_RESET?DRIVER_TIMER
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DRIVER_USB_FIFO_WRITE?DRIVER_USB_INTERRUPT
+    CALLER1: ?PR?DRIVER_ISR_USB?DRIVER_INTERRUPT
+    CALLER2: ?C_C51STARTUP
+Program Size: data=140.1 xdata=230 code=7439
+creating hex file from ".\output\bk_fw"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\dongle - 副本（改描述）\output\GenTXT.BAT"
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>.\output\HEXBIN.exe .\output\bk_fw.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1D3AH
+E:\软件工程\201911~1\巨资20~2\DONGLE~1>.\output\bin_to_crcbin.exe .\output\bk_fw.bin 32768 
+aaaaaaab.\output\bk_fw.bin;The file .\output\bk_fw.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 59
+End!
+E:\软件工程\201911~1\巨资20~2\DONGLE~1>del .\output\*.obj 
+E:\软件工程\201911~1\巨资20~2\DONGLE~1>del .\*.lst 
+".\output\bk_fw" - 0 Error(s), 13 Warning(s).
+Build target 'Target 1'
+compiling application_main.c...
+APPLICATION\APPLICATION_MAIN.C(52): warning C280: 'value': unreferenced local variable
+compiling application_mode_page.c...
+APPLICATION\APPLICATION_MODE_PAGE.C(26): warning C280: 'power_value': unreferenced local variable
+compiling application_mode_normal.c...
+APPLICATION\APPLICATION_MODE_NORMAL.C(199): warning C280: 'j': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(201): warning C280: 'cur_keytemp': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(364): warning C280: 'shift_esc_flag': unreferenced local variable
+compiling application_rf.c...
+APPLICATION\APPLICATION_RF.C(28): warning C280: 'count': unreferenced local variable
+compiling application_mode_test.c...
+compiling driver_initial.c...
+compiling driver_interrupt.c...
+compiling driver_memory.c...
+compiling driver_rf.c...
+compiling driver_usb_standard_requests.c...
+compiling driver_timer.c...
+compiling driver_uart.c...
+assembling .\output\driver_uart.src...
+compiling driver_usb_descriptor.c...
+compiling driver_usb_interrupt.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_APPLICATION_DONGLE_RF_CD_DETECT?APPLICATION_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_BUFFER_COPY?DRIVER_INITIAL
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_OUPUT_POWER_VALUE_SET?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_RF_CHANNEL_SWITCH?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_MODE_SET_SINGLE_WAVE?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_TIMER0_RESET?DRIVER_TIMER
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DRIVER_USB_FIFO_WRITE?DRIVER_USB_INTERRUPT
+    CALLER1: ?PR?DRIVER_ISR_USB?DRIVER_INTERRUPT
+    CALLER2: ?C_C51STARTUP
+Program Size: data=140.1 xdata=230 code=7443
+creating hex file from ".\output\bk_fw"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\dongle - 副本（改描述）\output\GenTXT.BAT"
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>.\output\HEXBIN.exe .\output\bk_fw.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1D3EH
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>.\output\bin_to_crcbin.exe .\output\bk_fw.bin 32768 
+aaaaaaab.\output\bk_fw.bin;The file .\output\bk_fw.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 63
+End!
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>del .\output\*.obj 
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>del .\*.lst 
+".\output\bk_fw" - 0 Error(s), 13 Warning(s).
+Build target 'Target 1'
+compiling application_main.c...
+APPLICATION\APPLICATION_MAIN.C(52): warning C280: 'value': unreferenced local variable
+compiling application_mode_page.c...
+APPLICATION\APPLICATION_MODE_PAGE.C(26): warning C280: 'power_value': unreferenced local variable
+compiling application_mode_normal.c...
+APPLICATION\APPLICATION_MODE_NORMAL.C(203): warning C280: 'j': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(205): warning C280: 'cur_keytemp': unreferenced local variable
+APPLICATION\APPLICATION_MODE_NORMAL.C(368): warning C280: 'shift_esc_flag': unreferenced local variable
+compiling application_rf.c...
+APPLICATION\APPLICATION_RF.C(28): warning C280: 'count': unreferenced local variable
+compiling application_mode_test.c...
+compiling driver_initial.c...
+compiling driver_interrupt.c...
+compiling driver_memory.c...
+compiling driver_rf.c...
+compiling driver_usb_standard_requests.c...
+compiling driver_timer.c...
+compiling driver_uart.c...
+assembling .\output\driver_uart.src...
+compiling driver_usb_descriptor.c...
+compiling driver_usb_interrupt.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_APPLICATION_DONGLE_RF_CD_DETECT?APPLICATION_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_BUFFER_COPY?DRIVER_INITIAL
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_OUPUT_POWER_VALUE_SET?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_RF_CHANNEL_SWITCH?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRIVER_RF_MODE_SET_SINGLE_WAVE?DRIVER_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DRIVER_TIMER0_RESET?DRIVER_TIMER
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DRIVER_USB_FIFO_WRITE?DRIVER_USB_INTERRUPT
+    CALLER1: ?PR?DRIVER_ISR_USB?DRIVER_INTERRUPT
+    CALLER2: ?C_C51STARTUP
+Program Size: data=140.1 xdata=230 code=7448
+creating hex file from ".\output\bk_fw"...
+User command #1: "E:\软件工程\20191115_聚知空鼠\巨资20190802（改接收端烧录滚动码）\dongle - 副本（改描述）\output\GenTXT.BAT"
+E:\软件工程\20191115_聚知空鼠\巨资20191126（改控制命令及电量等级）\dongle - 副本（改描述）>.\output\HEXBIN.exe .\output\bk_fw.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1D43H
+E:\软件工程\201911~1\巨资20~2\DONGLE~1>.\output\bin_to_crcbin.exe .\output\bk_fw.bin 32768 
+aaaaaaab.\output\bk_fw.bin;The file .\output\bk_fw.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 68
+End!
+E:\软件工程\201911~1\巨资20~2\DONGLE~1>del .\output\*.obj 
+E:\软件工程\201911~1\巨资20~2\DONGLE~1>del .\*.lst 
+".\output\bk_fw" - 0 Error(s), 13 Warning(s).

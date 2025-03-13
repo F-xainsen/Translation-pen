@@ -1,0 +1,478 @@
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE RF
+OBJECT MODULE PLACED IN .\obj\rf.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\rf.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) DEBUG O
+                    -BJECTEXTEND PRINT(.\obj\rf.lst) TABS(2) OBJECT(.\obj\rf.obj)
+
+line level    source
+
+   1          #include "includes.h"
+   2          
+   3          void RF_Read_data(void) ;
+   4          BYTE BK2401_FIFO_data[10];
+   5          
+   6          
+   7          void rf_isr (void) interrupt 11  //rf interrupt
+   8          {
+   9   1        AIF &= ~0x08;
+  10   1      }
+  11          
+  12          unsigned  int R_nusd = 10;
+  13          extern unsigned char tran_inv;
+  14          void rf_send_data(void)
+  15          {
+  16   1        if(ADCFunOK)
+  17   1        {
+  18   2          ADCFunOK = 0;
+  19   2          RFdatabuf[0] = RFdatabuf[0] << 2;
+  20   2        }
+  21   1        if(ChargeFlag)         //充电的标志，用BIT7表示
+  22   1        {
+  23   2          RFdatabuf[0] = RFdatabuf[0] | 0x01;   //有充电的时候，拉高bit0
+  24   2      //    P36 ^= 1;
+  25   2        }
+  26   1        if(up_power000==0)
+  27   1        {
+  28   2          RFdatabuf[0] = RFdatabuf[0] | 0x02;   
+  29   2        }
+  30   1        BK2401_FIFO = maincount ;
+  31   1          
+  32   1        BK2401_FIFO = system.mouse[0];    //鼠标数据    
+  33   1        BK2401_FIFO = system.mouse[1];
+  34   1        BK2401_FIFO = system.mouse[2];
+  35   1        BK2401_FIFO = system.mouse[3]; 
+  36   1        BK2401_FIFO = RFdatabuf[0];
+  37   1      
+  38   1        if((system.mouse[1] != 0) || system.mouse[2] != 0 || system.mouse[0] != 0 || system.mouse[3] != 0 )
+  39   1          Mouse_move_flag = 1;
+  40   1        else
+  41   1          Mouse_move_flag = 0;
+  42   1            
+  43   1        system.mouse[0]=0;
+  44   1        system.mouse[1]=0;
+  45   1        system.mouse[2]=0;
+  46   1        system.mouse[3]=0;
+  47   1      //  RFdatabuf[0] = 0;
+  48   1        /*
+  49   1      
+  50   1        BK2401_FIFO = maincount ;
+  51   1        
+  52   1        
+  53   1        BK2401_FIFO = BK2401_FIFO_data[0];        
+  54   1        BK2401_FIFO = BK2401_FIFO_data[1];
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 2   
+
+  55   1        BK2401_FIFO = BK2401_FIFO_data[2]; 
+  56   1        BK2401_FIFO = BK2401_FIFO_data[3];        
+  57   1        BK2401_FIFO = BK2401_FIFO_data[4];
+  58   1        BK2401_FIFO = BK2401_FIFO_data[5];
+  59   1        BK2401_FIFO = BK2401_FIFO_data[6]; 
+  60   1        
+  61   1        BK2401_FIFO = BK2401_FIFO_data[7];        
+  62   1        BK2401_FIFO = BK2401_FIFO_data[8];
+  63   1        BK2401_FIFO = BK2401_FIFO_data[9];
+  64   1        BK2401_FIFO = BK2401_FIFO_data[10]; 
+  65   1        
+  66   1        BK2401_FIFO = BK2401_FIFO_data[11];       
+  67   1        BK2401_FIFO = BK2401_FIFO_data[12]; 
+  68   1        */
+  69   1      }
+  70          
+  71          //-------------------------------------------------------
+  72          UINT8 Send_Packet_Ack(UINT8 *buf,UINT8 length)
+  73          {
+  74   1        UINT8 sta,i;
+  75   1        
+  76   1          RF_CMD_FLUSH_TX                                                 //fifo clear
+  77   1          RF_CMD_FLUSH_RX
+  78   1          RF_POWER_DOWN
+  79   1          RF_POWER_UP
+  80   1          RF_STATUS_CLEAR_ALL
+  81   1        
+  82   1        delay_us(50);
+  83   1        
+  84   1        //BK2401_RETR = 0x14;
+  85   1        
+  86   1        RF_CMD_W_TX_PAYLOAD
+  87   1          for (i=0; i<length; i++)
+  88   1              BK2401_FIFO = buf[i];
+  89   1            
+  90   1          RF_CMD_NOP  ;     
+  91   1              
+  92   1          //sleep and wake up by rf interrupt
+  93   1          ENABLE_RF_INT;
+  94   1          MCU_IDLE_OSCXMHZ;
+  95   1          DISABLE_RF_INT;
+  96   1        do
+  97   1        {
+  98   2          sta = BK2401_STATUS;
+  99   2        }while((sta & STATUS_RX_TX_MAX) == 0x00);                                 //清中断标志             
+ 100   1        
+ 101   1        if(sta & STATUS_TX_DS)
+ 102   1        {         
+ 103   2          return STATUS_TX_DS;
+ 104   2        }
+ 105   1        else
+ 106   1          if(sta & STATUS_MAX_RT)
+ 107   1        {
+ 108   2          return STATUS_MAX_RT;
+ 109   2        }
+ 110   1        else
+ 111   1        {
+ 112   2            printf(" 2  ");
+ 113   2              return STATUS_MAX_RT;
+ 114   2      
+ 115   2        }
+ 116   1      }
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 3   
+
+ 117          
+ 118          
+ 119          
+ 120          
+ 121          void process_rf_communication(void)
+ 122          {
+ 123   1        unsigned char sta;
+ 124   1      
+ 125   1          CE_LOW();
+ 126   1          sta = BK2401_STATUS;
+ 127   1            //printf(" 333\n");
+ 128   1      //    printf("%d",sta);
+ 129   1          while(sta & 0x71)
+ 130   1          {
+ 131   2            if(sta&STATUS_RX_DR)     //收到数据
+ 132   2            {
+ 133   3              if(ChangeRXFlag)    //接收模式
+ 134   3              {
+ 135   4                BK2401_CMD = 0x40;  //read fifo command 
+ 136   4                _nop_(); _nop_();
+ 137   4                RxCmdData = BK2401_FIFO;  //只用一个byte来表示命令  这命令只控制灯显示
+ 138   4                BK2401_CMD = 0x00;
+ 139   4                RXdataOKflag = 1;
+ 140   4      //          P36  ^=1;
+ 141   4              }
+ 142   3              FLUSH_RX;
+ 143   3              BK2401_STATUS = STATUS_RX_DR;
+ 144   3              /************************************/
+ 145   3              PowerDown_RF();
+ 146   3              PowerUp_RF();             //从2433上面学到的控制操作
+ 147   3              BK2401_STATUS = 0x70;
+ 148   3              delay_us(200);
+ 149   3              SwitchToTxMode();
+ 150   3              /************************************/
+ 151   3              max_trans_ct = 0;
+ 152   3            } 
+ 153   2            if(sta&STATUS_TX_DS)          //发射成功
+ 154   2            {
+ 155   3              if(ChangeRXFlag == 0)   //只有在不是接收模式的时候，才会切换模式
+ 156   3              {
+ 157   4                BK2401_STATUS = 0x70;
+ 158   4                FLUSH_TX;
+ 159   4                CE_LOW();
+ 160   4                max_trans_ct = 0;
+ 161   4                PowerDown_RF();
+ 162   4                PowerUp_RF();
+ 163   4                delay_us(200);
+ 164   4                SwitchToRxMode();   //发射转成接收模式                       
+ 165   4                ChangeRXFlag = 1; 
+ 166   4              }
+ 167   3              FLUSH_TX;
+ 168   3              BK2401_STATUS = STATUS_TX_DS;
+ 169   3              max_trans_ct = 0;
+ 170   3              //printf("ok\n");
+ 171   3            }
+ 172   2            if(sta&STATUS_MAX_RT) 
+ 173   2            {
+ 174   3      //        P36 ^= 1;
+ 175   3              FLUSH_TX;
+ 176   3              FLUSH_RX;
+ 177   3              BK2401_CONFIG=BK2401_CONFIG&0xfd;  //rf power down
+ 178   3              BK2401_CONFIG=BK2401_CONFIG|0x02;  //rf power up
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 4   
+
+ 179   3              BK2401_STATUS = 0x70;
+ 180   3              delay_us(10);
+ 181   3      //        FLUSH_TX;
+ 182   3              BK2401_STATUS = STATUS_MAX_RT ;
+ 183   3              
+ 184   3              if(tran_inv<100)
+ 185   3                tran_inv ++;
+ 186   3            //  printf(" 2");
+ 187   3          //    if(max_trans_ct < 100)
+ 188   3          //      max_trans_ct++;
+ 189   3            }
+ 190   2          //  FLUSH_TX;
+ 191   2            sta = BK2401_STATUS;
+ 192   2          //  printf(" 333\n");
+ 193   2          //  printf("%d",sta);
+ 194   2          }
+ 195   1        
+ 196   1      //    PowerUp_RF();
+ 197   1           // set_rf_5byte_address(0);
+ 198   1        //  BK2401_RFCH = rf_channel;
+ 199   1        //  BK2401_RFCH = T_JumpFreqTab[rf_freq_id]; 
+ 200   1      //    BK2401_SETUP  = RF_BAND|RF_5dbm|RF_LNA_GAIN_HIGH; //2mbps/1mbps/250kbps, 5dbm
+ 201   1      //      SwitchToTxMode();
+ 202   1      
+ 203   1      //    CE_LOW();
+ 204   1      //    BK2401_CMD = 0x60;  //write fifo command
+ 205   1      //    //BK2401_CMD = 0x68;  //write fifo command  no_ack
+ 206   1      //    delay_us(10);
+ 207   1      //    rf_send_data();  // 把需要发送的数据写入 fifo
+ 208   1      //    
+ 209   1      //    BK2401_CMD = 0x00;       //2455 - 130us, 2533 - 120us, 2535 - 80us
+ 210   1      //  
+ 211   1      //    CE_HIGH();
+ 212   1        
+ 213   1      //    delay_ms(1);
+ 214   1        //  rf_clrint();
+ 215   1      }
+ 216          
+ 217          void RF_id_set(void)
+ 218          {
+ 219   1        BYTE id[5];
+ 220   1        PowerDown_RF();
+ 221   1          id[0] = 0;
+ 222   1          id[1] = 1;
+ 223   1        id[2] = 2;
+ 224   1        id[3] = 3;
+ 225   1        id[4] = 100;
+ 226   1        memcpy(BK2401_R0_ADDR,id,5);
+ 227   1        memcpy(BK2401_R1_ADDR,id,5);
+ 228   1        memcpy(BK2401_TX_ADDR,id,5);  
+ 229   1        PowerUp_RF();
+ 230   1      }
+ 231          void RF_Data_Send(void)
+ 232          {
+ 233   1        UINT8 sta,i;
+ 234   1        RF_CMD_FLUSH_TX                                                 //fifo clear
+ 235   1          RF_CMD_FLUSH_RX
+ 236   1          RF_POWER_DOWN
+ 237   1          RF_POWER_UP
+ 238   1          RF_STATUS_CLEAR_ALL
+ 239   1        delay_us(50);
+ 240   1        BK2401_RETR = 0x13;
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 5   
+
+ 241   1        RF_CMD_W_TX_PAYLOAD //write fifo command
+ 242   1        delay_us(10);
+ 243   1        rf_send_data();  // 把需要发送的数据写入 fifo
+ 244   1        BK2401_CMD = 0x00;
+ 245   1        do
+ 246   1        {
+ 247   2          sta = BK2401_STATUS;
+ 248   2        }while((sta & STATUS_RX_TX_MAX) == 0x00);   //清中断标志
+ 249   1      
+ 250   1        //BK2401_CMD = 0x00;       //2455 - 130us, 2533 - 120us, 2535 - 80us
+ 251   1        if(sta & STATUS_TX_DS)
+ 252   1        { 
+ 253   2          RF_CMD_FLUSH_TX                                                 //fifo clear
+ 254   2              RF_CMD_FLUSH_RX
+ 255   2            RF_STATUS_CLEAR_ALL;
+ 256   2          SwitchToRxMode();
+ 257   2          delay_us(10);
+ 258   2          i=100;
+ 259   2          while(i--)
+ 260   2          {
+ 261   3            delay_us(20);
+ 262   3            sta = BK2401_STATUS;
+ 263   3            if(sta & STATUS_RX_DR)
+ 264   3            {
+ 265   4              Normal_to_pair_cont = 0;
+ 266   4              RF_Read_data();
+ 267   4      //        len = BK2401_RPL_WIDTH;       
+ 268   4      //        if(len==2)
+ 269   4      //        {   //DEG(("===%X\n",(uint16)(FIFO_data[0])));
+ 270   4      //          RF_CMD_R_RX_PAYLOAD
+ 271   4      //          rf_data1 = BK2401_FIFO;
+ 272   4      //          rf_data2 = BK2401_FIFO;
+ 273   4      //          RF_CMD_NOP;
+ 274   4      //          rf_data_cmd = rf_data1 & 0xf0;
+ 275   4      //          if(rf_data_cmd == 0xF0)
+ 276   4      //          {
+ 277   4      //            rf_data = rf_data2 & 0x01;
+ 278   4      //            if(rf_data  == 0x01)
+ 279   4      //              ZXDPowerONFlag = 1; 
+ 280   4      //            else 
+ 281   4      //              ZXDPowerONFlag = 0;
+ 282   4      //          }
+ 283   4      //          rf_data_cmd = rf_data1 & 0x0f;
+ 284   4      //          if(rf_data_cmd == 0x0f)
+ 285   4      //          { 
+ 286   4      //            if(LowpowerFlag)      //低电量模式下，不操作
+ 287   4      //              break;
+ 288   4      //            rf_data = rf_data2 & 0x02;             
+ 289   4      //            if(rf_data  == 0x02)
+ 290   4      //            {
+ 291   4      //              if(ChargeFlag)
+ 292   4      //              {
+ 293   4      //                if(UpMouseFlag == 0)
+ 294   4      //                {
+ 295   4      //                  UpMouseFlag = 1;
+ 296   4      //                  UpMouseCont = 0;
+ 297   4      //                  Time8MSCont = 0;
+ 298   4      //                  LEDZSDFLAG = 0;
+ 299   4      //                }
+ 300   4      //              }
+ 301   4      //              else
+ 302   4      //                LEDZSDFLAG = 1;   //点亮指示灯
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 6   
+
+ 303   4      //            } 
+ 304   4      //            else   //收到00数据
+ 305   4      //            {
+ 306   4      //              if(UpMouseFlag==1 || ChargeFlag==1)   //在抬起显示时，收到命令不操作
+ 307   4      //              {
+ 308   4      //                break;  
+ 309   4      //              }
+ 310   4      //              LEDZSDFLAG = 0;
+ 311   4      //            }
+ 312   4      //          }
+ 313   4      //          break;    
+ 314   4      //        }    
+ 315   4            }
+ 316   3            BK2401_STATUS = 0;
+ 317   3            
+ 318   3          }
+ 319   2          RF_CMD_FLUSH_TX;
+ 320   2          RF_CMD_FLUSH_RX;
+ 321   2          SwitchToTxMode();
+ 322   2          //return STATUS_TX_DS;
+ 323   2          BK2401_STATUS = STATUS_TX_DS;
+ 324   2        }
+ 325   1        if(sta & STATUS_MAX_RT) 
+ 326   1        {
+ 327   2          tran_inv = 1;
+ 328   2          BK2401_STATUS = STATUS_MAX_RT;
+ 329   2          if(Pair_mode_check_flag)
+ 330   2          {
+ 331   3            Normal_to_pair_cont++;
+ 332   3            Normal_to_pair();
+ 333   3          }
+ 334   2        }
+ 335   1      }
+ 336          
+ 337          void RF_Read_data(void)   //收到RF的数据 ，在这里做数据的处理，转换成显示，闪灯时间，或者是休眠时间
+ 338          {
+ 339   1        UINT8 xdata rf_len,i,rf_data_buff[6];
+ 340   1      
+ 341   1        rf_len = BK2401_RPL_WIDTH;
+ 342   1        RF_CMD_R_RX_PAYLOAD;
+ 343   1        for(i=0;i<rf_len;i++)
+ 344   1          rf_data_buff[i] = BK2401_FIFO;        //读出RF传输的数据
+ 345   1        RF_CMD_NOP;
+ 346   1        if(rf_len == 2)     // 这个是控制写flash的数据
+ 347   1        {
+ 348   2          if(rf_data_buff[0] == 0x56 && rf_data_buff[1] == 0x78)
+ 349   2          {
+ 350   3            RF_WRITE_FLASH = 1;     // 此标志位为PC 控制发射端记忆滚码
+ 351   3          }
+ 352   2        }
+ 353   1        if(rf_len == 3)
+ 354   1        {
+ 355   2            if(rf_data_buff[0] == 0x12 && rf_data_buff[1] == 0x34 && rf_data_buff[2] == 0x88)
+ 356   2            {
+ 357   3              if(!RF_Usb_Reset)
+ 358   3              {
+ 359   4                RF_Usb_Reset = 1;
+ 360   4                system_reset_flag = 1;
+ 361   4              }
+ 362   3            }
+ 363   2        }
+ 364   1        if(rf_len == 4)      //这个表示是休眠时间的数据
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 7   
+
+ 365   1        {
+ 366   2          Usb_Set_Sleep_time = 0;
+ 367   2          Usb_sleeptime_flag = 1;
+ 368   2          narmal_sleep_cont = 0;
+ 369   2          for(i=0;i<3;i++)
+ 370   2          {
+ 371   3            Usb_Set_Sleep_time |= rf_data_buff[i];
+ 372   3            Usb_Set_Sleep_time <<= 8; 
+ 373   3          }
+ 374   2          Usb_Set_Sleep_time |= rf_data_buff[3];      //RF的数据要结合起来，给到要设置的休眠时间
+ 375   2      //    if(rf_data_buff[0] == 0 && rf_data_buff[1]==0 && rf_data_buff[2] ==0x11 && rf_data_buff[3] == 0xaa)
+ 376   2      //      IO_EN_LEDB = ~IO_EN_LEDB;
+ 377   2      //    if(Usb_Set_Sleep_time == 0x11aa)
+ 378   2      //      IO_EN_LEDG = ~IO_EN_LEDG;
+ 379   2        }
+ 380   1        if(rf_len == 6)       //这里是读到LED控制灯
+ 381   1        {
+ 382   2          //IO_EN_LEDG = ~IO_EN_LEDG;
+ 383   2          if(rf_data_buff[0] == 0)      //读到0，就是代表着USB控制放开
+ 384   2          {
+ 385   3            IO_EN_LEDB = 0;
+ 386   3            IO_EN_LEDG = 0;
+ 387   3            IO_EN_LEDR = 0;
+ 388   3            IO_EN_LEDZX = 0;
+ 389   3            //Usb_Ctrl_EN_flag = 0;
+ 390   3            Usb_led_ctrl_byte1_status = 0;
+ 391   3            return;
+ 392   3          }
+ 393   2          else
+ 394   2          {
+ 395   3            Usb_Ctrl_EN_flag = 1;      //有控制，就一定要显示
+ 396   3            Usb_led_ctrl_byte1_status = 1;
+ 397   3            switch(rf_data_buff[1])
+ 398   3            {
+ 399   4              case 0:
+ 400   4                Usb_Ctrl_Disp_R_ct = rf_data_buff[2];
+ 401   4                Usb_Ctrl_Disp_R_ct <<= 8;
+ 402   4                Usb_Ctrl_Disp_R_ct |= rf_data_buff[3];
+ 403   4      
+ 404   4                Usb_Ctrl_NoDisp_R_ct = rf_data_buff[4];
+ 405   4                Usb_Ctrl_NoDisp_R_ct <<= 8;
+ 406   4                Usb_Ctrl_NoDisp_R_ct |= rf_data_buff[5];
+ 407   4                break;
+ 408   4              case 1:
+ 409   4                Usb_Ctrl_Disp_G_ct = rf_data_buff[2];
+ 410   4                Usb_Ctrl_Disp_G_ct <<= 8;
+ 411   4                Usb_Ctrl_Disp_G_ct |= rf_data_buff[3];
+ 412   4      
+ 413   4                Usb_Ctrl_NoDisp_G_ct = rf_data_buff[4];
+ 414   4                Usb_Ctrl_NoDisp_G_ct <<= 8;
+ 415   4                Usb_Ctrl_NoDisp_G_ct |= rf_data_buff[5];
+ 416   4                break;
+ 417   4              case 2:
+ 418   4                Usb_Ctrl_Disp_B_ct = rf_data_buff[2];
+ 419   4                Usb_Ctrl_Disp_B_ct <<= 8;
+ 420   4                Usb_Ctrl_Disp_B_ct |= rf_data_buff[3];
+ 421   4      
+ 422   4                Usb_Ctrl_NoDisp_B_ct = rf_data_buff[4];
+ 423   4                Usb_Ctrl_NoDisp_B_ct <<= 8;
+ 424   4                Usb_Ctrl_NoDisp_B_ct |= rf_data_buff[5];
+ 425   4                break;
+ 426   4              case 3:
+C51 COMPILER V9.01   RF                                                                    04/09/2020 16:23:07 PAGE 8   
+
+ 427   4                Usb_Ctrl_Disp_ZX_ct = rf_data_buff[2];
+ 428   4                Usb_Ctrl_Disp_ZX_ct <<= 8;
+ 429   4                Usb_Ctrl_Disp_ZX_ct |= rf_data_buff[3];
+ 430   4      
+ 431   4                Usb_Ctrl_NoDisp_ZX_ct = rf_data_buff[4];
+ 432   4                Usb_Ctrl_NoDisp_ZX_ct <<= 8;
+ 433   4                Usb_Ctrl_NoDisp_ZX_ct |= rf_data_buff[5];
+ 434   4                break;
+ 435   4            }
+ 436   3          }
+ 437   2        }
+ 438   1      }
+ 439          
+ 440          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1147    ----
+   CONSTANT SIZE    =      5    ----
+   XDATA SIZE       =   ----       8
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

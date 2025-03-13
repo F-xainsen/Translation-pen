@@ -1,0 +1,16 @@
+".\output\application_main.obj",
+".\output\application_mode_page.obj",
+".\output\application_mode_normal.obj",
+".\output\application_rf.obj",
+".\output\application_mode_test.obj",
+".\output\driver_initial.obj",
+".\output\driver_interrupt.obj",
+".\output\driver_memory.obj",
+".\output\driver_rf.obj",
+".\output\driver_usb_standard_requests.obj",
+".\output\driver_timer.obj",
+".\output\driver_uart.obj",
+".\output\driver_usb_descriptor.obj",
+".\output\driver_usb_interrupt.obj" 
+TO ".\output\bk_fw" 
+PRINT(".\bk_fw.m51") RAMSIZE(256) 

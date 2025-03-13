@@ -1,0 +1,37 @@
+C51 COMPILER V9.01   GLOBAL                                                                04/09/2020 16:23:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE GLOBAL
+OBJECT MODULE PLACED IN .\obj\global.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\global.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) DEB
+                    -UG OBJECTEXTEND PRINT(.\obj\global.lst) TABS(2) OBJECT(.\obj\global.obj)
+
+line level    source
+
+   1          /***********************************************************
+   2          FileName    : 
+   3          Date        : 2011/03/01
+   4          Description :
+   5          Version     : v0.1
+   6          Function List: 
+   7          ----
+   8          History: 
+   9          <author> <time> <version > <desc>
+  10          ***********************************************************/
+  11          #define DEF_VAR
+  12          #include "includes.h"
+  13          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     25    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =      6    ----
+   BIT SIZE         =      9    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

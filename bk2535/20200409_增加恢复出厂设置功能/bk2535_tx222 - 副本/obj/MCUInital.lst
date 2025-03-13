@@ -1,0 +1,116 @@
+C51 COMPILER V9.01   MCUINITAL                                                             04/09/2020 16:23:06 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MCUINITAL
+OBJECT MODULE PLACED IN .\obj\MCUInital.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\MCUInital.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) 
+                    -DEBUG OBJECTEXTEND PRINT(.\obj\MCUInital.lst) TABS(2) OBJECT(.\obj\MCUInital.obj)
+
+line level    source
+
+   1          /***********************************************************
+   2          FileName  :
+   3          Date    : 2011/03/01
+   4          Description :
+   5          Version   : v0.1
+   6          Function List:
+   7          ----
+   8          History:
+   9          <author> <time> <version > <desc>
+  10          ***********************************************************/
+  11          
+  12          #include "includes.h"
+  13          
+  14          //-------------------------------------------------------
+  15          //Function:
+  16          //Desc  :
+  17          //Input :
+  18          //Output:
+  19          //Return:
+  20          //Others:
+  21          //Date  : 2011/03/01
+  22          //-------------------------------------------------------
+  23          void mcu_clk_inital(void)
+  24          {
+  25   1        PCON2 = 0 ; 
+  26   1          SPC_FNC = 0 ;
+  27   1          //CKCON = CKCON_CLK_CFG|CKCON_TIMER2CLK_1_4|CKCON_TIMER1CLK_1_4|CKCON_TIMER0CLK_1_4 ;   
+  28   1        CKCON = CKCON_CLK_CFG|CKCON_TIMER2CLK_1_12|CKCON_TIMER1CLK_1_12|CKCON_TIMER0CLK_1_12 ;
+  29   1        //CKCON = CKCON_CLK_CFG;
+  30   1      }
+  31          
+  32          //-------------------------------------------------------
+  33          //Function:
+  34          //Desc  :
+  35          //Input :
+  36          //Output:
+  37          //Return:
+  38          //Others:
+  39          //Date  : 2011/03/01
+  40          //-------------------------------------------------------
+  41          void mcu_io_inital(void)
+  42          { 
+  43   1        P0IN_EN = P0_IOSEL_CFG ;  // p0  设置为输入上拉状态
+  44   1        P0OUT_EN = P0_IOSEL_CFG ;
+  45   1        P0_OPDR = P0_OPDR_CFG ;
+  46   1        P0_PU = P0_PU_CFG ;
+  47   1        P0_PD = P0_PD_CFG ;
+  48   1        P0_WUEN = P0_WUKEUP;
+  49   1        P0 = P0_DAT ;
+  50   1      
+  51   1        P1IN_EN = P1_IOSEL_CFG;  // p1  设置为输出 高电平 
+  52   1        P1OUT_EN = P1_IOSEL_CFG;
+  53   1        P1_OPDR = P1_OPDR_CFG ;
+  54   1        P1_PU = P1_PU_CFG ;
+C51 COMPILER V9.01   MCUINITAL                                                             04/09/2020 16:23:06 PAGE 2   
+
+  55   1        P1_PD = P1_PD_CFG ;
+  56   1        P1_WUEN = P1_WUKEUP;
+  57   1        P1 = P1_DAT ;
+  58   1      
+  59   1        P2IN_EN = P2_IOSEL_CFG ; // p2  设置为输出 高电平 
+  60   1        P2OUT_EN = P2_IOSEL_CFG;
+  61   1        P2_OPDR = P2_OPDR_CFG;
+  62   1        P2_PU = P2_PU_CFG ;
+  63   1        P2_PD = P2_PD_CFG ;
+  64   1        P2_WUEN = P2_WUKEUP;
+  65   1        P2 = P2_DAT ;
+  66   1      
+  67   1        P3IN_EN = P3_IOSEL_CFG ;   // P30 设置为 输入状态 
+  68   1        P3OUT_EN = P3_IOSEL_CFG ;  // 其他io口设置为 输出 (p31-p33 为输出低，p34-p37 为输出高)
+  69   1        P3_OPDR = P3_OPDR_CFG ;
+  70   1        P3_PU = P3_PU_CFG ;
+  71   1        P3_PD = P3_PD_CFG ;
+  72   1        P3_WUEN = P3_WUKEUP;
+  73   1        P3 = P3_DAT ;
+  74   1        
+  75   1        P4IN_EN = P4_IOSEL_CFG ; // p4  设置为输出 高电平 
+  76   1        P4OUT_EN = P4_IOSEL_CFG ;
+  77   1        P4_OPDR = P4_OPDR_CFG ;
+  78   1        P4_PU = P4_PU_CFG ;
+  79   1        P4_PD = P4_PD_CFG ;
+  80   1        P4_WUEN = P4_WUKEUP;
+  81   1        P4 = P4_DAT;  
+  82   1      }
+  83          
+  84          
+  85          
+  86          
+  87          
+  88          /***********************************************************
+  89                      end file
+  90          ***********************************************************/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     95    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

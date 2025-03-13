@@ -1,0 +1,16 @@
+[efuse_cfg]
+coef1=0x00000002 
+coef2=0x00000002
+coef3=0x00000001
+coef4=0x12345679
+UID=0000000000000000
+MAC=000000000000
+raw=0x00
+disJtag=0
+disSpiFlash=0
+enEncryptWord=1
+disReadEncryptWord=0
+disWriteEncryptWord=0
+disWriteUID=0
+disWriteMAC=0
+disWriteEfuse=0

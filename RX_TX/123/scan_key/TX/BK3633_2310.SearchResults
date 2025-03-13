@@ -1,0 +1,16 @@
+---- TRX_RF_CH Matches (15 in 6 files) ----
+APPLICATION_MODE_NORMAL.c (sdk\projects\app_mouse\app\src\2.4):	TRX_RF_CH = 0x80+90;				// 2490MHZ
+Application_mode_page.c (sdk\projects\app_mouse\app\src\2.4):	TRX_RF_CH = 0x80+100;	// 100;		// 2450MHZ
+application_mode_PCBA.c (sdk\projects\app_mouse\app\src\2.4):	TRX_RF_CH = 0x80 + 0x0A;
+application_mode_PCBA.c (sdk\projects\app_mouse\app\src\2.4):			TRX_RF_CH = 0x80 + send_chl;
+application_mode_PCBA.c (sdk\projects\app_mouse\app\src\2.4):		TRX_RF_CH = 0x80 + send_chl;
+APPLICATION_MODE_TEST.c (sdk\projects\app_mouse\app\src\2.4)://	TRX_RF_CH = 0x80 + RF_TEST_CHANNEL[single_channel_index];
+APPLICATION_MODE_TEST.c (sdk\projects\app_mouse\app\src\2.4):						TRX_RF_CH = 0x80 + RF_TEST_CHANNEL[data_channel_index];
+APPLICATION_MODE_TEST.c (sdk\projects\app_mouse\app\src\2.4):						TRX_RF_CH = 0x80 + RF_TEST_CHANNEL[data_channel_index];
+APPLICATION_MODE_TEST.c (sdk\projects\app_mouse\app\src\2.4):						TRX_RF_CH = 0x80 + RF_TEST_CHANNEL[data_channel_index];
+APPLICATION_MODE_TEST.c (sdk\projects\app_mouse\app\src\2.4):					TRX_RF_CH = 0x80 + RF_TEST_CHANNEL[data_channel_index];
+APPLICATION_MODE_TEST.c (sdk\projects\app_mouse\app\src\2.4):	                TRX_RF_CH = 0x80 + RF_TEST_CHANNEL[data_channel_index];
+Driver_bk24.h (sdk\projects\app_mouse\app\src\2.4):#define  TRX_RF_CH              XBYTE[0x05]
+Driver_rf.c (sdk\projects\app_mouse\app\src\2.4):    TRX_RF_CH      = 0x5;
+Driver_rf.c (sdk\projects\app_mouse\app\src\2.4):    	TRX_RF_CH = 0x80+RF_CHANNEL_TABLE[system_data.rf_array][uTmp];
+Driver_rf.c (sdk\projects\app_mouse\app\src\2.4):	TRX_RF_CH = 0x80+RF_CHANNEL_TABLE[uArray][uIndx];

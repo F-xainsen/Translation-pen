@@ -1,0 +1,11 @@
+---- flag_rf_link_status 匹配 (7 in 5 文件) ----
+Application_mode_normal.c (application):					if(flag_rf_link_status)
+Application_mode_normal.c (application):					if(flag_rf_link_status)
+Application_mode_normal.c (application):						if(flag_rf_link_status)		//已连接
+Driver_interrupt.c (driver):			flag_rf_link_status = 0;
+Driver_memory.c (driver):VOLATILE bit flag_rf_link_status = 0;   
+Driver_memory.h (driver):extern VOLATILE bit flag_rf_link_status;
+Driver_rf.c (driver):				flag_rf_link_status = 1;		//代表已连接上
+---- flag_rf_link_status 搜索遇到错误 (1) ----
+以下1个文件不能被处理：
+E:\2019工作项目（叶坤）\2.4G\20190624-巨资\20200325_增加配对\20200409_增加恢复出厂设置功能\dongle - 副本（改描述）\output\bk_fw.build_log.htm : 文件打不开。

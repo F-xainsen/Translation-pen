@@ -1,0 +1,3649 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\bk2535_tx.uvproj
+Project File Date:  01/04/2019
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(755): warning C206: 'application_normal_mode': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 13E3H
+Program Size: data=109.4 xdata=45 code=8085
+creating hex file from ".\obj\bk2535_tx"...
+".\obj\bk2535_tx" - 0 Error(s), 28 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(755): warning C206: 'application_normal_mode': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 13E3H
+Program Size: data=109.4 xdata=45 code=8085
+creating hex file from ".\obj\bk2535"...
+".\obj\bk2535" - 0 Error(s), 28 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(755): warning C206: 'application_normal_mode': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 13E3H
+Program Size: data=109.4 xdata=45 code=8085
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F96H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 23
+End!
+".\obj\bk2535" - 0 Error(s), 28 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(755): warning C206: 'application_normal_mode': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 13E3H
+Program Size: data=109.4 xdata=45 code=8085
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F96H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 23
+End!
+".\obj\bk2535" - 0 Error(s), 28 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(755): warning C206: 'application_normal_mode': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 13E3H
+Program Size: data=109.4 xdata=45 code=8085
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F96H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 23
+End!
+".\obj\bk2535" - 0 Error(s), 28 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(755): warning C206: 'application_normal_mode': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  APPLICATION_NORMAL_MODE
+    MODULE:  .\obj\main.obj (MAIN)
+    ADDRESS: 13E3H
+Program Size: data=109.4 xdata=45 code=8085
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F96H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 23
+End!
+".\obj\bk2535" - 0 Error(s), 28 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+MCU\MAIN.C(813): error C141: syntax error near '}'
+compiling global.c...
+compiling keys.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=109.4 xdata=45 code=8069
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F86H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 7
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=109.4 xdata=45 code=8090
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F9BH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 28
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=109.4 xdata=45 code=8087
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F98H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 25
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=129.4 xdata=45 code=8087
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F98H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 25
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=119.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=119.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=119.4 xdata=45 code=7982
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2FH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 48
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=119.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=119.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=119.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 25 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+MCU\RF.C(194): error C141: syntax error near '}'
+compiling main.c...
+MCU\MAIN.C(772): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(772): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2CH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 45
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(772): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7977
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2CH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 45
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(772): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7985
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F34H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 53
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7988
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F37H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 56
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7988
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F37H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 56
+End!
+".\obj\bk2535" - 0 Error(s), 26 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7983
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F32H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 51
+End!
+".\obj\bk2535" - 0 Error(s), 27 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7983
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F32H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 51
+End!
+".\obj\bk2535" - 0 Error(s), 27 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7975
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 27 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7975
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F2AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 43
+End!
+".\obj\bk2535" - 0 Error(s), 27 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7983
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F32H
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 51
+End!
+".\obj\bk2535" - 0 Error(s), 27 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling utils.c...
+MCU\UTILS.C(31): warning C280: 'j': unreferenced local variable
+compiling MCUInital.c...
+compiling timer.c...
+compiling AD.c...
+compiling _rf.c...
+compiling nvr.c...
+compiling rf.c...
+compiling main.c...
+MCU\MAIN.C(773): warning C206: 'RF_id_set': missing function-prototype
+MCU\MAIN.C(734): warning C280: 'R_rr': unreferenced local variable
+MCU\MAIN.C(735): warning C280: 'status': unreferenced local variable
+compiling global.c...
+compiling keys.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GET_RAND?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CALC_1_PS?UTILS
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER2_INITAL?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTC_INIT?TIMER
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCHTORXMODE?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_CHANNEL?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_BAUD?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_DBM?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SET_RETR?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SET_RF_CONSTANT_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_RF_5BYTE_ADDRESS?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SET_TX_POWER?_RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MCU_FLASH_INIT?NVR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET_ACK?RF
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_VOLTAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHECK_BATTERY_CHRG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_PROC?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TEST_RF?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SAVE_ID_ADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POWER_DOWN?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINT_BK2535_RFREG?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?WAIT_ALL_KEY_RELEASE?KEYS
+Program Size: data=117.4 xdata=45 code=7991
+creating hex file from ".\obj\bk2535"...
+User command #1: C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222\GenTXT.BAT
+'delete' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C:\Users\Administrator\Desktop\新建文件夹\bk2535_tx222>HEXBIN  .\obj\bk2535.hex 
+Hex File Converter HEXBIN V2.2
+      first address:     0000H
+       last address:     1F3AH
+C:\Users\ADMINI~1\Desktop\新建文~1\BK2535~1>bin_to_crcbin  .\obj\bk2535.bin 32768 
+aaaaaaab.\obj\bk2535.bin;The file .\obj\bk2535.bin open successfully
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 128
+Number of items read = 59
+End!
+".\obj\bk2535" - 0 Error(s), 27 Warning(s).

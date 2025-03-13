@@ -1,0 +1,126 @@
+C51 COMPILER V9.01   PAIRFUNC                                                              04/09/2020 16:23:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PAIRFUNC
+OBJECT MODULE PLACED IN .\obj\pairfunc.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\pairfunc.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) D
+                    -EBUG OBJECTEXTEND PRINT(.\obj\pairfunc.lst) TABS(2) OBJECT(.\obj\pairfunc.obj)
+
+line level    source
+
+   1          #include "includes.h"
+   2          
+   3          XDATA UINT8 FIFO_data2[32];
+   4          UINT8 XDATA Pair_to_sleep = 0;
+   5          bit Pair_to_sleep_int = 0;
+   6          UINT8 XDATA Time_3min_cont = 0;
+   7          bit Pair_OK_Flag = 0;
+   8          bit Ctrl_rx_pair_flag = 0;    //1 = 发送数据给RX，控制RX进行对码
+   9          UINT8 XDATA Normal_to_pair_cont = 0;
+  10          void rf_data_read(BYTE bytes);
+  11          
+  12          void system_mode_pair(void)  //对码连接的状态
+  13          {
+  14   1        UINT8 buf[5]={0x11, 0x22, 0x33, 0x44, 0x55},status,len,i;
+  15   1        RF_CMD_FLUSH_TX;                                                //fifo clear
+  16   1          RF_CMD_FLUSH_RX;
+  17   1          RF_POWER_DOWN;
+  18   1          RF_POWER_UP;
+  19   1          RF_STATUS_CLEAR_ALL;
+  20   1        BK2401_RFCH=65;
+  21   1          memcpy ( BK2401_R0_ADDR, buf, 5 );
+  22   1        memcpy ( BK2401_TX_ADDR, buf, 5 );
+  23   1        SwitchToRxMode();
+  24   1        while(system_mode == system_pair_mode)
+  25   1        //if(system_mode == system_pair_mode)
+  26   1        {
+  27   2          //P00 = 0;
+  28   2          //IO_EN_LEDZX = 1;
+  29   2          status = BK2401_STATUS; 
+  30   2          if(status & STATUS_RX_DR) 
+  31   2          {
+  32   3            len = BK2401_RPL_WIDTH; 
+  33   3            rf_data_read(len);
+  34   3            RF_CMD_FLUSH_TX;
+  35   3            RF_CMD_FLUSH_RX;
+  36   3                BK2401_STATUS = status;
+  37   3            if((len==6)&&(FIFO_data2[5]==0xcc))
+  38   3            {
+  39   4              RX0_Address[0]=FIFO_data2[0];
+  40   4              RX0_Address[1]=FIFO_data2[1];
+  41   4              RX0_Address[2]=FIFO_data2[2];
+  42   4              RX0_Address[3]=FIFO_data2[3];
+  43   4              RX0_Address[4]=FIFO_data2[4];
+  44   4              Pair_OK_Flag = 1;
+  45   4            }
+  46   3          }
+  47   2          if(Pair_to_sleep_int)
+  48   2          {
+  49   3            Pair_to_sleep_int = 0;      //100ms的定时进入一次
+  50   3            Time_3min_cont++;
+  51   3            if(Time_3min_cont >= 10)
+  52   3            {
+  53   4              Time_3min_cont = 0;
+  54   4              ADC_EN = 1 ;
+C51 COMPILER V9.01   PAIRFUNC                                                              04/09/2020 16:23:07 PAGE 2   
+
+  55   4              ADCFunction();
+  56   4              ADC_EN = 0 ;
+  57   4      //        if(IO_CIN)
+  58   4      //          Pair_OK_Flag = 1;
+  59   4      //        else
+  60   4      //          system_mode = system_sleep_mode;     //定时5秒，对码不上，就休眠
+  61   4            }
+  62   3          }
+  63   2          if(Pair_OK_Flag)
+  64   2          {
+  65   3            Pair_OK_Flag = 0;
+  66   3            //P00 = 1;
+  67   3            memcpy ( BK2401_R0_ADDR, RX0_Address, 5 );
+  68   3            memcpy ( BK2401_TX_ADDR, RX0_Address, 5 );
+  69   3            for(i=0;i<5;i++)
+  70   3            {
+  71   4              printf("RX0_Address = %d\n", RX0_Address[i]);
+  72   4            }
+  73   3            SwitchToTxMode();
+  74   3            system_mode = system_normal_mode;
+  75   3            //IO_EN_LEDZX = 0;
+  76   3          }
+  77   2        }
+  78   1      }
+  79          void rf_data_read(BYTE bytes)
+  80          {
+  81   1          UINT8 i;
+  82   1          
+  83   1          memset(FIFO_data2, 0, 32);
+  84   1          RF_CMD_R_RX_PAYLOAD;
+  85   1          for (i=0; i<bytes; i++)
+  86   1          FIFO_data2[i] = BK2401_FIFO;    // data
+  87   1          RF_CMD_NOP;
+  88   1      }
+  89          
+  90          void Normal_to_pair(void)     //在正常模式下，如果断开连接，要切换成对码模式
+  91          {
+  92   1      //  if(ChargeFlag)
+  93   1      //    Normal_to_pair_cont= 0;
+  94   1      
+  95   1        if(Normal_to_pair_cont > 80)
+  96   1        {
+  97   2          Normal_to_pair_cont = 0 ;
+  98   2          system_mode = system_pair_mode;
+  99   2        } 
+ 100   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    347    ----
+   CONSTANT SIZE    =     23    ----
+   XDATA SIZE       =     35    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      3    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

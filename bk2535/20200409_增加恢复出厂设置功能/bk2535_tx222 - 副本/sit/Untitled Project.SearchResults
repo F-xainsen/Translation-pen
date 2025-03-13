@@ -1,0 +1,4 @@
+---- process_rf_communication Matches (3 in 3 files) ----
+Main.c (mcu):					process_rf_communication();
+Rf.c (mcu):void process_rf_communication(void)
+Rf.h (mcu):extern void process_rf_communication(void);

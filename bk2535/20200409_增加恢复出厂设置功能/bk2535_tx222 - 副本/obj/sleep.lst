@@ -1,0 +1,152 @@
+C51 COMPILER V9.01   SLEEP                                                                 04/09/2020 16:23:08 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE SLEEP
+OBJECT MODULE PLACED IN .\obj\sleep.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\sleep.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) DEBU
+                    -G OBJECTEXTEND PRINT(.\obj\sleep.lst) TABS(2) OBJECT(.\obj\sleep.obj)
+
+line level    source
+
+   1          #include "includes.h"
+   2          
+   3          UINT8 XDATA Mouse_X_last = 0;
+   4          UINT8 XDATA Mouse_Y_last = 0;
+   5          bit Mouse_move_flag = 0;    //1 = 空鼠移动
+   6          bit normal_to_sleep_int = 0;
+   7          INT32 XDATA narmal_sleep_cont = 0;    //用来休眠计数
+   8          
+   9          
+  10          void system_mode_sleep(void)
+  11          {
+  12   1        //休眠处理函数 system_mode = system_sleep_mode
+  13   1        ADC_EN = 0;
+  14   1        //LEDZX_LOW;
+  15   1        //LEDZS_LOW;
+  16   1      
+  17   1        IO_EN_LEDB = 0;
+  18   1        IO_EN_LEDG = 0;
+  19   1        IO_EN_LEDR = 0;
+  20   1        IO_EN_LEDZX = 0;
+  21   1        Usb_Ctrl_Disp_R_ct = 0;
+  22   1        Usb_Ctrl_NoDisp_R_ct = 0;
+  23   1        Usb_Ctrl_Disp_B_ct = 0;
+  24   1        Usb_Ctrl_NoDisp_B_ct = 0;
+  25   1        Usb_Ctrl_Disp_G_ct = 0;
+  26   1        Usb_Ctrl_NoDisp_G_ct = 0;
+  27   1        Usb_Ctrl_Disp_ZX_ct = 0;
+  28   1        Usb_Ctrl_NoDisp_ZX_ct = 0;
+  29   1      
+  30   1        CfullFlag = 0;
+  31   1        Usb_Ctrl_EN_flag = 0;
+  32   1        narmal_sleep_cont = 0;
+  33   1        LEDZSDFLAG = 0;
+  34   1        ZXDPowerONFlag = 0;
+  35   1        BMI160_Sleep();   //这里应该还要加上陀螺仪的休眠处理
+  36   1        PowerDown_RF();   //关RF
+  37   1        ET0 = 0;
+  38   1        TR0 = 0;
+  39   1        CLK_EN_CFG = 0;
+  40   1        P1_WUEN = 0x03;   //P11设置成唤醒引脚
+  41   1        //P3_WUEN = 0x04;
+  42   1      //  EA = 1;
+  43   1        EX6=1;        //设置GPIO 唤醒
+  44   1        EXSLEEP = 1;    //supper sleep mode   这个好像是更低功耗的休眠模式
+  45   1        while(1)
+  46   1        {
+  47   2          MCU_IDLE_RC32KHZ;  //设置成32K，和IDLE（= sleep指令）
+  48   2          if(RF_Usb_Reset == 0)
+  49   2          {
+  50   3            if(IO_BUTTON == 0)      // 在USB恢复的状态下，只有充电才能唤醒
+  51   3              break;
+  52   3          }
+  53   2          if(IO_CIN)
+  54   2            break;
+C51 COMPILER V9.01   SLEEP                                                                 04/09/2020 16:23:08 PAGE 2   
+
+  55   2        }
+  56   1        //唤醒后操作
+  57   1      //  P37 = 1; 
+  58   1        _nop_();
+  59   1        _nop_();
+  60   1        _nop_();
+  61   1        _nop_();
+  62   1          PCON2 &= ~0x02;
+  63   1        EXSLEEP = 0;    //supper sleep mode   这个好像是更低功耗的休眠模式
+  64   1        P1_WUEN = 0x00;   //P12设置成唤醒引脚
+  65   1        P3_WUEN = 0x00;
+  66   1        CLK_EN_CFG = 1;
+  67   1        EX6=0;        //关GPIO唤醒中断
+  68   1      //  TR0 = 1;
+  69   1        timer0_inital();  //重新初始化定时器
+  70   1        ET0 = 1;              //enable Timer0 int
+  71   1      //  BMI160_Init();
+  72   1        up_power000 = 1;
+  73   1        PowerUp_RF();  //开RF
+  74   1        if(Pair_mode_check_flag)
+  75   1          system_mode = system_pair_mode;   //唤醒后，就进入对码模式
+  76   1        else
+  77   1          system_mode = system_normal_mode; // 要是有滚码记忆，唤醒之后就要进入正常的发射模式
+  78   1      }
+  79          
+  80          void Normal_to_sleep(void)
+  81          {
+  82   1        //在正常工作模式下调用
+  83   1        //if((system.mouse[1] != Mouse_X_last) || system.mouse[2] != Mouse_Y_last)
+  84   1      //  if((system.mouse[1] != 0) || system.mouse[2] != 0 || system.mouse[0] != 0 || system.mouse[3] != 0 )  
+  85   1      //  {
+  86   1      //    //Mouse_X_last = system.mouse[1];    //如果空鼠数据产生变化，就要把变化后的值，给记录下来，作为下次判断
+             -空鼠是否移动的条件
+  87   1      //    //Mouse_Y_last = system.mouse[2];
+  88   1      //      Mouse_move_flag = 1;
+  89   1      //    narmal_sleep_cont = 0;
+  90   1      //  }
+  91   1      //  else
+  92   1      //  {
+  93   1      //    //空鼠不移动，就要计时，用做3分钟不动做，就进入休眠模式
+  94   1      //    Mouse_move_flag = 0;        //这个标志位用来给计数器计数
+  95   1      //    //narmal_sleep_cont = 0;
+  96   1      //  }
+  97   1        if(ChargeFlag)
+  98   1          narmal_sleep_cont = 0;  
+  99   1        if(normal_to_sleep_int)         //现在改成是1ms的定时
+ 100   1        {
+ 101   2          normal_to_sleep_int = 0;    //1MS的定时，中断拉高
+ 102   2          if(Mouse_move_flag == 0)
+ 103   2          {
+ 104   3            if(Usb_Set_Sleep_time == 0)         //这个时间计数器为0时，表示不需要休眠功能
+ 105   3            {
+ 106   4              narmal_sleep_cont = 0;
+ 107   4              return;
+ 108   4            } 
+ 109   3            narmal_sleep_cont++;
+ 110   3            if(narmal_sleep_cont >= Usb_Set_Sleep_time) //   Usb_Set_Sleep_time 这寄存器代表的是USB要设置的休眠时间
+ 111   3            {
+ 112   4              narmal_sleep_cont = 0;
+ 113   4              //Ctrl_rx_pair_flag = 1;    //控制RX进入对码状态
+ 114   4              system_mode = system_sleep_mode;    //切换到休眠模式
+ 115   4            //  break;
+C51 COMPILER V9.01   SLEEP                                                                 04/09/2020 16:23:08 PAGE 3   
+
+ 116   4            }
+ 117   3          }
+ 118   2          else
+ 119   2          {
+ 120   3            narmal_sleep_cont = 0;
+ 121   3          }
+ 122   2        }
+ 123   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    292    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      6    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

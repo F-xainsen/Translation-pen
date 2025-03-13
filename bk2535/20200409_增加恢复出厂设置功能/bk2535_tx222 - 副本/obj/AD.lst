@@ -1,0 +1,240 @@
+C51 COMPILER V9.01   AD                                                                    04/09/2020 16:23:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE AD
+OBJECT MODULE PLACED IN .\obj\AD.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MCU\AD.c OPTIMIZE(9,SPEED) BROWSE NOAREGS INCDIR(.;.\mcu;.\mcu\usb) DEBUG O
+                    -BJECTEXTEND PRINT(.\obj\AD.lst) TABS(2) OBJECT(.\obj\AD.obj)
+
+line level    source
+
+   1          /***********************************************************
+   2          Copyright (C), 1998-2011, Esense Technology Co., Ltd.
+   3          FileName  :
+   4          Author    : joe
+   5          Date    : 2011/03/01
+   6          Description :
+   7          Version   : v0.1
+   8          Function List:
+   9          ----
+  10          History:
+  11          <author> <time> <version > <desc>
+  12          joe  2011/03/01  0.1  build this moudle
+  13          ***********************************************************/
+  14          
+  15          #include "includes.h"
+  16          
+  17          unsigned short  adCalib;
+  18          
+  19          
+  20          /*
+  21          void adc_init(void)
+  22          {
+  23              CLK_EN_CFG |= 0x80;   //open adc clk  
+  24            EA=1;
+  25              EX8=1;
+  26          }
+  27          
+  28          void adc_mode_set(unsigned char mode, unsigned char pin)
+  29          {
+  30            switch(mode) {
+  31              case 0:
+  32                ADC_CTL &= 0x39;  // power down adc
+  33                break;
+  34              case 1:  // single mode
+  35                ADC_CTL = 0x40|((pin&0x7)<<3)|0x6;  //  01 xxx 110   ----- mode1  PIN   i/o enable  int enable
+  36              ADC_CTL2 =0x60; // add filter; add delay
+  37                ADC_DATA_H =0x90;   //[7]adc_wate timer double,[6:4] div clk  
+  38           //   ADC_CTL2 |= 0x02; 
+  39           //   ADC_RATE = 0x0f;
+  40                break;      
+  41              case 2: // software mode
+  42                ADC_CTL = 0x80|((pin&0x7)<<3)|0x6; //10  xxx  1 1 0  -----mode2  PIN  i/o enable int enable +  data 
+             -ready
+  43              ADC_CTL2 = 0x60; // add delay
+  44                ADC_DATA_H = 0x90;   //[7]adc_wate timer double // [6:4] div clk
+  45          //    ADC_CTL2 |= 0x02;
+  46                ADC_RATE = 0x0f;
+  47                break;
+  48              case 3: // continuous mode
+  49                ADC_CTL = 0xc0|((pin&0x7)<<3)|0x6; //11  xxx  1 1 0  -----mode2  PIN  i/o enable int enable +  data 
+             -ready
+  50              ADC_CTL2 = 0x60; 
+  51                ADC_DATA_H = 0x90;   //[7]adc_wate timer double // [6:4]  not div clk
+  52                ADC_CTL2 |= 0x02;
+C51 COMPILER V9.01   AD                                                                    04/09/2020 16:23:07 PAGE 2   
+
+  53                ADC_RATE = 0x0f;   // F=clk/2*(adc_ctl[4:0],adc_rate[7:0])   961 byte/s
+  54                break;
+  55              case 4: // continuous mode, filter enable
+  56                ADC_CTL = 0xc0|((pin&0x7)<<3)|0x6; //11 xxx  1 1 0  -----mode2  PIN  i/o enable int enable +  data r
+             -eady
+  57              ADC_CTL2 = 0x60; 
+  58                ADC_DATA_H = 0x10;   //[7]adc_wate timer double // [6:4]  not div clk
+  59                ADC_CTL2 |= 0x82; // filter enable, 4 sample average
+  60                ADC_RATE = 0x0f;   // F=clk/2*(adc_ctl[4:0],adc_rate[7:0])   961 byte/s
+  61                break;
+  62              default:
+  63                break;
+  64            }
+  65          }
+  66          
+  67          
+  68          
+  69          void adc_int () interrupt 14
+  70          {
+  71          //  EX8=0; 
+  72          //  adc_h_t = ADC_DATA_H;
+  73          //  AIF &= 0xBF; 
+  74          //  adc_finish = 1; 
+  75          //  EX8=1;
+  76          
+  77          //    adc_dat =(adc_datah & 0x0f);
+  78          //    adc_dat =((adc_dat<<8)|adc_datal);
+  79          //    //PRINT("%d\r\n",tmp);
+  80              AIF &= ~0x40;
+  81          }
+  82          */
+  83          
+  84          
+  85          
+  86          /*
+  87          unsigned char adc_get_chvalue(unsigned char ch)
+  88          {
+  89            ADC_ENABLE;
+  90            //AIE |= 0x40;              // enable ADC interrupt 
+  91          
+  92            // 采样速率最大 29k
+  93            // (n+1)*1000
+  94            //ADCDH = 7<<2;           //转换速度, 8k 采样
+  95            //ADCDH = 24<<2;          //转换速度, 25k 采样
+  96          
+  97              adc_ctl = 0x00;
+  98              adc_ctl |= (ch<<3);   //set channel 
+  99              adc_ctl |= (1<<1);  //channel enable
+ 100            //ADCTL |= (1<<2);  //int enable
+ 101          
+ 102            adc_ctl |= 0x42;
+ 103            delay_us(50);
+ 104            ch = ((UINT16)(adc_datah & 0x03)<<6) | (adc_datal>>2); 
+ 105            adc_ctl |= 0x42;
+ 106            delay_us(50);
+ 107            ch = ((UINT16)(adc_datah & 0x03)<<6) | (adc_datal>>2);
+ 108          
+ 109            //ADCTL &= ~(1<<1);   //关闭IO第二功能
+ 110            adc_ctl &= ~(3<<1);   //关闭IO第二功能
+ 111            adc_ctl = 0;
+ 112              AIF &= ~0x40;
+ 113            AIE &= ~0x40;       // disable ADC interrupt
+C51 COMPILER V9.01   AD                                                                    04/09/2020 16:23:07 PAGE 3   
+
+ 114            ADC_DISABLE;
+ 115            
+ 116            return ch;
+ 117          }
+ 118          */
+ 119          
+ 120          unsigned short adc_get(unsigned char ch)
+ 121          {
+ 122   1      //  unsigned short adc;
+ 123   1        short adc;
+ 124   1        ADC_ENABLE;
+ 125   1        //AIE |= 0x40;              // enable ADC interrupt 
+ 126   1      
+ 127   1        delay_us(50);
+ 128   1        //adc_datah = 0x90; //40us
+ 129   1        adc_datah = 0x10; //20us
+ 130   1        adc_rate = 200;   //40k
+ 131   1        adc_ctl2 = 0x40;
+ 132   1      
+ 133   1          adc_ctl = 0x00;
+ 134   1          adc_ctl |= (ch<<3); //set channel 
+ 135   1          adc_ctl |= (1<<1);  //channel enable
+ 136   1        //ADCTL |= (1<<2);  //int enable
+ 137   1      
+ 138   1      //  P35 = 0;
+ 139   1        adc_ctl |= 0x42;
+ 140   1      //  while((adc_ctl & 1));
+ 141   1        delay_us(50);
+ 142   1        adc = ((UINT16)(adc_datah & 0x03)<<8) | (adc_datal); 
+ 143   1      //  P35 = 0;
+ 144   1        adc_ctl |= 0x42;
+ 145   1      //  while((adc_ctl & 1));
+ 146   1        delay_us(50);
+ 147   1        adc = ((UINT16)(adc_datah & 0x03)<<8) | (adc_datal);
+ 148   1      
+ 149   1        //ADCTL &= ~(1<<1);   //关闭IO第二功能
+ 150   1        adc_ctl &= ~(3<<1);   //关闭IO第二功能
+ 151   1        adc_ctl = 0;
+ 152   1          AIF &= ~0x40;
+ 153   1        AIE &= ~0x40;       // disable ADC interrupt
+ 154   1        ADC_DISABLE;
+ 155   1        
+ 156   1        adc -= adCalib;
+ 157   1        if (adc > 1023)
+ 158   1          adc = 1023;
+ 159   1        if (adc < 0)
+ 160   1          adc = 0;
+ 161   1        return adc;
+ 162   1      }
+ 163          
+ 164          
+ 165          
+ 166          
+ 167          #define __ADCEL_TIMES   5
+ 168          #define ADCEL_TIMES     (1<<__ADCEL_TIMES)
+ 169          //AD计算公式： AD * 1.2 = V * 512
+ 170          void application_adc_cel(unsigned char pin)
+ 171          {
+ 172   1        unsigned short  adcV;
+ 173   1      //  unsigned long sum;
+ 174   1        unsigned short  sum;     //不超过100次  adc值在512左右
+ 175   1        unsigned char   i;
+C51 COMPILER V9.01   AD                                                                    04/09/2020 16:23:07 PAGE 4   
+
+ 176   1      
+ 177   1        P3IN_EN  |= 1<<pin ;
+ 178   1        P3OUT_EN |= 1<<pin ;
+ 179   1      //  P3_OPDR  = P3_OPDR_CFG ;
+ 180   1        P3_PU    &= ~(1<<pin);
+ 181   1      //  P3_PD    = P3_PD_CFG ;
+ 182   1      //  P3_WUEN  = P3_WUKEUP;
+ 183   1      //  P3       = P3_DAT ;
+ 184   1      
+ 185   1        adc_set_ref(ADC_REF_VOL, 1);
+ 186   1        i = 0;
+ 187   1        sum = 0;
+ 188   1        adCalib = 0;
+ 189   1      //  for (i=0; i<100; i++) {
+ 190   1        for (i=0; i<ADCEL_TIMES; i++) {
+ 191   2          adcV = adc_get(pin);
+ 192   2          sum  += adcV;
+ 193   2          ADValue = adcV; 
+ 194   2      //    printf("pin3.%bd, adc value = 0x%x\r\n", pin, adcV);
+ 195   2        }
+ 196   1      
+ 197   1      //  adCalib =  sum/ADCEL_TIMES;
+ 198   1        adCalib =  sum >> __ADCEL_TIMES;
+ 199   1        adCalib -= 0x200;
+ 200   1      //  printf("adCalib = 0x%x\r\n", adCalib);
+ 201   1      
+ 202   1        adc_set_ref(ADC_REF_VOL, 0);
+ 203   1      //  P3_PU    |= (1<<pin);
+ 204   1      }
+ 205          
+ 206          
+ 207          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    256    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

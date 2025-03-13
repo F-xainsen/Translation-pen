@@ -1,0 +1,13 @@
+".\obj\STARTUP.obj",
+".\obj\utils.obj",
+".\obj\MCUInital.obj",
+".\obj\timer.obj",
+".\obj\AD.obj",
+".\obj\_rf.obj",
+".\obj\nvr.obj",
+".\obj\rf.obj",
+".\obj\main.obj",
+".\obj\global.obj",
+".\obj\keys.obj" 
+TO ".\obj\bk2535_tx" 
+PRINT(".\obj\bk2535_tx.m51") RAMSIZE(256) 

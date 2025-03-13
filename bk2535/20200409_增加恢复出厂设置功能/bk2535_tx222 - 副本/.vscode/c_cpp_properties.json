@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "Target 1",
+            "includePath": [
+                "c:\\Users\\lenovo\\Desktop\\Translation pen\\bk2535\\20200409_增加恢复出厂设置功能\\bk2535_tx222 - 副本",
+                "c:\\Users\\lenovo\\Desktop\\Translation pen\\bk2535\\20200409_增加恢复出厂设置功能\\bk2535_tx222 - 副本\\mcu",
+                "c:\\Users\\lenovo\\Desktop\\Translation pen\\bk2535\\20200409_增加恢复出厂设置功能\\bk2535_tx222 - 副本\\mcu\\usb",
+                "D:\\development\\Keil_v5\\C51\\INC",
+                "c:\\Users\\lenovo\\Desktop\\Translation pen\\bk2535\\20200409_增加恢复出厂设置功能\\bk2535_tx222 - 副本\\MCU"
+            ],
+            "defines": [
+                "__C51__",
+                "__VSCODE_C51__",
+                "reentrant=",
+                "compact=",
+                "small=",
+                "large=",
+                "data=",
+                "idata=",
+                "pdata=",
+                "bdata=",
+                "xdata=",
+                "code=",
+                "bit=char",
+                "sbit=char",
+                "sfr=char",
+                "sfr16=int",
+                "sfr32=int",
+                "interrupt=",
+                "using=",
+                "_at_=",
+                "_priority_=",
+                "_task_="
+            ],
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}

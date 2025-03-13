@@ -1,0 +1,547 @@
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN .\output\driver_uart.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE .\output\driver_uart.src PR(.\driver_uart.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\output\driver_uart.SRC generated from: driver\driver_uart.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil\C51\BIN\C51.EXE driver\driver_uart.c LARGE OPTIMIZE(9,SIZE) BROWSE NOAREGS
+                              DEBUG OBJECTEXTEND PRINT(.\driver_uart.lst) TABS(2) SRC(.\output\driver_uart.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    DRIVER_UART
+                       8     
+  0083                 9     RF_SPI_MISO     BIT     080H.3
+  0084                10     RF_SPI_MOSI     BIT     080H.4
+  0097                11     WDCTL   DATA    097H
+  008F                12     CLK_EN_CFG      DATA    08FH
+  0080                13     P0      DATA    080H
+  0090                14     P1      DATA    090H
+  00A0                15     P2      DATA    0A0H
+  00B0                16     P3      DATA    0B0H
+  00B4                17     T0      BIT     0B0H.4
+  00D6                18     AC      BIT     0D0H.6
+  00C0                19     P4      DATA    0C0H
+  00B5                20     T1      BIT     0B0H.5
+  0090                21     T2      BIT     090H.0
+  00AF                22     EA      BIT     0A8H.7
+  009A                23     P0_PU   DATA    09AH
+  009B                24     P1_PU   DATA    09BH
+  009C                25     P2_PU   DATA    09CH
+  009D                26     P3_PU   DATA    09DH
+  009E                27     P4_PU   DATA    09EH
+  0085                28     DPH1    DATA    085H
+  00A8                29     IE      DATA    0A8H
+  00F8                30     SPI0_CN DATA    0F8H
+  00D1                31     FL      BIT     0D0H.1
+  0084                32     DPL1    DATA    084H
+  00CE                33     EXF2    BIT     0C8H.6
+  00B7                34     RD      BIT     0B0H.7
+  00BA                35     P0_OPDR DATA    0BAH
+  00BB                36     P1_OPDR DATA    0BBH
+  00A1                37     PWM0C0  DATA    0A1H
+  00BC                38     P2_OPDR DATA    0BCH
+  00A9                39     IP      DATA    0A9H
+  00BA                40     ARBLOST BIT     0B8H.2
+  00A4                41     PWM1C0  DATA    0A4H
+  00A2                42     PWM0C1  DATA    0A2H
+  00BD                43     P3_OPDR DATA    0BDH
+  0098                44     RI      BIT     098H.0
+  00A5                45     PWM1C1  DATA    0A5H
+  00A3                46     PWM0C2  DATA    0A3H
+  00BE                47     P4_OPDR DATA    0BEH
+  0090                48     test_pin0       BIT     090H.0
+  00B8                49     SI      BIT     0B8H.0
+  00B2                50     INT0    BIT     0B0H.2
+  00D7                51     CY      BIT     0D0H.7
+  00A6                52     PWM1C2  DATA    0A6H
+  0091                53     test_pin1       BIT     090H.1
+  0099                54     TI      BIT     098H.1
+  00B3                55     INT1    BIT     0B0H.3
+  00B6                56     SMB_DAT DATA    0B6H
+  0092                57     test_pin2       BIT     090H.2
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     2
+
+  0094                58     INT2    BIT     090H.4
+  00E6                59     P_EXP   DATA    0E6H
+  0093                60     test_pin3       BIT     090H.3
+  00B0                61     RXD0    BIT     0B0H.0
+  0095                62     INT3    BIT     090H.5
+  0094                63     test_pin4       BIT     090H.4
+  0092                64     RXD1    BIT     090H.2
+  0096                65     INT4    BIT     090H.6
+  0085                66     RF_SPI_CLK      BIT     080H.5
+  0095                67     test_pin5       BIT     090H.5
+  00B1                68     TXD0    BIT     0B0H.1
+  0097                69     INT5    BIT     090H.7
+  00D1                70     DES_CTL DATA    0D1H
+  00C4                71     P0_WUEN DATA    0C4H
+  0096                72     test_pin6       BIT     090H.6
+  0093                73     TXD1    BIT     090H.3
+  00EB                74     RNG_DAT DATA    0EBH
+  00C5                75     P1_WUEN DATA    0C5H
+  00CB                76     RCAP2H  DATA    0CBH
+  0097                77     test_pin7       BIT     090H.7
+  00A7                78     PWMICTL DATA    0A7H
+  00C6                79     P2_WUEN DATA    0C6H
+  0081                80     SP      DATA    081H
+  0091                81     T2EX    BIT     090H.1
+  00C7                82     P3_WUEN DATA    0C7H
+  00D2                83     OV      BIT     0D0H.2
+  00C9                84     P4_WUEN DATA    0C9H
+  00CA                85     RCAP2L  DATA    0CAH
+  00C9                86     C_T2    BIT     0C8H.1
+  00B6                87     WR      BIT     0B0H.6
+  00D2                88     DES_INT DATA    0D2H
+  00EE                89     MTP_ADR DATA    0EEH
+  00EF                90     MTP_DAT DATA    0EFH
+  00EC                91     RNG_CTL DATA    0ECH
+  00CD                92     RCLK    BIT     0C8H.5
+  0091                93     EXIF    DATA    091H
+  00CC                94     TCLK    BIT     0C8H.4
+  0087                95     PCON    DATA    087H
+  00D8                96     ANA_CFG0        DATA    0D8H
+  00E7                97     PALT    DATA    0E7H
+  0082                98     RF_SPI_IRQ      BIT     080H.2
+  00D9                99     ANA_CFG1        DATA    0D9H
+  00DA               100     ANA_CFG2        DATA    0DAH
+  00DB               101     ANA_CFG3        DATA    0DBH
+  0089               102     TMOD    DATA    089H
+  0088               103     TCON    DATA    088H
+  00DC               104     ANA_CFG4        DATA    0DCH
+  00D7               105     DES_OUT DATA    0D7H
+  00ED               106     MTP_CTL DATA    0EDH
+  00DD               107     ANA_CFG5        DATA    0DDH
+  00DE               108     ANA_CFG6        DATA    0DEH
+  00C3               109     DS_WUEN DATA    0C3H
+  00DF               110     ANA_CFG7        DATA    0DFH
+  0089               111     IE0     BIT     088H.1
+  008B               112     IE1     BIT     088H.3
+  00F1               113     MD0     DATA    0F1H
+  00F0               114     B       DATA    0F0H
+  00F2               115     MD1     DATA    0F2H
+  00F3               116     MD2     DATA    0F3H
+  00C8               117     CP_RL2  BIT     0C8H.0
+  00F4               118     MD3     DATA    0F4H
+  00F5               119     MD4     DATA    0F5H
+  00F6               120     MD5     DATA    0F6H
+  00E0               121     ACC     DATA    0E0H
+  00AC               122     ES0     BIT     0A8H.4
+  00A9               123     ET0     BIT     0A8H.1
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     3
+
+  00AE               124     ES1     BIT     0A8H.6
+  00B9               125     SMB_TMCTL       DATA    0B9H
+  00AB               126     ET1     BIT     0A8H.3
+  008D               127     TF0     BIT     088H.5
+  00AD               128     ET2     BIT     0A8H.5
+  008F               129     TF1     BIT     088H.7
+  00EA               130     EXINT_MOD       DATA    0EAH
+  00CF               131     TF2     BIT     0C8H.7
+  009A               132     RB8     BIT     098H.2
+  00B7               133     SMB_CF  DATA    0B7H
+  008C               134     TH0     DATA    08CH
+  00A8               135     EX0     BIT     0A8H.0
+  0088               136     IT0     BIT     088H.0
+  008D               137     TH1     DATA    08DH
+  0087               138     RF_SPI_CE       BIT     080H.7
+  00BF               139     MASTER  BIT     0B8H.7
+  009B               140     TB8     BIT     098H.3
+  00AA               141     EX1     BIT     0A8H.2
+  008A               142     IT1     BIT     088H.2
+  00F9               143     SPI0_CFG        DATA    0F9H
+  00CD               144     TH2     DATA    0CDH
+  00B9               145     ACK     BIT     0B8H.1
+  00E8               146     EX2     BIT     0E8H.0
+  00D0               147     P       BIT     0D0H.0
+  00E9               148     EX3     BIT     0E8H.1
+  009F               149     SM0     BIT     098H.7
+  008A               150     TL0     DATA    08AH
+  00EA               151     EX4     BIT     0E8H.2
+  009E               152     SM1     BIT     098H.6
+  008B               153     TL1     DATA    08BH
+  00EB               154     EX5     BIT     0E8H.3
+  009D               155     SM2     BIT     098H.5
+  00CC               156     TL2     DATA    0CCH
+  00BE               157     TXMODE  BIT     0B8H.6
+  00EC               158     EX6     BIT     0E8H.4
+  00E8               159     EIE     DATA    0E8H
+  00ED               160     EX7     BIT     0E8H.5
+  00B8               161     SMB_CN  DATA    0B8H
+  00D6               162     DES_IN  DATA    0D6H
+  00A0               163     LED     BIT     0A0H.0
+  00EE               164     EX8     BIT     0E8H.6
+  00D3               165     RS0     BIT     0D0H.3
+  0095               166     ADCDH   DATA    095H
+  00EF               167     EX9     BIT     0E8H.7
+  008C               168     TR0     BIT     088H.4
+  00D4               169     RS1     BIT     0D0H.4
+  008E               170     TR1     BIT     088H.6
+  00FB               171     SPI0_DAT        DATA    0FBH
+  00CA               172     TR2     BIT     0C8H.2
+  00D3               173     DES_KEY1        DATA    0D3H
+  00D4               174     DES_KEY2        DATA    0D4H
+  0094               175     ADCDL   DATA    094H
+  00D5               176     DES_KEY3        DATA    0D5H
+  0086               177     RF_SPI_CS       BIT     080H.6
+  0083               178     DPH     DATA    083H
+  00FA               179     SPI0_CKR        DATA    0FAH
+  00AA               180     P0_IOSEL        DATA    0AAH
+  00E9               181     EIP     DATA    0E9H
+  00AB               182     P1_IOSEL        DATA    0ABH
+  00AC               183     P2_IOSEL        DATA    0ACH
+  0082               184     DPL     DATA    082H
+  00AD               185     P3_IOSEL        DATA    0ADH
+  0099               186     SBUF0   DATA    099H
+  00AE               187     P4_IOSEL        DATA    0AEH
+  00CB               188     EXEN2   BIT     0C8H.3
+  0098               189     SCON0   DATA    098H
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     4
+
+  009C               190     REN     BIT     098H.4
+  00C8               191     T2CON   DATA    0C8H
+  0086               192     DPS     DATA    086H
+  00BD               193     STA     BIT     0B8H.5
+  0096               194     ADCTL   DATA    096H
+  0092               195     MPAGE   DATA    092H
+  00A1               196     key_test        BIT     0A0H.1
+  0093               197     EICON   DATA    093H
+  008E               198     CKCON   DATA    08EH
+  00BB               199     ACKRQ   BIT     0B8H.3
+  00B1               200     P0_PD   DATA    0B1H
+  00D5               201     F0      BIT     0D0H.5
+  00F7               202     MDCTL   DATA    0F7H
+  00B2               203     P1_PD   DATA    0B2H
+  00BC               204     STO     BIT     0B8H.4
+  00B3               205     P2_PD   DATA    0B3H
+  00B4               206     P3_PD   DATA    0B4H
+  00B5               207     P4_PD   DATA    0B5H
+  00D0               208     PSW     DATA    0D0H
+                     209     ?PR?driver_uart_initial?DRIVER_UART      SEGMENT CODE 
+                     210             PUBLIC  driver_uart_initial
+                     211     ; /****************************************************************************
+                     212     ; **
+                     213     ; ** Copyright (C) 2011 Beken Corporation, All rights reserved.
+                     214     ; **
+                     215     ; ** Contact: Beken Corporation (www.beken.com)
+                     216     ; **
+                     217     ; ** Author:  river
+                     218     ; **
+                     219     ; ** History: 2012/03/07 
+                     220     ; **
+                     221     ; ** Version: 1.0
+                     222     ; **
+                     223     ; ****************************************************************************/
+                     224     ; /*! \file driver_uart.c
+                     225     ;     \brief The driver interface of uart module.
+                     226     ; */
+                     227     ; 
+                     228     ; #include "headfile\includes.h"
+                     229     ; 
+                     230     ; #if defined(UART_LOOP) || defined(UART_INTERRUPT)
+                     231     ; 
+                     232     ; #define UART_BAUD_RATE_9600_16MHZ                                 0xffcc      //(65536-(S
+                             YS_CLOCK/(32*9600)))
+                     233     ; #define UART_BAUD_RATE_9600_8MHZ                              0xffe6
+                     234     ; 
+                     235     ; /*! \fn void driver_uart_initial(void)
+                     236     ;     \brief Initialize uart with the baud rate UART_BAUD_RATE. If the macro UART_INTERRUPT
+                              is defined, uart interrupt will be enabled.
+                     237     ; 
+                     238     ;     \param void
+                     239     ;     \return void
+                     240     ; */
+                     241     ; void driver_uart_initial(void)
+                     242     
+----                 243             RSEG  ?PR?driver_uart_initial?DRIVER_UART
+0000                 244     driver_uart_initial:
+                     245                             ; SOURCE LINE # 31
+                     246     ; {
+                     247                             ; SOURCE LINE # 32
+                     248     ;     CLK_EN_CFG |= 0x60;           //timer & uart clock
+                     249                             ; SOURCE LINE # 33
+0000 438F60          250             ORL     CLK_EN_CFG,#060H
+                     251     ;     SCON0 = 0x50;                   //mode 1
+                     252                             ; SOURCE LINE # 34
+0003 759850          253             MOV     SCON0,#050H
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     5
+
+                     254     ;     {
+                     255                             ; SOURCE LINE # 35
+                     256     ;         RCAP2H = UART_BAUD_RATE_9600_16MHZ>>8;
+                     257                             ; SOURCE LINE # 36
+0006 75CBFF          258             MOV     RCAP2H,#0FFH
+                     259     ;         RCAP2L = UART_BAUD_RATE_9600_16MHZ & 0xff;
+                     260                             ; SOURCE LINE # 37
+0009 75CACC          261             MOV     RCAP2L,#0CCH
+                     262     ;         TH2 = UART_BAUD_RATE_9600_16MHZ>>8;
+                     263                             ; SOURCE LINE # 38
+000C 75CDFF          264             MOV     TH2,#0FFH
+                     265     ;         TL2 = UART_BAUD_RATE_9600_16MHZ & 0xff;
+                     266                             ; SOURCE LINE # 39
+000F 75CCCC          267             MOV     TL2,#0CCH
+                     268     ;     }
+                     269                             ; SOURCE LINE # 40
+                     270     ;     T2CON  = 0x30;              // rclk tclk = 1
+                     271                             ; SOURCE LINE # 41
+0012 75C830          272             MOV     T2CON,#030H
+                     273     ;     TR2 = 1;                        // start
+                     274                             ; SOURCE LINE # 42
+0015 D2CA            275             SETB    TR2
+                     276     ;     SM2 = 0;                        // stop bit will NOT matter
+                     277                             ; SOURCE LINE # 43
+0017 C29D            278             CLR     SM2
+                     279     ;     PALT |= 0x80; 
+                     280                             ; SOURCE LINE # 44
+0019 43E780          281             ORL     PALT,#080H
+                     282     ; 
+                     283     ;     #ifdef UART_INTERRUPT
+                     284     ;     ES0 = 1;                        // enable uart interrupt for read and write register 
+                             debug
+                     285     ;     driver_buffer_set(uart_data_receive, 0, UART_DATA_LEN);
+                     286     ;     uart_data_len_receive = 0;
+                     287     ;     uart_data_len_send = 0;
+                     288     ;     #else
+                     289     ;     ES0 = 0;                        // disable uart interrupt for read and write register
+                              debug
+                     290                             ; SOURCE LINE # 52
+001C C2AC            291             CLR     ES0
+                     292     ;     #endif
+                     293     ; 
+                     294     ;     TI = 1;                          // TI:  set TI to send first char of UART   
+                     295                             ; SOURCE LINE # 55
+001E D299            296             SETB    TI
+                     297     ; }
+                     298                             ; SOURCE LINE # 56
+0020 22              299             RET     
+                     300     ; END OF driver_uart_initial
+                     301     
+                     302             END
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                              T Y P E  V A L U E   ATTRIBUTES
+
+?PR?DRIVER_UART_INITIAL?DRIVER_UART  C SEG    0021H       REL=UNIT
+AC. . . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+ACK . . . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+ACKRQ . . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+ADCDH . . . . . . . . . . . . . . .  D ADDR   0095H   A   
+ADCDL . . . . . . . . . . . . . . .  D ADDR   0094H   A   
+ADCTL . . . . . . . . . . . . . . .  D ADDR   0096H   A   
+ANA_CFG0. . . . . . . . . . . . . .  D ADDR   00D8H   A   
+ANA_CFG1. . . . . . . . . . . . . .  D ADDR   00D9H   A   
+ANA_CFG2. . . . . . . . . . . . . .  D ADDR   00DAH   A   
+ANA_CFG3. . . . . . . . . . . . . .  D ADDR   00DBH   A   
+ANA_CFG4. . . . . . . . . . . . . .  D ADDR   00DCH   A   
+ANA_CFG5. . . . . . . . . . . . . .  D ADDR   00DDH   A   
+ANA_CFG6. . . . . . . . . . . . . .  D ADDR   00DEH   A   
+ANA_CFG7. . . . . . . . . . . . . .  D ADDR   00DFH   A   
+ARBLOST . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+B . . . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+CKCON . . . . . . . . . . . . . . .  D ADDR   008EH   A   
+CLK_EN_CFG. . . . . . . . . . . . .  D ADDR   008FH   A   
+CP_RL2. . . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CY. . . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2. . . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+DES_CTL . . . . . . . . . . . . . .  D ADDR   00D1H   A   
+DES_IN. . . . . . . . . . . . . . .  D ADDR   00D6H   A   
+DES_INT . . . . . . . . . . . . . .  D ADDR   00D2H   A   
+DES_KEY1. . . . . . . . . . . . . .  D ADDR   00D3H   A   
+DES_KEY2. . . . . . . . . . . . . .  D ADDR   00D4H   A   
+DES_KEY3. . . . . . . . . . . . . .  D ADDR   00D5H   A   
+DES_OUT . . . . . . . . . . . . . .  D ADDR   00D7H   A   
+DPH . . . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPH1. . . . . . . . . . . . . . . .  D ADDR   0085H   A   
+DPL . . . . . . . . . . . . . . . .  D ADDR   0082H   A   
+DPL1. . . . . . . . . . . . . . . .  D ADDR   0084H   A   
+DPS . . . . . . . . . . . . . . . .  D ADDR   0086H   A   
+DRIVER_UART . . . . . . . . . . . .  N NUMB   -----       
+DRIVER_UART_INITIAL . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DRIVER_UART_INITIAL?DRIVER_UART
+DS_WUEN . . . . . . . . . . . . . .  D ADDR   00C3H   A   
+EA. . . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EICON . . . . . . . . . . . . . . .  D ADDR   0093H   A   
+EIE . . . . . . . . . . . . . . . .  D ADDR   00E8H   A   
+EIP . . . . . . . . . . . . . . . .  D ADDR   00E9H   A   
+ES0 . . . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ES1 . . . . . . . . . . . . . . . .  B ADDR   00A8H.6 A   
+ET0 . . . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EX2 . . . . . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+EX3 . . . . . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+EX4 . . . . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+EX5 . . . . . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+EX6 . . . . . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+EX7 . . . . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+EX8 . . . . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+EX9 . . . . . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+EXEN2 . . . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+EXIF. . . . . . . . . . . . . . . .  D ADDR   0091H   A   
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     7
+
+EXINT_MOD . . . . . . . . . . . . .  D ADDR   00EAH   A   
+F0. . . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+FL. . . . . . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+IE. . . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INT0. . . . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+INT1. . . . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+INT2. . . . . . . . . . . . . . . .  B ADDR   0090H.4 A   
+INT3. . . . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+INT4. . . . . . . . . . . . . . . .  B ADDR   0090H.6 A   
+INT5. . . . . . . . . . . . . . . .  B ADDR   0090H.7 A   
+IP. . . . . . . . . . . . . . . . .  D ADDR   00A9H   A   
+IT0 . . . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+KEY_TEST. . . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+LED . . . . . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+MASTER. . . . . . . . . . . . . . .  B ADDR   00B8H.7 A   
+MD0 . . . . . . . . . . . . . . . .  D ADDR   00F1H   A   
+MD1 . . . . . . . . . . . . . . . .  D ADDR   00F2H   A   
+MD2 . . . . . . . . . . . . . . . .  D ADDR   00F3H   A   
+MD3 . . . . . . . . . . . . . . . .  D ADDR   00F4H   A   
+MD4 . . . . . . . . . . . . . . . .  D ADDR   00F5H   A   
+MD5 . . . . . . . . . . . . . . . .  D ADDR   00F6H   A   
+MDCTL . . . . . . . . . . . . . . .  D ADDR   00F7H   A   
+MPAGE . . . . . . . . . . . . . . .  D ADDR   0092H   A   
+MTP_ADR . . . . . . . . . . . . . .  D ADDR   00EEH   A   
+MTP_CTL . . . . . . . . . . . . . .  D ADDR   00EDH   A   
+MTP_DAT . . . . . . . . . . . . . .  D ADDR   00EFH   A   
+OV. . . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P0_IOSEL. . . . . . . . . . . . . .  D ADDR   00AAH   A   
+P0_OPDR . . . . . . . . . . . . . .  D ADDR   00BAH   A   
+P0_PD . . . . . . . . . . . . . . .  D ADDR   00B1H   A   
+P0_PU . . . . . . . . . . . . . . .  D ADDR   009AH   A   
+P0_WUEN . . . . . . . . . . . . . .  D ADDR   00C4H   A   
+P1. . . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P1_IOSEL. . . . . . . . . . . . . .  D ADDR   00ABH   A   
+P1_OPDR . . . . . . . . . . . . . .  D ADDR   00BBH   A   
+P1_PD . . . . . . . . . . . . . . .  D ADDR   00B2H   A   
+P1_PU . . . . . . . . . . . . . . .  D ADDR   009BH   A   
+P1_WUEN . . . . . . . . . . . . . .  D ADDR   00C5H   A   
+P2. . . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P2_IOSEL. . . . . . . . . . . . . .  D ADDR   00ACH   A   
+P2_OPDR . . . . . . . . . . . . . .  D ADDR   00BCH   A   
+P2_PD . . . . . . . . . . . . . . .  D ADDR   00B3H   A   
+P2_PU . . . . . . . . . . . . . . .  D ADDR   009CH   A   
+P2_WUEN . . . . . . . . . . . . . .  D ADDR   00C6H   A   
+P3. . . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P3_IOSEL. . . . . . . . . . . . . .  D ADDR   00ADH   A   
+P3_OPDR . . . . . . . . . . . . . .  D ADDR   00BDH   A   
+P3_PD . . . . . . . . . . . . . . .  D ADDR   00B4H   A   
+P3_PU . . . . . . . . . . . . . . .  D ADDR   009DH   A   
+P3_WUEN . . . . . . . . . . . . . .  D ADDR   00C7H   A   
+P4. . . . . . . . . . . . . . . . .  D ADDR   00C0H   A   
+P4_IOSEL. . . . . . . . . . . . . .  D ADDR   00AEH   A   
+P4_OPDR . . . . . . . . . . . . . .  D ADDR   00BEH   A   
+P4_PD . . . . . . . . . . . . . . .  D ADDR   00B5H   A   
+P4_PU . . . . . . . . . . . . . . .  D ADDR   009EH   A   
+P4_WUEN . . . . . . . . . . . . . .  D ADDR   00C9H   A   
+PALT. . . . . . . . . . . . . . . .  D ADDR   00E7H   A   
+PCON. . . . . . . . . . . . . . . .  D ADDR   0087H   A   
+PSW . . . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PWM0C0. . . . . . . . . . . . . . .  D ADDR   00A1H   A   
+PWM0C1. . . . . . . . . . . . . . .  D ADDR   00A2H   A   
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     8
+
+PWM0C2. . . . . . . . . . . . . . .  D ADDR   00A3H   A   
+PWM1C0. . . . . . . . . . . . . . .  D ADDR   00A4H   A   
+PWM1C1. . . . . . . . . . . . . . .  D ADDR   00A5H   A   
+PWM1C2. . . . . . . . . . . . . . .  D ADDR   00A6H   A   
+PWMICTL . . . . . . . . . . . . . .  D ADDR   00A7H   A   
+P_EXP . . . . . . . . . . . . . . .  D ADDR   00E6H   A   
+RB8 . . . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCLK. . . . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+RD. . . . . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+REN . . . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RF_SPI_CE . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+RF_SPI_CLK. . . . . . . . . . . . .  B ADDR   0080H.5 A   
+RF_SPI_CS . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+RF_SPI_IRQ. . . . . . . . . . . . .  B ADDR   0080H.2 A   
+RF_SPI_MISO . . . . . . . . . . . .  B ADDR   0080H.3 A   
+RF_SPI_MOSI . . . . . . . . . . . .  B ADDR   0080H.4 A   
+RI. . . . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RNG_CTL . . . . . . . . . . . . . .  D ADDR   00ECH   A   
+RNG_DAT . . . . . . . . . . . . . .  D ADDR   00EBH   A   
+RS0 . . . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RXD0. . . . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+RXD1. . . . . . . . . . . . . . . .  B ADDR   0090H.2 A   
+SBUF0 . . . . . . . . . . . . . . .  D ADDR   0099H   A   
+SCON0 . . . . . . . . . . . . . . .  D ADDR   0098H   A   
+SI. . . . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+SM0 . . . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2 . . . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMB_CF. . . . . . . . . . . . . . .  D ADDR   00B7H   A   
+SMB_CN. . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+SMB_DAT . . . . . . . . . . . . . .  D ADDR   00B6H   A   
+SMB_TMCTL . . . . . . . . . . . . .  D ADDR   00B9H   A   
+SP. . . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI0_CFG. . . . . . . . . . . . . .  D ADDR   00F9H   A   
+SPI0_CKR. . . . . . . . . . . . . .  D ADDR   00FAH   A   
+SPI0_CN . . . . . . . . . . . . . .  D ADDR   00F8H   A   
+SPI0_DAT. . . . . . . . . . . . . .  D ADDR   00FBH   A   
+STA . . . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+STO . . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+T0. . . . . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+T1. . . . . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+T2. . . . . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+T2CON . . . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T2EX. . . . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+TB8 . . . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK. . . . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TEST_PIN0 . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+TEST_PIN1 . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+TEST_PIN2 . . . . . . . . . . . . .  B ADDR   0090H.2 A   
+TEST_PIN3 . . . . . . . . . . . . .  B ADDR   0090H.3 A   
+TEST_PIN4 . . . . . . . . . . . . .  B ADDR   0090H.4 A   
+TEST_PIN5 . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+TEST_PIN6 . . . . . . . . . . . . .  B ADDR   0090H.6 A   
+TEST_PIN7 . . . . . . . . . . . . .  B ADDR   0090H.7 A   
+TF0 . . . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI. . . . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . . . . .  D ADDR   008AH   A   
+A51 MACRO ASSEMBLER  DRIVER_UART                                                          04/09/2020 15:16:58 PAGE     9
+
+TL1 . . . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXD0. . . . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+TXD1. . . . . . . . . . . . . . . .  B ADDR   0090H.3 A   
+TXMODE. . . . . . . . . . . . . . .  B ADDR   00B8H.6 A   
+WDCTL . . . . . . . . . . . . . . .  D ADDR   0097H   A   
+WR. . . . . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

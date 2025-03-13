@@ -1,0 +1,7 @@
+---- RFdatabuf 匹配 (8 in 3 文件) ----
+Function.c (mcu):unsigned char RFdatabuf[2];
+Function.c (mcu):		RFdatabuf[0] = VOLSTATUS;
+Function.h (mcu):extern unsigned char RFdatabuf[2];
+Rf.c (mcu):		RFdatabuf[0] = RFdatabuf[0] << 1;
+Rf.c (mcu):		RFdatabuf[0] = RFdatabuf[0] | 0x01;		//有充电的时候，拉高bit0
+Rf.c (mcu):	BK2401_FIFO = RFdatabuf[0];
