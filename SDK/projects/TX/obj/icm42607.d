@@ -1,0 +1,16 @@
+.\obj\icm42607.o: app\src\icm42607.c
+.\obj\icm42607.o: .\app\api\icm42607.h
+.\obj\icm42607.o: .\app\api\app.h
+.\obj\icm42607.o: .\app\src\2.4\define_system.h
+.\obj\icm42607.o: ..\..\src\driver\usb_driver\Types.h
+.\obj\icm42607.o: ..\..\src\driver\uart2\uart2.h
+.\obj\icm42607.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\icm42607.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\icm42607.o: ..\..\src\driver\uart\uart.h
+.\obj\icm42607.o: .\system\user_config.h
+.\obj\icm42607.o: ..\..\src\driver\uart2\uart2.h
+.\obj\icm42607.o: ..\..\src\driver\uart\uart.h
+.\obj\icm42607.o: ..\..\src\driver\i2c\i2c.h
+.\obj\icm42607.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\icm42607.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\icm42607.o: ..\..\Src\header\BK_HCI_Protocol.h

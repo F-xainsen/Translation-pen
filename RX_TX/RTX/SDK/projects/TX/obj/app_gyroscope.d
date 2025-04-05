@@ -1,0 +1,17 @@
+.\obj\app_gyroscope.o: app\src\app_gyroscope.c
+.\obj\app_gyroscope.o: .\app\api\app_gyroscope.h
+.\obj\app_gyroscope.o: ..\..\src\driver\i2c\i2c.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\app_gyroscope.o: ..\..\Src\header\BK_HCI_Protocol.h
+.\obj\app_gyroscope.o: ..\..\src\driver\uart2\uart2.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\app_gyroscope.o: ..\..\src\driver\uart\uart.h
+.\obj\app_gyroscope.o: .\system\user_config.h
+.\obj\app_gyroscope.o: ..\..\src\driver\uart2\uart2.h
+.\obj\app_gyroscope.o: ..\..\src\driver\uart\uart.h
+.\obj\app_gyroscope.o: ..\..\Src\driver\gpio\gpio.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\app_gyroscope.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

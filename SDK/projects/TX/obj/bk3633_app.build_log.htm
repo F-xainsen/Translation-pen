@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ERHGDSFH 8618822864327, SDFHSFGH, LIC=MPPLD-8N5RN-Y8RFK-ZYZEJ-ZGP9Q-YJ70L
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.40.0.3
+Toolchain Path:  D:\Arm\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARM.DLL V5.40.0.0
+Dialog DLL:      DARMP3.DLL 
+<h2>Project:</h2>
+C:\HTK_project\Translation pen\RX_TX\SDK_2\projects\TX\prj3633.uvproj
+Project File Date:  03/18/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Arm\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target1'
+compiling app_gyroscope.c...
+app\src\app_gyroscope.c(247): warning:  #177-D: variable "last_angle"  was declared but never referenced
+  static float last_angle = 0.0f;
+app\src\app_gyroscope.c(248): warning:  #177-D: variable "last_ax"  was declared but never referenced
+  static int last_ax = 0, last_az = 0;
+app\src\app_gyroscope.c(248): warning:  #177-D: variable "last_az"  was declared but never referenced
+  static int last_ax = 0, last_az = 0;
+app\src\app_gyroscope.c(412): warning:  #550-D: variable "yaw"  was set but never used
+  static float yaw = 0;
+app\src\app_gyroscope.c(413): warning:  #550-D: variable "pitch"  was set but never used
+  static float pitch = 0;
+app\src\app_gyroscope.c(414): warning:  #550-D: variable "roll"  was set but never used
+  static float roll = 0;
+app\src\app_gyroscope.c: 6 warnings, 0 errors
+linking...
+Program Size: Code=39176 RO-data=1756 RW-data=688 ZI-data=37592  
+After Build - User command #1: fromelf --bin --output .\output\app\bk3633_app.bin .\obj\bk3633_app.axf
+After Build - User command #2: .\output\translate.bat
+C:\HTK_project\Translation pen\RX_TX\SDK_2\projects\TX>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x7800 -l 0x7900 -v 0x0026 -rom_v 0x0014 -e 00000000 00000000 00000000 00000000 
+cmd_bin_oad.stack_file_addr :0x7800
+binary version hex:0x26; dec:38
+Arm Image Binary will be converted to OAD format binary file.....
+cmd_bin_oad.stack_file_addr=7800
+boot_bin_len=2fcc
+add stack bin start
+        Encrypt Seccessfully!
+        File Size: 0x12e04
+oad_stack_app_bin_len=af00
+oad_app_bin_len=adf0
+76 1a 8d 3f 26 00 7c 2b 42 42 42 42 ff ff 14 00 /**< @CREATE_FILE_SUCCESS */
+/**< @Download flash file:.\output\app\bk3633_app_merge_crc.bin
+/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0x0d7c7db1
+/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0x3f8d1a76
+/**< @author <gang.cheng@bekencorp.com> */
+/**< @version v0.3 */
+C:\HTK_project\Translation pen\RX_TX\SDK_2\projects\TX>del .\output\app\bk3633_app_merge_boot_stack.out 
+C:\HTK_project\Translation pen\RX_TX\SDK_2\projects\TX>del .\output\app\bk3633_app_stack_oad.bin 
+".\obj\bk3633_app.axf" - 0 Error(s), 6 Warning(s).
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.py": "python",
+        "math.h": "c",
+        "gpio.h": "c",
+        "app_gyroscope.h": "c"
+    }
+}

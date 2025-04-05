@@ -1,0 +1,10 @@
+.\obj\inv_imu_apex.o: app\src\imu\inv_imu_apex.c
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu_apex.h
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu_driver.h
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu_defs.h
+.\obj\inv_imu_apex.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu.h
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu_regmap_rev_a.h
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu_transport.h
+.\obj\inv_imu_apex.o: .\app\api\Invn/InvError.h
+.\obj\inv_imu_apex.o: .\app\api\imu/inv_imu_extfunc.h
