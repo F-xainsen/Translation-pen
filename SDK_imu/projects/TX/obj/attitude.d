@@ -1,0 +1,16 @@
+.\obj\attitude.o: acc_gyro\attitude_calculation\attitude.c
+.\obj\attitude.o: acc_gyro\attitude_calculation\attitude.h
+.\obj\attitude.o: .\app\api\main.h
+.\obj\attitude.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\attitude.o: acc_gyro\attitude_calculation\my_math.h
+.\obj\attitude.o: .\app\api\app_gyroscope.h
+.\obj\attitude.o: ..\..\src\driver\i2c\i2c.h
+.\obj\attitude.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\attitude.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\attitude.o: ..\..\Src\header\BK_HCI_Protocol.h
+.\obj\attitude.o: ..\..\src\driver\uart2\uart2.h
+.\obj\attitude.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\attitude.o: ..\..\src\driver\uart\uart.h
+.\obj\attitude.o: .\system\user_config.h
+.\obj\attitude.o: ..\..\src\driver\uart2\uart2.h
+.\obj\attitude.o: ..\..\src\driver\uart\uart.h

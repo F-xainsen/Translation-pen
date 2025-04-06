@@ -1,0 +1,15 @@
+.\obj\data_filter.o: acc_gyro\data_filter\data_filter.c
+.\obj\data_filter.o: acc_gyro\data_filter\data_filter.h
+.\obj\data_filter.o: .\app\api\main.h
+.\obj\data_filter.o: ..\..\src\driver\i2c\i2c.h
+.\obj\data_filter.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\data_filter.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\data_filter.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\data_filter.o: ..\..\Src\header\BK_HCI_Protocol.h
+.\obj\data_filter.o: ..\..\src\driver\uart2\uart2.h
+.\obj\data_filter.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\data_filter.o: ..\..\src\driver\uart\uart.h
+.\obj\data_filter.o: .\system\user_config.h
+.\obj\data_filter.o: ..\..\src\driver\uart2\uart2.h
+.\obj\data_filter.o: ..\..\src\driver\uart\uart.h
+.\obj\data_filter.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

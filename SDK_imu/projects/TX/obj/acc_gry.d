@@ -1,0 +1,15 @@
+.\obj\acc_gry.o: acc_gyro\acc_gry_mag\acc_gry.c
+.\obj\acc_gry.o: acc_gyro\acc_gry_mag\acc_gry.h
+.\obj\acc_gry.o: .\app\api\main.h
+.\obj\acc_gry.o: ..\..\src\driver\i2c\i2c.h
+.\obj\acc_gry.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\acc_gry.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\acc_gry.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\acc_gry.o: ..\..\Src\header\BK_HCI_Protocol.h
+.\obj\acc_gry.o: ..\..\src\driver\uart2\uart2.h
+.\obj\acc_gry.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\acc_gry.o: ..\..\src\driver\uart\uart.h
+.\obj\acc_gry.o: .\system\user_config.h
+.\obj\acc_gry.o: ..\..\src\driver\uart2\uart2.h
+.\obj\acc_gry.o: ..\..\src\driver\uart\uart.h
+.\obj\acc_gry.o: .\app\api\app_gyroscope.h

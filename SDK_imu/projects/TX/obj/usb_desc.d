@@ -1,0 +1,11 @@
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\usb\usb_desc.c
+.\obj\usb_desc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\usb_desc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\usb_desc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\usb\usbclass.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\usb\usb_cls_hid.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\usb\usb_cls_audio.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\usb\usb.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\usb\usbdef.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\types.h
+.\obj\usb_desc.o: ..\..\src\driver\usb_driver\driver_usb.h

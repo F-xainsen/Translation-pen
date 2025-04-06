@@ -1,0 +1,11 @@
+{
+    "files.encoding": "gbk",
+    "files.associations": {
+        "usb_hid_keys.h": "c",
+        "APPLICATION_MODE_TEST.C": "cpp",
+        "user_handle.h": "c",
+        "driver_timer.h": "c",
+        "driver_rf.h": "c",
+        "stdint.h": "c"
+    }
+}
