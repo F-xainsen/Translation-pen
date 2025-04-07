@@ -204,7 +204,7 @@ void raw_to_physical(int16_t *acc_raw, int16_t *gyro_raw, float *acc_g, float *g
     // ½«Êý¾Ý×ª»»ÎªÊµ¼ÊÎïÀíÁ¿²¢±£ÁôÁ½Î»Ð¡Êý
     for (int i = 0; i < 3; i++)
     {
-        // acc_g[i] = acc_raw[i]  / ACCEL_SSF * 1.0f;   	//¡À4
+        acc_g[i] = acc_raw[i]  / ACCEL_SSF * 1.0f;   	//¡À4
         gyro_g[i] = gyro_raw[i] >> 6; // GYRO_SSF= 64;	       //¡À500
 
         // acc_g[i] = roundf(acc_g[i] * 100.0f) / 100.0f;
@@ -405,6 +405,46 @@ float low_pass_filter(float current, float prev_filtered, float alpha)
     return alpha * current + (1.0 - alpha) * prev_filtered;
 }
 
+//»¬¶¯ÂË²¨
+int16_t window_filter(int16_t data, int16_t *buf, uint8_t len)
+{
+	uint8_t i;
+	int32_t sum = 0;
+
+	for (i = 1; i < len; i++)
+	{
+		buf[i - 1] = buf[i];
+	}
+	buf[len - 1] = data;
+
+	for (i = 0; i < len; i++)
+	{
+		sum += buf[i];
+	}
+
+	sum /= len;
+
+	return sum;
+}
+
+void imu_final_data_get(void)
+{
+	int16_t filter_ax ,filter_ay,filter_az ;
+	int16_t filter_gx ,filter_gy,filter_gz ;
+
+	  get_gyro_data(gyro_raw, acc_raw); //²ÉÑùµÃµ½¾ÅÖáÔ­Ê¼Êý¾Ý
+	  //Ô­Ê¼Êý¾Ý´°¿ÚÂË²¨
+	  filter_ax = window_filter(acc_raw[0],window_ax,WIN_NUM);
+	  filter_ay = window_filter(acc_raw[1],window_ay,WIN_NUM);
+	  filter_az = window_filter(acc_raw[2],window_az,WIN_NUM);
+
+	  filter_gx = window_filter(gyro_raw[0],window_gx,WIN_NUM);
+	  filter_gy = window_filter(gyro_raw[1],window_gy,WIN_NUM);
+	  filter_gz = window_filter(gyro_raw[2],window_gz,WIN_NUM);
+	  //×ª»»³ÉÊµ¼ÊÎïÀíÁ¿
+		raw_to_physical(acc_raw, gyro_filter, acc_g, gyro_g);
+}
+
 float q0 = 1, q1 = 0, q2 = 0, q3 = 0;  // ³õÊ¼×ËÌ¬ËÄÔªÊý£¬ÓÉÉÏÆª²©ÎÄÌáµ½µÄ±ä»»ËÄÔªÊý¹«Ê½µÃÀ´
 float exInt = 0, eyInt = 0, ezInt = 0; // µ±Ç°¼Ó¼Æ²âµÃµÄÖØÁ¦¼ÓËÙ¶ÈÔÚÈýÖáÉÏµÄ·ÖÁ¿
                                        // ÓëÓÃµ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿µÄÎó²îµÄ»ý·Ö
@@ -414,13 +454,11 @@ static float pitch = 0;
 static float roll = 0;
 void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±íÍÓÂÝÒÇ£¬a±í¼Ó¼Æ
 {
-
     float q0temp, q1temp, q2temp, q3temp; // ËÄÔªÊýÔÝ´æ±äÁ¿£¬Çó½âÎ¢·Ö·½³ÌÊ±ÒªÓÃ
     float norm;                           // Ê¸Á¿µÄÄ£»òËÄÔªÊýµÄ·¶Êý
     float vx, vy, vz;                     // µ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿
     float ex, ey, ez;                     // µ±Ç°¼Ó¼Æ²âµÃµÄÖØÁ¦¼ÓËÙ¶ÈÔÚÈýÖáÉÏµÄ·ÖÁ¿
-                      // ÓëÓÃµ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿µÄÎó²î
-
+																					// ÓëÓÃµ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿µÄÎó²î
     // ÏÈ°ÑÕâÐ©ÓÃµÃµ½µÄÖµËãºÃ
     float q0q0 = q0 * q0;
     float q0q1 = q0 * q1;
@@ -430,8 +468,11 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±
     float q2q2 = q2 * q2;
     float q2q3 = q2 * q3;
     float q3q3 = q3 * q3;
-    if (ax * ay * az == 0) // ¼Ó¼Æ´¦ÓÚ×ÔÓÉÂäÌå×´Ì¬Ê±²»½øÐÐ×ËÌ¬½âËã£¬ÒòÎª»á²úÉú·ÖÄ¸ÎÞÇî´óµÄÇé¿ö
-        return;
+
+//    if (ax * ay * az == 0) // ¼Ó¼Æ´¦ÓÚ×ÔÓÉÂäÌå×´Ì¬Ê±²»½øÐÐ×ËÌ¬½âËã£¬ÒòÎª»á²úÉú·ÖÄ¸ÎÞÇî´óµÄÇé¿ö
+//        return;
+		
+
     norm = sqrt(ax * ax + ay * ay + az * az); // µ¥Î»»¯¼ÓËÙ¶È¼Æ£¬
     ax = ax / norm;                           // ÕâÑù±ä¸üÁËÁ¿³ÌÒ²²»ÐèÒªÐÞ¸ÄKP²ÎÊý£¬ÒòÎªÕâÀï¹éÒ»»¯ÁË
     ay = ay / norm;
@@ -447,10 +488,11 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±
     ex = (ay * vz - az * vy);
     ey = (az * vx - ax * vz);
     ez = (ax * vy - ay * vx);
-
+		// »ý·ÖÎó²îÐÞÕý£¨Ki¿ØÖÆÆ¯ÒÆÒÖÖÆÇ¿¶È£©
     exInt = exInt + ex * Ki; // ¶ÔÎó²î½øÐÐ»ý·Ö
     eyInt = eyInt + ey * Ki;
     ezInt = ezInt + ez * Ki;
+		//¸üÐÂÍÓÂÝÒÇ²âÁ¿Öµ£¨Kp¿ØÖÆ¼ÓËÙ¶È¼ÆÈ¨ÖØ£©
     // adjusted gyroscope measurements
     gx = gx + Kp * ex + exInt; // ½«Îó²îPIºó²¹³¥µ½ÍÓÂÝÒÇ£¬¼´²¹³¥ÁãµãÆ¯ÒÆ
     gy = gy + Kp * ey + eyInt;
@@ -473,10 +515,14 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±
     q3 = q3 / norm;
     // ËÄÔªÊýµ½Å·À­½ÇµÄ×ª»»£¬¹«Ê½ÍÆµ¼¼û²©ÎÄÒ»
     // ÆäÖÐYAWº½Ïò½ÇÓÉÓÚ¼ÓËÙ¶È¼Æ¶ÔÆäÃ»ÓÐÐÞÕý×÷ÓÃ£¬Òò´Ë´Ë´¦Ö±½ÓÓÃÍÓÂÝÒÇ»ý·Ö´úÌæ
-
+		
     yaw = atan2(2 * q1 * q2 + 2 * q0 * q3, -2 * q2 * q2 - 2 * q3 * q3 + 1) * 57.3;  // unit:degree
     pitch = asin(-2 * q1 * q3 + 2 * q0 * q2) * 57.3;                                // unit:degree
     roll = atan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2 * q2 + 1) * 57.3; // unit:degree
+		numbers[0] = roll;
+//    numbers[1] = pitch;
+//    numbers[2] = yaw;
+    printFloats(numbers, 1, 2);
 }
 
 
@@ -517,17 +563,19 @@ void mouse()
     get_gyro_data(gyro_raw, acc_raw);
     Filter_threshold(gyro_raw, gyro_filter);
     //uart_printf("gyro_raw: 	X=%d, Y=%d, Z=%d \r\n", gyro_raw[0], gyro_raw[1], gyro_raw[2]);
-    uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", acc_raw[0], acc_raw[1], acc_raw[2]);
+    //uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", acc_raw[0], acc_raw[1], acc_raw[2]);
 
-    raw_to_physical(acc_raw, gyro_filter, acc_g, gyro_g);
+    
+		//IMUupdate(gyro_g[0], gyro_g[1], gyro_g[2], acc_g[0], acc_g[1], acc_g[2]);
+
     calculate_displacement(gyro_g, angular_displacement, linear_displacement);
-
+		uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", (int16)gyro_g[0], (int16)gyro_g[1], (int16)gyro_g[2]);
     float acc_angle_x = calculate_acc_angle(acc_raw, gyro_raw);
 		float angle_p = yijiehubu_P(gyro_g[2], acc_angle_x);
     rotate_point(linear_displacement[2], linear_displacement[0], angle_p, &new_ax, &new_az);
 
-    ax_sum += new_ax * cursor_speed;
-    az_sum += new_az * cursor_speed; // cursor_speed
+    ax_sum += linear_displacement[2] * cursor_speed;
+    az_sum += linear_displacement[0] * cursor_speed; // cursor_speed
     mouse_X = ax_sum;
     mouse_Y = -az_sum;
 
@@ -558,12 +606,12 @@ void mouse()
     // mouse_X = (mouse_X > MOUSE_MAX)?MOUSE_MAX :(mouse_X < MOUSE_MIN ? MOUSE_MIN : mouse_X);
     // mouse_Y = (mouse_Y > MOUSE_MAX)?MOUSE_MAX :(mouse_Y < MOUSE_MIN ? MOUSE_MIN : mouse_Y);
 
-    numbers[0] = angle_p;
-    numbers[1] = gyro_g[2];
-    numbers[2] = acc_angle_x;
-    numbers[3] = new_ax;
-    numbers[4] = new_az;
-    numbers[5] = mouse_X;
-    numbers[6] = mouse_Y;
-    printFloats(numbers, 7, 2);
+//    numbers[0] = roll;
+//    numbers[1] = pitch;
+//    numbers[2] = yaw;
+//    numbers[3] = new_ax;
+//    numbers[4] = new_az;
+//    numbers[5] = mouse_X;
+//    numbers[6] = mouse_Y;
+//    printFloats(numbers, 3, 2);
 }

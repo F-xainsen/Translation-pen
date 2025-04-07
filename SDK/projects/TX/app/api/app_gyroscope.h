@@ -23,8 +23,8 @@
 #define R_MEASURE 0.03
 #define MOUSE_DATA_LENGTH 3
 
-#define Kp 10.0f                        // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
-#define Ki 0.008f                        
+#define Kp 2.0f                        // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
+#define Ki 0.01f                        
 #define halfT 0.005f             // 采样周期的一半，用于求解四元数微分方程时计算角增量
 
 int common_sin_val_calculate(int angle);
@@ -35,6 +35,16 @@ int common_tan_val_calculate(int angle);
 #define COS(val) common_cos_val_calculate(val) / 100.0
 #define TAN(val) common_tan_val_calculate(val) / 100.0
 
+
+
+#define WIN_NUM 5
+int16_t window_ax[WIN_NUM];
+int16_t window_ay[WIN_NUM];
+int16_t window_az[WIN_NUM];
+
+int16_t window_gx[WIN_NUM];
+int16_t window_gy[WIN_NUM];
+int16_t window_gz[WIN_NUM];
 
 typedef struct {
     float estimate;  // 当前估计值

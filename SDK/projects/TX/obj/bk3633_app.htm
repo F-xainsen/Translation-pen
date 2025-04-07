@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\bk3633_app.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\bk3633_app.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Mar 29 12:25:28 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Apr 07 20:10:52 2025
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -393,7 +393,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 </UL>
 
-<P><STRONG><a name="[75]"></a>floatToString</STRONG> (Thumb, 146 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[75]"></a>floatToString</STRONG> (Thumb, 146 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
@@ -405,11 +405,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;printFloats
 </UL>
 
-<P><STRONG><a name="[7d]"></a>printFloats</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[7d]"></a>printFloats</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floatToString
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
 </UL>
 
 <P><STRONG><a name="[7e]"></a>read_sensor_data</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
@@ -429,13 +429,13 @@ Global Symbols
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
-<P><STRONG><a name="[83]"></a>raw_to_physical</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[83]"></a>raw_to_physical</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
-<P><STRONG><a name="[84]"></a>calculate_displacement</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[84]"></a>calculate_displacement</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
@@ -474,7 +474,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
 </UL>
 
-<P><STRONG><a name="[8c]"></a>rotate_point</STRONG> (Thumb, 250 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[8c]"></a>rotate_point</STRONG> (Thumb, 252 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
@@ -508,7 +508,7 @@ Global Symbols
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 
-<P><STRONG><a name="[95]"></a>IMUupdate</STRONG> (Thumb, 1138 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
+<P><STRONG><a name="[95]"></a>IMUupdate</STRONG> (Thumb, 1128 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt (via BLX)
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan2 (via BLX)
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin (via BLX)
@@ -520,6 +520,7 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;printFloats
 </UL>
 
 <P><STRONG><a name="[6a]"></a>mouse_init</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
@@ -530,11 +531,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_fn24_main
 </UL>
 
-<P><STRONG><a name="[62]"></a>mouse</STRONG> (Thumb, 460 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[62]"></a>mouse</STRONG> (Thumb, 412 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
@@ -546,7 +547,6 @@ Global Symbols
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_displacement
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;raw_to_physical
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_gyro_data
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;printFloats
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_printf
 </UL>
@@ -2349,7 +2349,7 @@ Global Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yijiehubu_P
 </UL>
 
-<P><STRONG><a name="[7a]"></a>__aeabi_frsub</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, fadd.o(.text))
+<P><STRONG><a name="[7a]"></a>__aeabi_frsub</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, fadd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floatToString
@@ -2366,7 +2366,7 @@ Global Symbols
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
-<P><STRONG><a name="[76]"></a>__aeabi_fdiv</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, fdiv.o(.text))
+<P><STRONG><a name="[76]"></a>__aeabi_fdiv</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, fdiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
@@ -2454,7 +2454,6 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_acc_angle
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;raw_to_physical
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floatToString
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
 <P><STRONG><a name="[9c]"></a>__aeabi_ui2f</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ffltui.o(.text))
@@ -2479,6 +2478,7 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floatToString
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
 <P><STRONG><a name="[9d]"></a>__aeabi_d2iz</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, dfixi.o(.text))
@@ -2598,7 +2598,7 @@ Global Symbols
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[7b]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfa.o(i.__0sprintf))
+<P><STRONG><a name="[7b]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfa.o(i.__0sprintf), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floatToString
 </UL>
 
