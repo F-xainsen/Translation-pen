@@ -1,10 +1,10 @@
 .\obj\flash.o: ..\..\Src\driver\flash\flash.c
-.\obj\flash.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\flash.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\flash.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\flash.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\flash.o: ..\..\Src\driver\flash\flash.h
 .\obj\flash.o: ..\..\src\modules\common\api\co_error.h
 .\obj\flash.o: ..\..\src\driver\uart\uart.h
-.\obj\flash.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\flash.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\flash.o: .\system\user_config.h
 .\obj\flash.o: ..\..\src\driver\uart2\uart2.h
 .\obj\flash.o: ..\..\src\driver\uart\uart.h
@@ -19,7 +19,7 @@
 .\obj\flash.o: ..\..\Src\ip\ble\hl\api\rwble_hl_error.h
 .\obj\flash.o: .\system\rwprf_config.h
 .\obj\flash.o: ..\..\src\modules\ke\api\ke_msg.h
-.\obj\flash.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\flash.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\flash.o: ..\..\src\modules\common\api\co_list.h
 .\obj\flash.o: ..\..\src\plf\prf\prf.h
 .\obj\flash.o: ..\..\src\modules\ke\api\ke_task.h
@@ -27,6 +27,6 @@
 .\obj\flash.o: ..\..\src\plf\rwip\api\rwip_task.h
 .\obj\flash.o: ..\..\Src\ip\ble\hl\api\gap.h
 .\obj\flash.o: ..\..\src\modules\common\api\co_math.h
-.\obj\flash.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\flash.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\flash.o: ..\..\Src\driver\wdt\wdt.h
 .\obj\flash.o: ..\..\Src\header\BK3633_RegList.h

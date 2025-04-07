@@ -10,6 +10,7 @@
 #include <stdarg.h>
 #include <string.h>
 
+imu_t imu_9;
 float numbers[100];
 uint8_t cursor_speed = 1;
 extern int16_t mouse_X;
@@ -191,25 +192,24 @@ void get_gyro_data(int16_t *gyro_raw, int16_t *acc_raw)
     gyro_raw[2] = (gyro_raw_8[4] << 8) + gyro_raw_8[5];
 
 
-    for (int i = 0; i < MOUSE_DATA_LENGTH; i++)
-    {
-        acc_raw[i] = (acc_raw[i] > ACCEL_MAX) ? ACCEL_MAX : ((acc_raw[i] < ACCEL_MIN) ? ACCEL_MIN : acc_raw[i]);
-        gyro_raw[i] = (gyro_raw[i] > MOUSE_MAX) ? MOUSE_MAX : ((gyro_raw[i] < MOUSE_MIN) ? MOUSE_MIN : gyro_raw[i]);
-    }
+//    for (int i = 0; i < MOUSE_DATA_LENGTH; i++)
+//    {
+//        acc_raw[i] = (acc_raw[i] > ACCEL_MAX) ? ACCEL_MAX : ((acc_raw[i] < ACCEL_MIN) ? ACCEL_MIN : acc_raw[i]);
+//        gyro_raw[i] = (gyro_raw[i] > MOUSE_MAX) ? MOUSE_MAX : ((gyro_raw[i] < MOUSE_MIN) ? MOUSE_MIN : gyro_raw[i]);
+//    }
 }
 
 // 原始数据转物理量
-void raw_to_physical(int16_t *acc_raw, int16_t *gyro_raw, float *acc_g, float *gyro_g)
+void raw_to_physical(int16_t ax,int16_t ay,int16_t az,int16_t gx,int16_t gy,int16_t gz)
 {
-    // 将数据转换为实际物理量并保留两位小数
-    for (int i = 0; i < 3; i++)
-    {
-        acc_g[i] = acc_raw[i]  / ACCEL_SSF * 1.0f;   	//±4
-        gyro_g[i] = gyro_raw[i] >> 6; // GYRO_SSF= 64;	       //±500
+	imu_9.f_acc[0] = (float)(ax-imu_9.acc_zero[0])/ ACCEL_SSF;  // 加速度量程为:±2G      获取到的加速度计数据 除以 16393 ，可以转化为带物理单位的数据，单位：g(m/s^2)
+	imu_9.f_acc[1] = (float)(ay-imu_9.acc_zero[1]) / ACCEL_SSF;
+	imu_9.f_acc[2] = (float)(az-imu_9.acc_zero[2]) / ACCEL_SSF;
 
-        // acc_g[i] = roundf(acc_g[i] * 100.0f) / 100.0f;
-        // gyro_g[i] = roundf(gyro_g[i] * 100.0f) / 100.0f;
-    }
+	imu_9.f_gyro[0] = (float)(gx-imu_9.gyro_zero[0])/65.5; //  陀螺仪量程为:±500dps  获取到的陀螺仪数据除以 57.1，    可以转化为带物理单位的数据，单位为：°/s
+	imu_9.f_gyro[1] = (float)(gy-imu_9.gyro_zero[1])/65.5;
+	imu_9.f_gyro[2] = (float)(gz-imu_9.gyro_zero[2])/65.5;
+
 }
 
 // 定义采样时间间隔（单位：秒）
@@ -427,22 +427,30 @@ int16_t window_filter(int16_t data, int16_t *buf, uint8_t len)
 	return sum;
 }
 
+
+int16_t window_ax[WIN_NUM];
+int16_t window_ay[WIN_NUM];
+int16_t window_az[WIN_NUM];
+
+int16_t window_gx[WIN_NUM];
+int16_t window_gy[WIN_NUM];
+int16_t window_gz[WIN_NUM];
 void imu_final_data_get(void)
 {
 	int16_t filter_ax ,filter_ay,filter_az ;
 	int16_t filter_gx ,filter_gy,filter_gz ;
 
-	  get_gyro_data(gyro_raw, acc_raw); //采样得到九轴原始数据
+	  get_gyro_data(imu_9.i_gyro,imu_9.i_acc); //采样得到九轴原始数据
 	  //原始数据窗口滤波
-	  filter_ax = window_filter(acc_raw[0],window_ax,WIN_NUM);
-	  filter_ay = window_filter(acc_raw[1],window_ay,WIN_NUM);
-	  filter_az = window_filter(acc_raw[2],window_az,WIN_NUM);
+	  filter_ax = window_filter(imu_9.i_acc[0],window_ax,WIN_NUM);
+	  filter_ay = window_filter(imu_9.i_acc[1],window_ay,WIN_NUM);
+	  filter_az = window_filter(imu_9.i_acc[2],window_az,WIN_NUM);
 
-	  filter_gx = window_filter(gyro_raw[0],window_gx,WIN_NUM);
-	  filter_gy = window_filter(gyro_raw[1],window_gy,WIN_NUM);
-	  filter_gz = window_filter(gyro_raw[2],window_gz,WIN_NUM);
+	  filter_gx = window_filter(imu_9.i_gyro[0],window_gx,WIN_NUM);
+	  filter_gy = window_filter(imu_9.i_gyro[1],window_gy,WIN_NUM);
+	  filter_gz = window_filter(imu_9.i_gyro[2],window_gz,WIN_NUM);
 	  //转换成实际物理量
-		raw_to_physical(acc_raw, gyro_filter, acc_g, gyro_g);
+		raw_to_physical(filter_ax,filter_ay,filter_az,filter_gx,filter_gy,filter_gz);
 }
 
 float q0 = 1, q1 = 0, q2 = 0, q3 = 0;  // 初始姿态四元数，由上篇博文提到的变换四元数公式得来

@@ -8,7 +8,7 @@
 #define I2C_ADDR      0x69
 #define ACCEL_DATA_X1 0x0B
 #define GYRO_DATA_X1  0x11
-#define ACCEL_SSF     8192      //±4g
+#define ACCEL_SSF     8192.0f      //±4g
 #define GYRO_SSF      65.5       //65.5      // ±500dps
 #define ACCEL_MAX          8192
 #define ACCEL_MIN          -8192
@@ -35,22 +35,42 @@ int common_tan_val_calculate(int angle);
 #define COS(val) common_cos_val_calculate(val) / 100.0
 #define TAN(val) common_tan_val_calculate(val) / 100.0
 
-
-
 #define WIN_NUM 5
-int16_t window_ax[WIN_NUM];
-int16_t window_ay[WIN_NUM];
-int16_t window_az[WIN_NUM];
 
-int16_t window_gx[WIN_NUM];
-int16_t window_gy[WIN_NUM];
-int16_t window_gz[WIN_NUM];
 
 typedef struct {
     float estimate;  // 当前估计值
     float error;     // 当前估计误差
 } KalmanFilter;
 
+typedef struct
+{
+	int16_t i_gyro[3];
+	int16_t i_acc[3];
+	float f_gyro[3];
+	float f_acc[3];
+	float mag_xsf;
+	float mag_ysf;
+	int16_t gyro_zero[3];
+	int16_t acc_zero[3];
+
+	float pitch;
+	float roll;
+	float yaw;
+	float mag_yaw_test;
+	float yaw_temp;
+	float velocity[3];
+	float displacement[3];
+	uint8_t cali_flag;
+	float accelerationMagnitude;
+	uint8_t shell_cmd_ok;
+	uint8_t output_mode;
+	uint8_t output_flag;
+	uint16_t output_freq;
+	uint32_t time_tick;
+
+} imu_t;
+extern imu_t imu_9;
 	
 // 函数声明
 void floatToString(float num, char *str, int decimalPlaces);
@@ -61,7 +81,7 @@ void write_sensor_data(uint8_t reg_addr, uint8_t data);
 void get_gyro_data(int16_t *gyro_raw, int16_t *acc_raw);
 void Filter_threshold(int16_t *gyro_raw, int16_t *gyro_filter);
 float calculate_acc_angle(int16_t* acc_raw, int16_t* gyro_raw);
-void raw_to_physical(int16_t* acc_raw, int16_t* gyro_raw, float* acc_g, float* gyro_g );
+
 void calibrate_gyro(void);
 float low_pass_filter(float current, float prev_filtered, float alpha);
 void kalman_init(KalmanFilter *filter, float initial_estimate, float initial_error);

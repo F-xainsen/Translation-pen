@@ -1,11 +1,11 @@
 .\obj\aon_rtc.o: ..\..\src\driver\aon_rtc\aon_rtc.c
-.\obj\aon_rtc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\aon_rtc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\aon_rtc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\aon_rtc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\aon_rtc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\aon_rtc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\aon_rtc.o: ..\..\src\driver\aon_rtc\aon_rtc.h
 .\obj\aon_rtc.o: .\system\user_config.h
 .\obj\aon_rtc.o: ..\..\src\driver\uart2\uart2.h
-.\obj\aon_rtc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\aon_rtc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\aon_rtc.o: ..\..\src\driver\uart\uart.h
 .\obj\aon_rtc.o: .\system\user_config.h
 .\obj\aon_rtc.o: ..\..\Src\header\BK3633_RegList.h
@@ -39,7 +39,7 @@
 .\obj\aon_rtc.o: ..\..\src\plf\rwip\api\rwip_task.h
 .\obj\aon_rtc.o: ..\..\Src\ip\ble\hl\api\gap.h
 .\obj\aon_rtc.o: ..\..\src\modules\common\api\co_math.h
-.\obj\aon_rtc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\aon_rtc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\aon_rtc.o: ..\..\src\ip\em\api\em_map.h
 .\obj\aon_rtc.o: ..\..\src\ip\sch\import\_reg_em_et.h
 .\obj\aon_rtc.o: ..\..\src\ip\ble\ll\api\em_map_ble.h
