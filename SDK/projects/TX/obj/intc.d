@@ -1,8 +1,8 @@
 .\obj\intc.o: app\src\intc.c
 .\obj\intc.o: .\app\api\intc.h
 .\obj\intc.o: ..\..\src\driver\uart\uart.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\intc.o: .\system\user_config.h
 .\obj\intc.o: ..\..\src\driver\uart2\uart2.h
 .\obj\intc.o: ..\..\src\driver\uart\uart.h
@@ -10,13 +10,13 @@
 .\obj\intc.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\intc.o: ..\..\Src\driver\spi\spi.h
 .\obj\intc.o: ..\..\src\driver\i2c\i2c.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\intc.o: ..\..\Src\header\BK_HCI_Protocol.h
 .\obj\intc.o: ..\..\Src\driver\icu\icu.h
 .\obj\intc.o: ..\..\src\driver\dma\dma.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\intc.o: ..\..\src\driver\dma\dma.h
 .\obj\intc.o: ..\..\src\plf\refip\import\reg\reg_intc.h
 .\obj\intc.o: ..\..\src\plf\refip\import\reg\_reg_intc.h
@@ -47,7 +47,7 @@
 .\obj\intc.o: ..\..\src\plf\rwip\api\rwip_task.h
 .\obj\intc.o: ..\..\Src\ip\ble\hl\api\gap.h
 .\obj\intc.o: ..\..\src\modules\common\api\co_math.h
-.\obj\intc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\intc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\intc.o: ..\..\src\ip\em\api\em_map.h
 .\obj\intc.o: ..\..\src\ip\sch\import\_reg_em_et.h
 .\obj\intc.o: ..\..\src\ip\ble\ll\api\em_map_ble.h

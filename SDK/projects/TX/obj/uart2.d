@@ -1,10 +1,10 @@
 .\obj\uart2.o: ..\..\Src\driver\uart2\uart2.c
-.\obj\uart2.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\uart2.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\obj\uart2.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\uart2.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\uart2.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\obj\uart2.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\uart2.o: ..\..\Src\driver\uart2\uart2.h
-.\obj\uart2.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\uart2.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\uart2.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\uart2.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\uart2.o: ..\..\src\driver\uart\uart.h
 .\obj\uart2.o: .\system\user_config.h
 .\obj\uart2.o: ..\..\src\driver\uart2\uart2.h

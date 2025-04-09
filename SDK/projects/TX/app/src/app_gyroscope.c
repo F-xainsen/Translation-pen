@@ -319,7 +319,7 @@ typedef struct
     float R;//观测噪声协方差 初始化值为0.543
 }KFP;//Kalman Filter parameter
 #define Kp 10.0f                  // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
-#define Ki 0.000f
+#define Ki 0.002f
 #define dt   0.005
 #define halfT 0.01f
 
@@ -472,7 +472,7 @@ void algorithm(float ax,float ay,float az,float gx,float gy,float gz){
   pitch=-asinf(g1)*57.3f;
 	roll=atanf(g2/g3)*57.3f;
 	yaw=atanf(g4/g5)*57.3f;
-  uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
+//  uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
 }
 
 int16_t value;
@@ -489,7 +489,7 @@ float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
                 break;
             }
         }
-			roll = -roll;	
+	
 			//float value =  ax * 90.0 / 8192;
 			if(ax > 0 && az < 0){
 				 value = value;                // 1
@@ -595,7 +595,7 @@ void mouse()
 		algorithm(krm[0],krm[1],krm[2],krm[3],krm[4],krm[5]);//采用卡尔曼滤波
 
 		roll = calculate_acc_angle(acc_raw, gyro_raw);
-
+		uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
     calculate_displacement(imu_9.f_gyro, angular_displacement, linear_displacement);
 		
     rotate_point(linear_displacement[2], linear_displacement[0], roll, &new_ax, &new_az);

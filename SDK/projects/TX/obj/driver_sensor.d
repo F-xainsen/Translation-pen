@@ -4,8 +4,8 @@
 .\obj\driver_sensor.o: .\app\src\2.4\define_system.h
 .\obj\driver_sensor.o: ..\..\src\driver\usb_driver\Types.h
 .\obj\driver_sensor.o: ..\..\src\driver\uart2\uart2.h
-.\obj\driver_sensor.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\driver_sensor.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\driver_sensor.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\driver_sensor.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\driver_sensor.o: ..\..\src\driver\uart\uart.h
 .\obj\driver_sensor.o: .\system\user_config.h
 .\obj\driver_sensor.o: ..\..\src\driver\uart2\uart2.h

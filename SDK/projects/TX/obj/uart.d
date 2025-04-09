@@ -1,12 +1,12 @@
 .\obj\uart.o: ..\..\src\driver\uart\uart.c
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\uart.o: ..\..\Src\driver\icu\icu.h
 .\obj\uart.o: ..\..\src\driver\uart\uart.h
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\uart.o: .\system\user_config.h
 .\obj\uart.o: ..\..\src\driver\uart2\uart2.h
 .\obj\uart.o: ..\..\src\driver\uart\uart.h
@@ -28,7 +28,7 @@
 .\obj\uart.o: ..\..\src\plf\rwip\api\rwip_task.h
 .\obj\uart.o: ..\..\Src\ip\ble\hl\api\gap.h
 .\obj\uart.o: ..\..\src\modules\common\api\co_math.h
-.\obj\uart.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\uart.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\uart.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\uart.o: ..\..\Src\header\BK3633_RegList.h
 .\obj\uart.o: ..\..\src\driver\dma\dma.h

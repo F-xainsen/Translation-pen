@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\bk3633_app.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\bk3633_app.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Apr 09 20:59:14 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 10 00:04:52 2025
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -192,8 +192,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get_input
 </UL>
-<BR>[Address Reference Count : 2]<UL><LI> application_main.o(.text)
-<LI> user_handle.o(.text)
+<BR>[Address Reference Count : 2]<UL><LI> user_handle.o(.text)
+<LI> application_main.o(.text)
 </UL>
 <P><STRONG><a name="[46]"></a>rwip_aes_encrypt</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, aes.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -484,7 +484,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
-<P><STRONG><a name="[92]"></a>IMUupdate</STRONG> (Thumb, 848 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
+<P><STRONG><a name="[92]"></a>IMUupdate</STRONG> (Thumb, 896 bytes, Stack size 0 bytes, app_gyroscope.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt (via BLX)
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan2 (via BLX)
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin (via BLX)
@@ -498,7 +498,7 @@ Global Symbols
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 </UL>
 
-<P><STRONG><a name="[97]"></a>algorithm</STRONG> (Thumb, 1056 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[97]"></a>algorithm</STRONG> (Thumb, 1130 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atanf (via BLX)
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asinf (via BLX)
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
@@ -506,18 +506,17 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invSqrt
-<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
-<P><STRONG><a name="[9a]"></a>calculate_acc_angle</STRONG> (Thumb, 160 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[9a]"></a>calculate_acc_angle</STRONG> (Thumb, 154 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
@@ -532,10 +531,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_fn24_main
 </UL>
 
-<P><STRONG><a name="[62]"></a>mouse</STRONG> (Thumb, 340 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[62]"></a>mouse</STRONG> (Thumb, 386 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
@@ -546,6 +546,7 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_final_data_get
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_displacement
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 </UL>
@@ -1147,7 +1148,7 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_advance_init
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write_sr
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;algorithm
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fReadRFAddr
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_page_mode
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_action
@@ -2402,6 +2403,7 @@ Global Symbols
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin (via Veneer)
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;algorithm
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly (via BLX)
@@ -2486,8 +2488,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[87]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;algorithm
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
+<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
 <P><STRONG><a name="[9d]"></a>__aeabi_d2iz</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, dfixi.o(.text))
