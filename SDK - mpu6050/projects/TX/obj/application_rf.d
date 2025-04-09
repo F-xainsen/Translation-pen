@@ -1,0 +1,17 @@
+.\obj\application_rf.o: app\src\2.4\application_rf.c
+.\obj\application_rf.o: .\app\api\app.h
+.\obj\application_rf.o: .\app\src\2.4\define_system.h
+.\obj\application_rf.o: ..\..\src\driver\usb_driver\Types.h
+.\obj\application_rf.o: ..\..\src\driver\uart2\uart2.h
+.\obj\application_rf.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\application_rf.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\application_rf.o: ..\..\src\driver\uart\uart.h
+.\obj\application_rf.o: .\system\user_config.h
+.\obj\application_rf.o: ..\..\src\driver\uart2\uart2.h
+.\obj\application_rf.o: ..\..\src\driver\uart\uart.h
+.\obj\application_rf.o: ..\..\Src\driver\gpio\gpio.h
+.\obj\application_rf.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\application_rf.o: app\src\2.4\application_mode.h
+.\obj\application_rf.o: app\src\2.4\application_rf.h
+.\obj\application_rf.o: app\src\2.4\driver_rf.h
+.\obj\application_rf.o: app\src\2.4\driver_bk24.h
