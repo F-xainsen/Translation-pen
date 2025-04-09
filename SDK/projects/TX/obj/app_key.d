@@ -4,8 +4,8 @@
 .\obj\app_key.o: .\app\src\2.4\define_system.h
 .\obj\app_key.o: ..\..\src\driver\usb_driver\Types.h
 .\obj\app_key.o: ..\..\src\driver\uart2\uart2.h
-.\obj\app_key.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\app_key.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\app_key.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\app_key.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\app_key.o: ..\..\src\driver\uart\uart.h
 .\obj\app_key.o: .\system\user_config.h
 .\obj\app_key.o: ..\..\src\driver\uart2\uart2.h

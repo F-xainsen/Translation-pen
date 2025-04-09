@@ -1,11 +1,11 @@
 .\obj\i2c.o: ..\..\src\driver\i2c\i2c.c
-.\obj\i2c.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\i2c.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\i2c.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\i2c.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\i2c.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\i2c.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\i2c.o: ..\..\src\driver\i2c\i2c.h
 .\obj\i2c.o: ..\..\Src\header\BK_HCI_Protocol.h
 .\obj\i2c.o: ..\..\src\driver\uart2\uart2.h
-.\obj\i2c.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\i2c.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\i2c.o: ..\..\src\driver\uart\uart.h
 .\obj\i2c.o: .\system\user_config.h
 .\obj\i2c.o: ..\..\src\driver\uart2\uart2.h

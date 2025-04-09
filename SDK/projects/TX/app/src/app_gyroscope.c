@@ -16,10 +16,9 @@ uint8_t cursor_speed = 1;
 extern int16_t mouse_X;
 extern int16_t mouse_Y;
 int16_t acc_raw[3], gyro_raw[3], gyro_filter[3];
+
 float acc_g[3], gyro_g[3], angular_displacement[3], linear_displacement[3];
 float new_ax, new_az;
-float gyro_filtered[MOUSE_DATA_LENGTH], acc_filtered[MOUSE_DATA_LENGTH];
-KalmanFilter kf;
 float init_angle = 0;
 
 int16_t angle_Tab2[46] = // 4gmax  8bit  1=31.25mg
@@ -87,64 +86,6 @@ static const int cosTable[91] = {100, 100, 100, 100, 100, 100, 99, 99, 99, 99, 9
                                  75, 74, 73, 72, 71, 69, 68, 67, 66, 64, 63, 62, 60, 59, 57, 56, 54, 53, 52, 50, 48, 47, 45, 44, 42,
                                  41, 39, 37, 36, 34, 33, 31, 29, 28, 26, 24, 22, 21, 19, 17, 16, 14, 12, 10, 9, 7, 5, 3, 2, 0};
 
-// // ¾²Ì¬±äÁ¿ÓÃÓÚ¿¨¶ûÂüÂË²¨
-short GYRO_OFFSET[3] = {0, 0, 0};
-// static char DPI_DATA = 0;
-// // µÍÍ¨ÂË²¨±äÁ¿
-// static float filtered_pitch = 0.0;
-// // z ÖáÎ»ÒÆÏà¹Ø±äÁ¿
-// static float velocity_x = 0.0, displacement_x = 0.0;
-// static float velocity_z = 0.0, displacement_z = 0.0;
-
-void floatToString(float num, char *str, int decimalPlaces)
-{
-    // ´¦Àí¸ºÊý
-    if (num < 0)
-    {
-        num = -num;
-        *str++ = '-';
-    }
-
-    // ¼ÆËãËÄÉáÎåÈëÒò×Ó
-    float roundingFactor = 0.5;
-    for (int i = 0; i < decimalPlaces; i++)
-    {
-        roundingFactor /= 10.0;
-    }
-    num += roundingFactor;
-
-    // ·ÖÀëÕûÊýºÍÐ¡Êý²¿·Ö
-    int integerPart = (int)num;
-    float fractionalPart = num - integerPart;
-
-    // ×ª»»ÕûÊý²¿·Ö
-    str += sprintf(str, "%d", integerPart);
-
-    // ´¦ÀíÐ¡Êý²¿·Ö
-    if (decimalPlaces > 0)
-    {
-        *str++ = '.';
-        for (int i = 0; i < decimalPlaces; i++)
-        {
-            fractionalPart *= 10;
-            int digit = (int)fractionalPart;
-            *str++ = '0' + digit;
-            fractionalPart -= digit;
-        }
-    }
-    *str = '\0';
-}
-
-// ÅúÁ¿´òÓ¡¸¡µãÊý
-void printFloats(float *numbers, int count, int decimalPlaces)
-{
-    char buffer[50];
-    for (int i = 0; i < count; i++)
-    {
-        floatToString(numbers[i], buffer, decimalPlaces);
-        uart_printf("Number %d: %s\r\n", i + 1, buffer);
-    }
-}
 
 /**
  * @brief ¶ÁÈ¡´«¸ÐÆ÷¼Ä´æÆ÷Êý¾Ý
@@ -157,7 +98,6 @@ uint8_t read_sensor_data(uint8_t reg_addr)
     i2c_read(I2C_ADDR, reg_addr, &data, 1);
     return data;
 }
-
 /**
  * @brief Ð´Èë´«¸ÐÆ÷¼Ä´æÆ÷Êý¾Ý
  * @param reg_addr ¼Ä´æÆ÷µØÖ·
@@ -174,7 +114,6 @@ void write_sensor_data(uint8_t reg_addr, uint8_t data)
  * @param gyro_raw ´æ´¢ÍÓÂÝÒÇÊý¾ÝµÄÊý×é
 gyro_raw: 0->y  1->x  2->x   ½Ç¶È
 acc_raw£º0->x, 1->y, 2->z  ¼ÓËÙ¶È
-
  */
 void get_gyro_data(int16_t *gyro_raw, int16_t *acc_raw)
 {
@@ -190,13 +129,6 @@ void get_gyro_data(int16_t *gyro_raw, int16_t *acc_raw)
     gyro_raw[0] = (gyro_raw_8[0] << 8) + gyro_raw_8[1];
     gyro_raw[1] = (gyro_raw_8[2] << 8) + gyro_raw_8[3];
     gyro_raw[2] = (gyro_raw_8[4] << 8) + gyro_raw_8[5];
-
-
-//    for (int i = 0; i < MOUSE_DATA_LENGTH; i++)
-//    {
-//        acc_raw[i] = (acc_raw[i] > ACCEL_MAX) ? ACCEL_MAX : ((acc_raw[i] < ACCEL_MIN) ? ACCEL_MIN : acc_raw[i]);
-//        gyro_raw[i] = (gyro_raw[i] > MOUSE_MAX) ? MOUSE_MAX : ((gyro_raw[i] < MOUSE_MIN) ? MOUSE_MIN : gyro_raw[i]);
-//    }
 }
 
 // Ô­Ê¼Êý¾Ý×ªÎïÀíÁ¿
@@ -206,9 +138,9 @@ void raw_to_physical(int16_t ax,int16_t ay,int16_t az,int16_t gx,int16_t gy,int1
 	imu_9.f_acc[1] = (float)(ay-imu_9.acc_zero[1]) / ACCEL_SSF;
 	imu_9.f_acc[2] = (float)(az-imu_9.acc_zero[2]) / ACCEL_SSF;
 
-	imu_9.f_gyro[0] = (float)(gx-imu_9.gyro_zero[0])/65.5; //  ÍÓÂÝÒÇÁ¿³ÌÎª:¡À500dps  »ñÈ¡µ½µÄÍÓÂÝÒÇÊý¾Ý³ýÒÔ 57.1£¬    ¿ÉÒÔ×ª»¯Îª´øÎïÀíµ¥Î»µÄÊý¾Ý£¬µ¥Î»Îª£º¡ã/s
-	imu_9.f_gyro[1] = (float)(gy-imu_9.gyro_zero[1])/65.5;
-	imu_9.f_gyro[2] = (float)(gz-imu_9.gyro_zero[2])/65.5;
+	imu_9.f_gyro[0] = (float)(gx-imu_9.gyro_zero[0])/GYRO_SSF; //  ÍÓÂÝÒÇÁ¿³ÌÎª:¡À500dps  »ñÈ¡µ½µÄÍÓÂÝÒÇÊý¾Ý³ýÒÔ 57.1£¬    ¿ÉÒÔ×ª»¯Îª´øÎïÀíµ¥Î»µÄÊý¾Ý£¬µ¥Î»Îª£º¡ã/s
+	imu_9.f_gyro[1] = (float)(gy-imu_9.gyro_zero[1])/GYRO_SSF;
+	imu_9.f_gyro[2] = (float)(gz-imu_9.gyro_zero[2])/GYRO_SSF;
 }
 
 // ¶¨Òå²ÉÑùÊ±¼ä¼ä¸ô£¨µ¥Î»£ºÃë£©
@@ -235,64 +167,21 @@ void calculate_displacement(float *gyro_g, float *angular_displacement, float *l
 
         // ¸üÐÂÉÏÒ»´ÎµÄ½ÇËÙ¶ÈÖµ
         prev_gyro[i] = current_gyro;
-
-        //			numbers[0] = gyro_g[0] ;
-        //			numbers[1] = gyro_g[2] ;
-        //			numbers[2] = linear_displacement[0] ;
-        //			numbers[3] = linear_displacement[2] ;
-        //		 printFloats(numbers, 4, 2);
     }
 }
 static float last_angle = 0.0f;
 static int last_ax = 0, last_az = 0;
-int ax, az, temp;
-int16_t value;
-// ¸ù¾Ý¼ÓËÙ¶È¼Æ X Óë Z Êý¾Ý¼ÆËã pitch ½Ç£¨µ¥Î»?£©
-float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
-	
-		ax = acc_raw[0];
-    az = acc_raw[2];
-        // Ô­ÓÐµÄÂß¼­
-        for (int i = 0; i < 46; i++) {
-            temp = abs(ax);
-            if (temp >= angle_Tab2[i + 1] && temp < angle_Tab2[i]) {
-                value = 90 - i * 2;
-                break;
-            }
-        }
-				
-			//float value =  ax * 90.0 / 8192;
-			if(ax > 0 && az < 0){
-				 value = value;  // 1
-			}else if(ax > 0 && az > 0){      // 2
-				 value = 180 - value;
-			}else if(ax < 0 && az > 0){      // 3
-				 value = 180 + value;
-			}else if(ax < 0 && az < 0){            // 4
-				 value = 360 - value;
-			}
-			
-			return value;
-	 }	
-
 
 //Ò»½×»¥²¹ÂË²¨
 float K1 =0.1; // ¶Ô¼ÓËÙ¶È¼ÆÈ¡ÖµµÄÈ¨ÖØ
 float dt=0.001;//×¢Òâ£ºdtµÄÈ¡ÖµÎªÂË²¨Æ÷²ÉÑùÊ±¼ä
-float angle_P,angle_R;
+float angle_P;
 
 float yijiehubu_P(float angle_m, float gyro_m)//²É¼¯ºó¼ÆËãµÄ½Ç¶ÈºÍ½Ç¼ÓËÙ¶È
 {
      angle_P = K1 * angle_m + (1-K1) * (angle_P + gyro_m * dt);
          return angle_P;
 }
- 
-float yijiehubu_R(float angle_m, float gyro_m)//²É¼¯ºó¼ÆËãµÄ½Ç¶ÈºÍ½Ç¼ÓËÙ¶È
-{
-     angle_R = K1 * angle_m + (1-K1) * (angle_R + gyro_m * dt);
-         return angle_R;
-}
-
 
 
 // Èý½Çº¯ÊýµÄ¼ÆËã
@@ -345,64 +234,18 @@ int common_cos_val_calculate(int angle)
 }
 void rotate_point(float ax, float az, float degrees, float *new_ax, float *new_az)
 {
-    // ½«½Ç¶È×ª»¯Îª»¡¶È
-    //	float radians = degrees *M_PI / 180.0f;
-    //	float cos_theta = cosf(radians);
-    //	float sin_theta = sinf(radians);
-    //
-    //		*new_ax = ax * cos_theta - az * sin_theta;
-    //    *new_az = ax * sin_theta + az * cos_theta;
     degrees = degrees * 10;
     *new_ax = ax * COS(degrees) - az * SIN(degrees);
     *new_az = ax * SIN(degrees) + az * COS(degrees);
-
-//    numbers[0] = degrees;
-//    numbers[1] = COS(degrees);
-//    numbers[2] = SIN(degrees);
-//    printFloats(numbers, 3, 2);
 }
 
-void Filter_threshold(int16_t *gyro_raw, int16_t *gyro_filter)
+void Filter_threshold()
 {
-    for (int i = 0; i < 3; i++)
-    {
-        if (gyro_raw[i] < 1000 && gyro_raw[i] > -1000)
-        {
-            gyro_filter[i] = 0; // ÉèÎª 0
-        }
-        else
-        {
-            gyro_filter[i] = gyro_raw[i];
-        }
-    }
+ if(abs(imu_9.i_gyro[0]) < 500 && abs(imu_9.i_gyro[1]) < 500 && abs(imu_9.i_gyro[2])< 500){
+		imu_9.i_gyro[0] = imu_9.i_gyro[1] = imu_9.i_gyro[2] = 0;
+	}
 }
 
-// ÍÓÂÝÒÇÐ£×¼£¨¾²Ö¹Ê±²ÉÑù100´ÎÈ¡¾ùÖµ£©
-void calibrate_gyro(void)
-{
-    const int num_samples = 100;
-    long sum[3] = {0, 0, 0};
-    int16_t gyro_raw[3];
-
-    for (int i = 0; i < num_samples; i++)
-    {
-        get_gyro_data(NULL, gyro_raw);
-        sum[0] += gyro_raw[0];
-        sum[1] += gyro_raw[1];
-        sum[2] += gyro_raw[2];
-        Delay_ms(1);
-    }
-
-    GYRO_OFFSET[0] = sum[0] / num_samples;
-    GYRO_OFFSET[1] = sum[1] / num_samples;
-    GYRO_OFFSET[2] = sum[2] / num_samples;
-}
-
-// µÍÍ¨ÂË²¨º¯Êý£º¼òµ¥Ö¸ÊýÂË²¨
-float low_pass_filter(float current, float prev_filtered, float alpha)
-{
-    return alpha * current + (1.0 - alpha) * prev_filtered;
-}
 
 //»¬¶¯ÂË²¨
 int16_t window_filter(int16_t data, int16_t *buf, uint8_t len)
@@ -440,6 +283,7 @@ void imu_final_data_get(void)
 	int16_t filter_gx ,filter_gy,filter_gz ;
 
 	  get_gyro_data(imu_9.i_gyro,imu_9.i_acc); //²ÉÑùµÃµ½¾ÅÖáÔ­Ê¼Êý¾Ý
+		Filter_threshold();
 	  //Ô­Ê¼Êý¾Ý´°¿ÚÂË²¨
 	  filter_ax = window_filter(imu_9.i_acc[0],window_ax,WIN_NUM);
 	  filter_ay = window_filter(imu_9.i_acc[1],window_ay,WIN_NUM);
@@ -452,13 +296,59 @@ void imu_final_data_get(void)
 		raw_to_physical(filter_ax,filter_ay,filter_az,filter_gx,filter_gy,filter_gz);
 }
 
-float q0 = 1, q1 = 0, q2 = 0, q3 = 0;  // ³õÊ¼×ËÌ¬ËÄÔªÊý£¬ÓÉÉÏÆª²©ÎÄÌáµ½µÄ±ä»»ËÄÔªÊý¹«Ê½µÃÀ´
-float exInt = 0, eyInt = 0, ezInt = 0; // µ±Ç°¼Ó¼Æ²âµÃµÄÖØÁ¦¼ÓËÙ¶ÈÔÚÈýÖáÉÏµÄ·ÖÁ¿
-                                       // ÓëÓÃµ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿µÄÎó²îµÄ»ý·Ö
+//Ëã¸ùºÅµ¹Êý-----¿ìÒ»Ð©
+static float invSqrt(float x){
+	float halfx=0.5f*x;
+	float y=x;
+	long i=*(long*)&y;
+	i=0x5f3759df-(i>>1);
+	y=*(float*)&i;
+	y=y*(1.5f-(halfx*y*y));
+	return y;
+}
 
-static float yaw = 0;
-static float pitch = 0;
-static float roll = 0;
+
+
+typedef struct 
+{
+    float LastP;//ÉÏ´Î¹ÀËãÐ­·½²î ³õÊ¼»¯ÖµÎª0.02
+    float Now_P;//µ±Ç°¹ÀËãÐ­·½²î ³õÊ¼»¯ÖµÎª0
+    float out;//¿¨¶ûÂüÂË²¨Æ÷Êä³ö ³õÊ¼»¯ÖµÎª0
+    float Kg;//¿¨¶ûÂüÔöÒæ ³õÊ¼»¯ÖµÎª0
+    float Q;//¹ý³ÌÔëÉùÐ­·½²î ³õÊ¼»¯ÖµÎª0.001
+    float R;//¹Û²âÔëÉùÐ­·½²î ³õÊ¼»¯ÖµÎª0.543
+}KFP;//Kalman Filter parameter
+#define Kp 10.0f                  // ÕâÀïµÄKpKiÊÇÓÃÓÚµ÷Õû¼ÓËÙ¶È¼ÆÐÞÕýÍÓÂÝÒÇµÄËÙ¶È
+#define Ki 0.000f
+#define dt   0.005
+#define halfT 0.01f
+
+KFP KFP_accelX={0.02,0,0,0,0.001,0.543};
+KFP KFP_accelY={0.02,0,0,0,0.001,0.543};
+KFP KFP_accelZ={0.02,0,0,0,0.001,0.543};
+KFP KFP_gyroX={0.02,0,0,0,0.001,0.543};
+KFP KFP_gyroY={0.02,0,0,0,0.001,0.543};
+KFP KFP_gyroZ={0.02,0,0,0,0.001,0.543};
+/**
+ *¿¨¶ûÂüÂË²¨Æ÷
+ *@param KFP *kfp ¿¨¶ûÂü½á¹¹Ìå²ÎÊý
+ *   float input ÐèÒªÂË²¨µÄ²ÎÊýµÄ²âÁ¿Öµ£¨¼´´«¸ÐÆ÷µÄ²É¼¯Öµ£©
+ *@return ÂË²¨ºóµÄ²ÎÊý£¨×îÓÅÖµ£©
+ */
+ float kalmanFilter(KFP *kfp,float input)
+ {
+     //Ô¤²âÐ­·½²î·½³Ì£ºkÊ±¿ÌÏµÍ³¹ÀËãÐ­·½²î = k-1Ê±¿ÌµÄÏµÍ³Ð­·½²î + ¹ý³ÌÔëÉùÐ­·½²î
+     kfp->Now_P = kfp->LastP + kfp->Q;
+     //¿¨¶ûÂüÔöÒæ·½³Ì£º¿¨¶ûÂüÔöÒæ = kÊ±¿ÌÏµÍ³¹ÀËãÐ­·½²î / £¨kÊ±¿ÌÏµÍ³¹ÀËãÐ­·½²î + ¹Û²âÔëÉùÐ­·½²î£©
+     kfp->Kg = kfp->Now_P / (kfp->Now_P + kfp->R);
+     //¸üÐÂ×îÓÅÖµ·½³Ì£ºkÊ±¿Ì×´Ì¬±äÁ¿µÄ×îÓÅÖµ = ×´Ì¬±äÁ¿µÄÔ¤²âÖµ + ¿¨¶ûÂüÔöÒæ * £¨²âÁ¿Öµ - ×´Ì¬±äÁ¿µÄÔ¤²âÖµ£©
+     kfp->out = kfp->out + kfp->Kg * (input -kfp->out);//ÒòÎªÕâÒ»´ÎµÄÔ¤²âÖµ¾ÍÊÇÉÏÒ»´ÎµÄÊä³öÖµ
+     //¸üÐÂÐ­·½²î·½³Ì: ±¾´ÎµÄÏµÍ³Ð­·½²î¸¶¸ø kfp->LastP ÍþÏÂÒ»´ÎÔËËã×¼±¸¡£
+     kfp->LastP = (1-kfp->Kg) * kfp->Now_P;
+     return kfp->out;
+ }
+ 
+static float yaw = 0, pitch = 0, roll = 0;
 void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±íÍÓÂÝÒÇ£¬a±í¼Ó¼Æ
 {
     float q0temp, q1temp, q2temp, q3temp; // ËÄÔªÊýÔÝ´æ±äÁ¿£¬Çó½âÎ¢·Ö·½³ÌÊ±ÒªÓÃ
@@ -466,6 +356,8 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±
     float vx, vy, vz;                     // µ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿
     float ex, ey, ez;                     // µ±Ç°¼Ó¼Æ²âµÃµÄÖØÁ¦¼ÓËÙ¶ÈÔÚÈýÖáÉÏµÄ·ÖÁ¿
 																					// ÓëÓÃµ±Ç°×ËÌ¬¼ÆËãµÃÀ´µÄÖØÁ¦ÔÚÈýÖáÉÏµÄ·ÖÁ¿µÄÎó²î
+		float q0 = 1, q1 = 0, q2 = 0, q3 = 0;  // ³õÊ¼×ËÌ¬ËÄÔªÊý£¬ÓÉÉÏÆª²©ÎÄÌáµ½µÄ±ä»»ËÄÔªÊý¹«Ê½µÃÀ´
+		float exInt = 0, eyInt = 0, ezInt = 0; // µ±Ç°¼Ó¼Æ²âµÃµÄÖØÁ¦¼ÓËÙ¶ÈÔÚÈýÖáÉÏµÄ·ÖÁ¿
     // ÏÈ°ÑÕâÐ©ÓÃµÃµ½µÄÖµËãºÃ
     float q0q0 = q0 * q0;
     float q0q1 = q0 * q1;
@@ -476,11 +368,9 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±
     float q2q3 = q2 * q3;
     float q3q3 = q3 * q3;
 
-//    if (ax * ay * az == 0) // ¼Ó¼Æ´¦ÓÚ×ÔÓÉÂäÌå×´Ì¬Ê±²»½øÐÐ×ËÌ¬½âËã£¬ÒòÎª»á²úÉú·ÖÄ¸ÎÞÇî´óµÄÇé¿ö
-//        return;
-		
-
-    norm = sqrt(ax * ax + ay * ay + az * az); // µ¥Î»»¯¼ÓËÙ¶È¼Æ£¬
+    norm = sqrt(ax * ax + ay * ay + az * az); // µ¥Î»»¯¼ÓËÙ¶È¼Æ
+		if(norm == 0)return;
+	
     ax = ax / norm;                           // ÕâÑù±ä¸üÁËÁ¿³ÌÒ²²»ÐèÒªÐÞ¸ÄKP²ÎÊý£¬ÒòÎªÕâÀï¹éÒ»»¯ÁË
     ay = ay / norm;
     az = az / norm;
@@ -526,12 +416,97 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g±
     yaw = atan2(2 * q1 * q2 + 2 * q0 * q3, -2 * q2 * q2 - 2 * q3 * q3 + 1) * 57.3;  // unit:degree
     pitch = asin(-2 * q1 * q3 + 2 * q0 * q2) * 57.3;                                // unit:degree
     roll = atan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2 * q2 + 1) * 57.3; // unit:degree
-		numbers[0] = roll;
-//    numbers[1] = pitch;
-//    numbers[2] = yaw;
-    printFloats(numbers, 1, 2);
 }
 
+
+//a¼ÓËÙ¶È g½ÇËÙ¶È  a¡ª¡ª>g   g->dps
+float q0 = 1, q1 = 0, q2 = 0, q3 = 0;
+void algorithm(float ax,float ay,float az,float gx,float gy,float gz){
+	gx=gx*0.0174f;//½«dps×ª»»Îª»¡¶È
+	gy=gy*0.0174f;
+	gz=gz*0.0174f;
+	
+	float recip;//Æ½·½¸ùµ¹Êý
+	recip=invSqrt(ax*ax+ay*ay+az*az);
+	//ÌáÈ¡×ËÌ¬¾ØÕóµÄÖØÁ¦·ÖÁ¿
+	float Vx,Vy,Vz;
+	Vx=2*(q1*q3-q0*q2);
+	Vy=2*(q0*q1+q2*q3);
+	Vz=1-2*q1*q1-2*q2*q2;
+	//Çó×ËÌ¬Îó²î
+	float ex,ey,ez;
+	ex=ay*Vz-az*Vy;
+	ey=az*Vx-ax*Vz;
+	ez=ax*Vy-ay*Vx;
+	//»ý·ÖÎó²î
+	float accex=0,accey=0,accez=0;
+  accex=accex+ex*Ki*dt;
+	accey=accey+ey*Ki*dt;
+	accez=accez+ez*Ki*dt;
+	//»¥²¹ÂË²¨£¬Ê¹ÓÃpid½øÐÐÎó²îÐÞÕý
+	gx=gx+Kp*ex+accex;
+	gy=gy+Kp*ey+accey;
+	gz=gz+Kp*ez+accez;
+	//½âËÄÔªÊýÎ¢·Ö·½³ÌÈçÏÂ
+	gx=gx*(0.5f*dt);
+	gy=gy*(0.5f*dt);
+	gz=gz*(0.5f*dt);
+	q0=q0+(-q1*gx-q2*gy-q3*gz);
+	q1=q1+(q0*gx+q2*gz-q3*gy);
+	q2=q2+(q0*gy-q1*gz+q3*gx);
+	q3=q3+(q0*gz+q1*gy-q2*gx);
+	//¹éÒ»»¯
+	recip=invSqrt(q0*q0+q1*q1+q2*q2+q3*q3);
+	q0=q0*recip;
+	q1=q1*recip;
+	q2=q2*recip;
+	q3=q3*recip;
+	//¼ÆËã×ËÌ¬½Ç
+  float g1,g2,g3,g4,g5;
+	g1=2.0f*(q1*q3-q0*q2);
+	g2=2.0f*(q0*q1+q2*q3);
+	g3=q0*q0-q1*q1-q2*q2+q3*q3;
+	g4=2.0f*(q1*q2+q0*q3);
+	g5=q0*q0+q1*q1-q2*q2-q3*q3;
+	
+  pitch=-asinf(g1)*57.3f;
+	roll=atanf(g2/g3)*57.3f;
+	yaw=atanf(g4/g5)*57.3f;
+  uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
+}
+
+int16_t value;
+// ¸ù¾Ý¼ÓËÙ¶È¼Æ X Óë Z Êý¾Ý¼ÆËã pitch ½Ç£¨µ¥Î»?£©
+float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
+	int ax, az, temp;
+		ax = acc_raw[0];
+    az = acc_raw[2];
+        // Ô­ÓÐµÄÂß¼­
+        for (int i = 0; i < 46; i++) {
+            temp = abs(ax);
+            if (temp >= angle_Tab2[i + 1] && temp < angle_Tab2[i]) {
+                value = 90 - i * 2;
+                break;
+            }
+        }
+			roll = -roll;	
+			//float value =  ax * 90.0 / 8192;
+			if(ax > 0 && az < 0){
+				 value = value;                // 1
+				roll = roll;
+			}else if(ax > 0 && az > 0){      // 2
+				 value = 180 - value;
+				roll = 180 - roll;
+			}else if(ax < 0 && az > 0){      // 3
+				 value = 180 + value;
+				roll = 180 + roll;
+			}else if(ax < 0 && az < 0){            // 4
+				 value = 360 - value;
+				roll = 360 - roll;
+			}
+			
+			return roll;
+	 }
 
 void mouse_init()
 {
@@ -543,11 +518,11 @@ void mouse_init()
     gpio_config(03, SC_FUN, PULL_NONE); // ÅäÖÃSCLÒý½Å
 
     // ÉèÖÃÍÓÂÝÒÇÁ¿³ÌÎª¡À500 dps
-    uint8_t gyro_range = 0x45; // ¸ù¾ÝÊý¾Ý±íÖÐµÄGYRO_CONFIG0¼Ä´æÆ÷ÉèÖÃ  //0~3 0101: 1.6k Hz    5~6    000: ¡À2000 dps
+    uint8_t gyro_range = 0x49; // ¸ù¾ÝÊý¾Ý±íÖÐµÄGYRO_CONFIG0¼Ä´æÆ÷ÉèÖÃ  //0~3 0101: 100k Hz    5~6    000: ¡À2000 dps
     write_sensor_data(0x20, gyro_range);
 
     // ÉèÖÃ¼ÓËÙ¶È¼ÆÁ¿³ÌÎª¡À4g
-    uint8_t accel_range = 0x45; // ¸ù¾ÝÊý¾Ý±íÖÐµÄACCEL_CONFIG0¼Ä´æÆ÷ÉèÖÃ
+    uint8_t accel_range = 0x49; // ¸ù¾ÝÊý¾Ý±íÖÐµÄACCEL_CONFIG0¼Ä´æÆ÷ÉèÖÃ
     write_sensor_data(0x21, accel_range);
 
     // ÅäÖÃµçÔ´¹ÜÀí¼Ä´æÆ÷£¬Ê¹ÄÜÍÓÂÝÒÇºÍ¼ÓËÙ¶È¼Æ
@@ -563,62 +538,73 @@ double pos_t = 0;
 
 double pre_x = 0;
 double pre_y = 0;
-
+float ax,ay,az,gx,gy,gz;
+float krm[6]={0};
 void mouse()
 {
 
-    get_gyro_data(gyro_raw, acc_raw);
-    Filter_threshold(gyro_raw, gyro_filter);
-    //uart_printf("gyro_raw: 	X=%d, Y=%d, Z=%d \r\n", gyro_raw[0], gyro_raw[1], gyro_raw[2]);
-    //uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", acc_raw[0], acc_raw[1], acc_raw[2]);
+//    get_gyro_data(gyro_raw, acc_raw);
+//    Filter_threshold(gyro_raw, gyro_filter);
+//    //uart_printf("gyro_raw: 	X=%d, Y=%d, Z=%d \r\n", gyro_raw[0], gyro_raw[1], gyro_raw[2]);
+//    //uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", acc_raw[0], acc_raw[1], acc_raw[2]);
 
-    
-		//IMUupdate(gyro_g[0], gyro_g[1], gyro_g[2], acc_g[0], acc_g[1], acc_g[2]);
+//		//IMUupdate(gyro_g[0], gyro_g[1], gyro_g[2], acc_g[0], acc_g[1], acc_g[2]);
 
-    calculate_displacement(gyro_g, angular_displacement, linear_displacement);
-		uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", (int16)gyro_g[0], (int16)gyro_g[1], (int16)gyro_g[2]);
-    float acc_angle_x = calculate_acc_angle(acc_raw, gyro_raw);
-		float angle_p = yijiehubu_P(gyro_g[2], acc_angle_x);
-    rotate_point(linear_displacement[2], linear_displacement[0], angle_p, &new_ax, &new_az);
+//    calculate_displacement(gyro_g, angular_displacement, linear_displacement);
+//		uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", (int16)gyro_g[0], (int16)gyro_g[1], (int16)gyro_g[2]);
+//    float acc_angle_x = calculate_acc_angle(acc_raw, gyro_raw);
+//		float angle_p = yijiehubu_P(gyro_g[2], acc_angle_x);
+//    rotate_point(linear_displacement[2], linear_displacement[0], angle_p, &new_ax, &new_az);
 
-    ax_sum += linear_displacement[2] * cursor_speed;
-    az_sum += linear_displacement[0] * cursor_speed; // cursor_speed
+//    ax_sum += linear_displacement[2] * cursor_speed;
+//    az_sum += linear_displacement[0] * cursor_speed; // cursor_speed
+//    mouse_X = ax_sum;
+//    mouse_Y = -az_sum;
+
+//    ax_sum -= mouse_X;
+//    az_sum += mouse_Y;
+
+//    if (single_monitor_flag)
+//    {
+//        current_mouse_x += mouse_X;
+//        current_mouse_y += mouse_Y;
+//        if (current_mouse_x < 0)
+//            current_mouse_x = 0;
+//        if (current_mouse_y < 0)
+//            current_mouse_y = 0;
+//        if (current_mouse_x > resolution_Width)
+//            current_mouse_x = resolution_Width;
+//        if (current_mouse_y > resolution_Height)
+//            current_mouse_y = resolution_Height;
+
+//        pos_t = current_mouse_x / pre_x;
+//        mouse_X = (int16_t)pos_t;
+
+//        pos_t = current_mouse_y / pre_y;
+//        mouse_Y = (int16_t)pos_t;
+
+//    }
+		imu_final_data_get();
+
+		krm[0]=kalmanFilter(&KFP_accelX,imu_9.f_acc[0]);//¿¨¶ûÂüÂË²¨
+		krm[1]=kalmanFilter(&KFP_accelY,imu_9.f_acc[1]);
+		krm[2]=kalmanFilter(&KFP_accelZ,imu_9.f_acc[2]);
+		krm[3]=kalmanFilter(&KFP_gyroX,imu_9.f_gyro[0]);
+		krm[4]=kalmanFilter(&KFP_gyroY,imu_9.f_gyro[1]);
+		krm[5]=kalmanFilter(&KFP_gyroZ,imu_9.f_gyro[2]);
+		algorithm(krm[0],krm[1],krm[2],krm[3],krm[4],krm[5]);//²ÉÓÃ¿¨¶ûÂüÂË²¨
+
+		roll = calculate_acc_angle(acc_raw, gyro_raw);
+
+    calculate_displacement(imu_9.f_gyro, angular_displacement, linear_displacement);
+		
+    rotate_point(linear_displacement[2], linear_displacement[0], roll, &new_ax, &new_az);
+
+    ax_sum += new_ax * cursor_speed;
+    az_sum += new_az * cursor_speed; // cursor_speed
     mouse_X = ax_sum;
     mouse_Y = -az_sum;
 
     ax_sum -= mouse_X;
     az_sum += mouse_Y;
-
-    if (single_monitor_flag)
-    {
-        current_mouse_x += mouse_X;
-        current_mouse_y += mouse_Y;
-        if (current_mouse_x < 0)
-            current_mouse_x = 0;
-        if (current_mouse_y < 0)
-            current_mouse_y = 0;
-        if (current_mouse_x > resolution_Width)
-            current_mouse_x = resolution_Width;
-        if (current_mouse_y > resolution_Height)
-            current_mouse_y = resolution_Height;
-
-        pos_t = current_mouse_x / pre_x;
-        mouse_X = (int16_t)pos_t;
-
-        pos_t = current_mouse_y / pre_y;
-        mouse_Y = (int16_t)pos_t;
-
-    }
-
-    // mouse_X = (mouse_X > MOUSE_MAX)?MOUSE_MAX :(mouse_X < MOUSE_MIN ? MOUSE_MIN : mouse_X);
-    // mouse_Y = (mouse_Y > MOUSE_MAX)?MOUSE_MAX :(mouse_Y < MOUSE_MIN ? MOUSE_MIN : mouse_Y);
-
-//    numbers[0] = roll;
-//    numbers[1] = pitch;
-//    numbers[2] = yaw;
-//    numbers[3] = new_ax;
-//    numbers[4] = new_az;
-//    numbers[5] = mouse_X;
-//    numbers[6] = mouse_Y;
-//    printFloats(numbers, 3, 2);
 }

@@ -23,9 +23,9 @@
 #define R_MEASURE 0.03
 #define MOUSE_DATA_LENGTH 3
 
-#define Kp 2.0f                        // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
-#define Ki 0.01f                        
-#define halfT 0.005f             // 采样周期的一半，用于求解四元数微分方程时计算角增量
+//#define Kp 2.0f                        // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
+//#define Ki 0.01f                        
+//#define halfT 0.005f             // 采样周期的一半，用于求解四元数微分方程时计算角增量
 
 int common_sin_val_calculate(int angle);
 int common_cos_val_calculate(int angle);
@@ -38,10 +38,6 @@ int common_tan_val_calculate(int angle);
 #define WIN_NUM 5
 
 
-typedef struct {
-    float estimate;  // 当前估计值
-    float error;     // 当前估计误差
-} KalmanFilter;
 
 typedef struct
 {
@@ -79,13 +75,11 @@ void sensor_init(void);
 uint8_t read_sensor_data(uint8_t reg_addr);
 void write_sensor_data(uint8_t reg_addr, uint8_t data);
 void get_gyro_data(int16_t *gyro_raw, int16_t *acc_raw);
-void Filter_threshold(int16_t *gyro_raw, int16_t *gyro_filter);
+void Filter_threshold();
 float calculate_acc_angle(int16_t* acc_raw, int16_t* gyro_raw);
 
 void calibrate_gyro(void);
 float low_pass_filter(float current, float prev_filtered, float alpha);
-void kalman_init(KalmanFilter *filter, float initial_estimate, float initial_error);
-float kalman_update(KalmanFilter *filter, float measurement);
 void process_data_with_kalman(int16_t *gyro_raw, int16_t *acc_raw, float *gyro_filtered, float *acc_filtered);
 void calculate_displacement(float *gyro_g, float *angular_displacement, float *linear_displacement);
 void rotate_point(float ax, float az, float degrees, float* new_ax, float* new_az);

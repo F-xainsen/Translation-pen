@@ -1,10 +1,10 @@
 .\obj\adc.o: ..\..\Src\driver\adc\adc.c
-.\obj\adc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\adc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\adc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\adc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\adc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\adc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\adc.o: .\system\user_config.h
 .\obj\adc.o: ..\..\src\driver\uart2\uart2.h
-.\obj\adc.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\adc.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\adc.o: ..\..\src\driver\uart\uart.h
 .\obj\adc.o: .\system\user_config.h
 .\obj\adc.o: ..\..\Src\driver\gpio\gpio.h
