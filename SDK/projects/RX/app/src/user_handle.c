@@ -303,7 +303,7 @@ void user_application_page_mode(void)
 	uart_printf("selfAddr=0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\r\n", selfAddr[0], selfAddr[1], selfAddr[2], selfAddr[3], selfAddr[4], selfAddr[5]);
 
     TRX_CE    = 0;
-    TRX_RF_CH = 0x80 + 38;
+    TRX_RF_CH = 0x80 + 70;
     TRX_CE    = 1;
     // user_rf_receive_page_set(); // Rx Mode
 
@@ -329,7 +329,7 @@ void user_application_page_mode(void)
                 if (
                     (uRXDataLens == 8) &&
                     (rf_fifo_data[0] == PAIR_HEADER) &&
-                    (rf_fifo_data[1] == PAIR_FLAG))
+                    (rf_fifo_data[1] == PAIR_FLAG+ pairStep))
                 {
                     TXAddr[0] = rf_fifo_data[2];
                     TXAddr[1] = rf_fifo_data[3];
@@ -339,7 +339,7 @@ void user_application_page_mode(void)
                     TXAddr[5] = rf_fifo_data[7];
 
                     rf_fifo_data[0] = PAIR_HEADER;
-                    rf_fifo_data[1] = PAIR_FLAG;
+                    rf_fifo_data[1] = PAIR_FLAG+ pairStep;
                     rf_fifo_data[2] = selfAddr[0];
                     rf_fifo_data[3] = selfAddr[1];
                     rf_fifo_data[4] = selfAddr[2];
@@ -382,7 +382,7 @@ void user_application_page_mode(void)
                 if (
                     (uRXDataLens == 14) &&
                     (rf_fifo_data[0] == PAIR_HEADER) &&
-                    (rf_fifo_data[1] == PAIR_FLAG) &&
+                    (rf_fifo_data[1] == PAIR_FLAG+ pairStep) &&
                     (rf_fifo_data[2] == TXAddr[0]) &&
                     (rf_fifo_data[3] == TXAddr[1]) &&
                     (rf_fifo_data[4] == TXAddr[2]) &&
@@ -397,7 +397,7 @@ void user_application_page_mode(void)
                     (rf_fifo_data[13] == selfAddr[5]))
                 {
                     rf_fifo_data[0]  = PAIR_HEADER;
-                    rf_fifo_data[1]  = PAIR_FLAG;
+                    rf_fifo_data[1]  = PAIR_FLAG+ pairStep;
                     rf_fifo_data[2]  = selfAddr[0];
                     rf_fifo_data[3]  = selfAddr[1];
                     rf_fifo_data[4]  = selfAddr[2];

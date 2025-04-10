@@ -1,9 +1,9 @@
 .\obj\rf_xvr_24.o: ..\..\Src\driver\rf\rf_xvr_24.c
-.\obj\rf_xvr_24.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\rf_xvr_24.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\rf_xvr_24.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\rf_xvr_24.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\rf_xvr_24.o: ..\..\Src\driver\rf\rf.h
 .\obj\rf_xvr_24.o: ..\..\src\driver\uart2\uart2.h
-.\obj\rf_xvr_24.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\rf_xvr_24.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\rf_xvr_24.o: ..\..\src\driver\uart\uart.h
 .\obj\rf_xvr_24.o: .\system\user_config.h
 .\obj\rf_xvr_24.o: ..\..\src\driver\uart2\uart2.h

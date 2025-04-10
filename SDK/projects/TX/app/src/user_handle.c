@@ -193,40 +193,42 @@ void user_application_normal_mode(void)
         else if (uart_rx_done)
         {
 
-            // if (uart_rx_index > MAX_PACKET_LEN)
-            // {
-            //     uart_rx_index = 0;
-            //     uart_rx_done  = 0;
-            //     continue;
-            // }
-            // for (uint8_t i = 0; i < uart_rx_index; i++)
-            // {
-            //     rf_fifo_data[i] = uart_rx_buf[i];
-            // }
+            if (uart_rx_index > MAX_PACKET_LEN)
+            {
+                uart_rx_index = 0;
+                uart_rx_done  = 0;
+                continue;
+            }
+            for (uint8_t i = 0; i < uart_rx_index; i++)
+            {
+                rf_fifo_data[i] = uart_rx_buf[i];
+            }
+            uart_printf("%d ==> uart send\r\n",uart_rx_index);
 
-            // SwitchToTxMode();
-            // Delay_ms(1);
+            SwitchToTxMode();
+            Delay_ms(1);
 
-            // if (uart_rx_index == 3 && uart_rx_buf[0] == 0xFA)
-            // {
-            //     ch_chan = 1;
-            // }
+            if (uart_rx_index == 3 && uart_rx_buf[0] == 0xFA)
+            {
+                ch_chan = 1;
+            }
 
-            // if (driver_rf_data_send_ACK(uart_rx_index)) // receive dongle send end package to mouse
-            // {
-            //     if (uart_rx_index == 1 && uart_rx_buf[0] == 0xF4)
-            //     {
-            //         system_data.system_mode = SYSTEM_PAGE;
-            //     }
-            // }else{
-            //     retransmit_count = 3;
-            //     retransmit_size = uart_rx_index;
-            //     memcpy(retransmit,uart_rx_buf,uart_rx_index);
-            // }
-            // SwitchToRxMode();
-            // Delay_ms(1);
+            if (driver_rf_data_send_ACK(uart_rx_index)) // receive dongle send end package to mouse
+            {
+                if (uart_rx_index == 1 && uart_rx_buf[0] == 0xF4)
+                {
+                    system_data.system_mode = SYSTEM_PAGE;
+                }
+            }else{
+                retransmit_count = 3;
+                retransmit_size = uart_rx_index;
+                memcpy(retransmit,uart_rx_buf,uart_rx_index);
+            }
+            SwitchToRxMode();
+            Delay_ms(1);
 
-            send_action(0x0f);
+            // send_action(0x03);
+            // uart_printf("0x03 action send");
 
             uart_rx_done  = 0;
             uart_rx_index = 0;
@@ -243,9 +245,12 @@ void user_application_normal_mode(void)
             driver_rf_data_send_ACK(1);
 
             jump_frequency();
-            SwitchToRxMode();
+            // SwitchToRxMode();
+            // uart_printf("jump freq\r\n");
+
+            send_action(0x0F);  // 8901跳频后需要接收一次数据
         
-            // Delay_ms(1);
+            Delay_ms(1);
         }
 
         // 重传
@@ -328,7 +333,7 @@ void user_application_page_mode(void)
     memcpy_2461(&TRX_TX_ADDR_0, rf_address_tx_pub, RF_ADDRESS_LEN);
 
     TRX_CE    = 0;
-    TRX_RF_CH = 0x80 + 38;
+    TRX_RF_CH = 0x80 + 70;
     TRX_CE    = 1;
 
     // user_rf_receive_set();	// TX mode
@@ -340,7 +345,7 @@ void user_application_page_mode(void)
         if (pairStep == 0)
         {
             rf_fifo_data[0] = PAIR_HEADER;
-            rf_fifo_data[1] = PAIR_FLAG;
+            rf_fifo_data[1] = PAIR_FLAG + pairStep;
             rf_fifo_data[2] = selfAddr[0];
             rf_fifo_data[3] = selfAddr[1];
             rf_fifo_data[4] = selfAddr[2];
@@ -360,7 +365,7 @@ void user_application_page_mode(void)
                 driver_rf_receive_package();
                 if (RF_flag & flag_rf_receive_page)
                 {
-                    if ((uRXDataLens == 8) && (rf_fifo_data[0] == PAIR_HEADER) && (rf_fifo_data[1] == PAIR_FLAG))
+                    if ((uRXDataLens == 8) && (rf_fifo_data[0] == PAIR_HEADER) && (rf_fifo_data[1] == PAIR_FLAG + pairStep))
                     {
                         uart_printf("[success] receive pair addr\r\n");
                         RXAddr[0] = rf_fifo_data[2];
@@ -370,17 +375,27 @@ void user_application_page_mode(void)
                         RXAddr[4] = rf_fifo_data[6];
                         RXAddr[5] = rf_fifo_data[7];
 
+                        uart_printf("%02x %02x %02x %02x %02x %02x\r\n",
+                            RXAddr[0],
+                            RXAddr[1],
+                            RXAddr[2],
+                            RXAddr[3],
+                            RXAddr[4],
+                            RXAddr[5]
+                        );
+
                         pairStep = 1;
                     }
                     else
                     {
-                        uart_printf("[fail] invalid pair addr\r\n");
+                        // uart_printf("[fail] invalid pair addr\r\n");
                     }
                 }
                 else
                 {
-                    uart_printf("[fail] receive pair addr\r\n");
+                    // uart_printf("[fail] receive pair addr\r\n");
                 }
+                
             }
             else
             {
@@ -390,7 +405,7 @@ void user_application_page_mode(void)
         else
         {
             rf_fifo_data[0]  = PAIR_HEADER;
-            rf_fifo_data[1]  = PAIR_FLAG;
+            rf_fifo_data[1]  = PAIR_FLAG + pairStep;
             rf_fifo_data[2]  = selfAddr[0];
             rf_fifo_data[3]  = selfAddr[1];
             rf_fifo_data[4]  = selfAddr[2];
@@ -419,7 +434,7 @@ void user_application_page_mode(void)
                     if (
                         (uRXDataLens == 14) &&
                         (rf_fifo_data[0] == PAIR_HEADER) &&
-                        (rf_fifo_data[1] == PAIR_FLAG) &&
+                        (rf_fifo_data[1] == PAIR_FLAG + pairStep) &&
                         (rf_fifo_data[2] == RXAddr[0]) &&
                         (rf_fifo_data[3] == RXAddr[1]) &&
                         (rf_fifo_data[4] == RXAddr[2]) &&
@@ -441,17 +456,17 @@ void user_application_page_mode(void)
                     }
                     else
                     {
-                        uart_printf("page confirm resp err\r\n");
+                        // uart_printf("page confirm resp err\r\n");
                     }
                 }
                 else
                 {
-                    uart_printf("no rx page resp\r\n");
+                    // uart_printf("no rx page resp\r\n");
                 }
             }
             else
             {
-                uart_printf("page confirm tx err\r\n");
+                // uart_printf("page confirm tx err\r\n");
             }
         }
 
@@ -590,6 +605,13 @@ extern volatile uint8_t  vibration_min;
 extern double pre_x;
 extern double pre_y;
 void receive_action(){
+    uart_printf("recv ==> ");
+    for (uint8_t i = 0; i < uRXDataLens; i++)
+    {
+        uart_printf("%02x ",rf_fifo_data[i]);
+    }
+    uart_printf("\r\n");
+    
     if(uRXDataLens != 10) return;
     switch (rf_fifo_data[0])
     {
@@ -634,7 +656,7 @@ void receive_action(){
         current_mouse_y = (rf_fifo_data[8] << 8) +  rf_fifo_data[9];
 
         
-        uart_printf("single_monitor %d: current_mouse_x: %d, current_mouse_y: %d, resolution_Width: %d, resolution_Height: %d\n",single_monitor_flag , current_mouse_x, current_mouse_y, resolution_Width, resolution_Height);
+        // uart_printf("single_monitor %d: current_mouse_x: %d, current_mouse_y: %d, resolution_Width: %d, resolution_Height: %d\n",single_monitor_flag , current_mouse_x, current_mouse_y, resolution_Width, resolution_Height);
 
         break;
         

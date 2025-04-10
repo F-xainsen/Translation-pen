@@ -1,7 +1,7 @@
 .\obj\user_handle.o: app\src\user_handle.c
 .\obj\user_handle.o: .\app\api\user_handle.h
-.\obj\user_handle.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\user_handle.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\user_handle.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\user_handle.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\user_handle.o: .\system\rwip_config.h
 .\obj\user_handle.o: ..\..\src\driver\uart2\uart2.h
 .\obj\user_handle.o: ..\..\src\driver\uart\uart.h
@@ -29,7 +29,7 @@
 .\obj\user_handle.o: ..\..\src\driver\sensor\driver_sensor.h
 .\obj\user_handle.o: ..\..\src\driver\timer\driver_timer.h
 .\obj\user_handle.o: ..\..\Src\driver\icu\icu.h
-.\obj\user_handle.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\user_handle.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\user_handle.o: ..\..\src\driver\flash\flash.h
 .\obj\user_handle.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\user_handle.o: ..\..\src\driver\usb_driver\driver_usb.h

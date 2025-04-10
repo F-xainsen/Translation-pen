@@ -1,11 +1,11 @@
 .\obj\aes.o: app\src\aes.c
 .\obj\aes.o: app\src\aes.h
-.\obj\aes.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\aes.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\aes.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\aes.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\aes.o: ..\..\src\plf\refip\src\arch\arch.h
 .\obj\aes.o: .\system\rwip_config.h
 .\obj\aes.o: ..\..\src\driver\uart2\uart2.h
-.\obj\aes.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\aes.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\aes.o: ..\..\src\driver\uart\uart.h
 .\obj\aes.o: .\system\user_config.h
 .\obj\aes.o: ..\..\src\driver\uart2\uart2.h

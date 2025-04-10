@@ -319,7 +319,7 @@ typedef struct
     float Q;//过程噪声协方差 初始化值为0.001
     float R;//观测噪声协方差 初始化值为0.543
 }KFP;//Kalman Filter parameter
-#define Kp 10.0f                  // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
+#define Kp 20.0f                  // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
 #define Ki 0.002f
 #define dt   0.005
 #define halfT 0.01f
@@ -414,7 +414,7 @@ float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
     az = acc_raw[2];
 
 				roll = fabs(pitch);
-				uart_printf("fabs_roll:%d\r\n",(int16_t)(roll * 10));
+				//uart_printf("fabs_roll:%d\r\n",(int16_t)(roll * 10));
 			//float value =  ax * 90.0 / 8192;
 			if(ax > 0 && az < 0){                // 1
 				roll = roll;
@@ -425,7 +425,13 @@ float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
 			}else if(ax < 0 && az < 0){       // 4
 				roll = 360 - roll;
 			}
-			//uart_printf("roll:%d\r\n",(int16_t)(roll * 10));
+			
+			if(roll > 70 && roll < 110)roll = 90;
+			if(roll > 250 && roll < 290)roll = 270;
+			
+			if((roll < 20 && roll > 0) || (roll < 360 && roll > 340))roll = 0;
+			if(roll > 160 && roll < 200)roll = 180;
+			uart_printf("roll:%d\r\n",(int16_t)(roll * 10));
 			return roll;
 	 }
 
@@ -463,48 +469,6 @@ float ax,ay,az,gx,gy,gz;
 float krm[6]={0};
 void mouse()
 {
-
-//    get_gyro_data(gyro_raw, acc_raw);
-//    Filter_threshold(gyro_raw, gyro_filter);
-//    //uart_printf("gyro_raw: 	X=%d, Y=%d, Z=%d \r\n", gyro_raw[0], gyro_raw[1], gyro_raw[2]);
-//    //uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", acc_raw[0], acc_raw[1], acc_raw[2]);
-
-//		//IMUupdate(gyro_g[0], gyro_g[1], gyro_g[2], acc_g[0], acc_g[1], acc_g[2]);
-
-//    calculate_displacement(gyro_g, angular_displacement, linear_displacement);
-//		uart_printf("gyro_filter: 	X=%d, Y=%d, Z=%d \r\n", (int16)gyro_g[0], (int16)gyro_g[1], (int16)gyro_g[2]);
-//    float acc_angle_x = calculate_acc_angle(acc_raw, gyro_raw);
-//		float angle_p = yijiehubu_P(gyro_g[2], acc_angle_x);
-//    rotate_point(linear_displacement[2], linear_displacement[0], angle_p, &new_ax, &new_az);
-
-//    ax_sum += linear_displacement[2] * cursor_speed;
-//    az_sum += linear_displacement[0] * cursor_speed; // cursor_speed
-//    mouse_X = ax_sum;
-//    mouse_Y = -az_sum;
-
-//    ax_sum -= mouse_X;
-//    az_sum += mouse_Y;
-
-//    if (single_monitor_flag)
-//    {
-//        current_mouse_x += mouse_X;
-//        current_mouse_y += mouse_Y;
-//        if (current_mouse_x < 0)
-//            current_mouse_x = 0;
-//        if (current_mouse_y < 0)
-//            current_mouse_y = 0;
-//        if (current_mouse_x > resolution_Width)
-//            current_mouse_x = resolution_Width;
-//        if (current_mouse_y > resolution_Height)
-//            current_mouse_y = resolution_Height;
-
-//        pos_t = current_mouse_x / pre_x;
-//        mouse_X = (int16_t)pos_t;
-
-//        pos_t = current_mouse_y / pre_y;
-//        mouse_Y = (int16_t)pos_t;
-
-//    }
 		imu_final_data_get();
 
 		krm[0]=kalmanFilter(&KFP_accelX,imu_9.f_acc[0]);//卡尔曼滤波
@@ -516,7 +480,6 @@ void mouse()
 		algorithm(krm[0],krm[1],krm[2],krm[3],krm[4],krm[5]);//采用卡尔曼滤波
 
 		roll = calculate_acc_angle((int16_t *)imu_9.i_acc, (int16_t *)imu_9.i_gyro);
-		//uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
     calculate_displacement(imu_9.f_gyro, angular_displacement, linear_displacement);
 		
     rotate_point(linear_displacement[2], linear_displacement[0], roll, &new_ax, &new_az);
@@ -528,4 +491,25 @@ void mouse()
 
     ax_sum -= mouse_X;
     az_sum += mouse_Y;
+
+       if (single_monitor_flag)
+   {
+       current_mouse_x += mouse_X;
+       current_mouse_y += mouse_Y;
+       if (current_mouse_x < 0)
+           current_mouse_x = 0;
+       if (current_mouse_y < 0)
+           current_mouse_y = 0;
+       if (current_mouse_x > resolution_Width)
+           current_mouse_x = resolution_Width;
+       if (current_mouse_y > resolution_Height)
+           current_mouse_y = resolution_Height;
+
+       pos_t = current_mouse_x / pre_x;
+       mouse_X = (int16_t)pos_t;
+
+       pos_t = current_mouse_y / pre_y;
+       mouse_Y = (int16_t)pos_t;
+
+   }
 }

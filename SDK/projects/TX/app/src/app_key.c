@@ -87,8 +87,8 @@ void key_long_press_handler(uint8_t key){
 
 // 长按释放
 void key_long_release_handler(uint8_t key){
-	if(key_press_count)key_press_count--;
-	gpio_set(0x11, 1);
+	if(key_press_count)  key_press_count--;
+	if(!key_press_count) gpio_set(0x11, 1);
 	switch (key)
 	{
 		case 0: // KEY_PAGE_UP
@@ -103,7 +103,6 @@ void key_long_release_handler(uint8_t key){
 			send_action(CLEAR_ACTION);
 			break;
 		case 4: // KEY_FUNC_TOP
-			mouse_en = 0;
 			send_action(CLEAR_ACTION);
 			break;
 		case 5: // KEY_FUNC_BOTTOM
@@ -117,8 +116,8 @@ void key_long_release_handler(uint8_t key){
 
 // 短按释放
 void key_short_release_handler(uint8_t key){
-	if(key_press_count)key_press_count--;
-	gpio_set(0x11, 1);
+	if(key_press_count)  key_press_count--;
+	if(!key_press_count) gpio_set(0x11, 1);
 	switch (key)
 	{
 		case 0: // KEY_PAGE_UP
@@ -135,7 +134,6 @@ void key_short_release_handler(uint8_t key){
 			send_action(CLEAR_ACTION);
 			break;
 		case 4: // KEY_FUNC_TOP
-			mouse_en = 0;
 			send_action(CLEAR_ACTION);
 			break;
 		case 5: // KEY_FUNC_BOTTOM

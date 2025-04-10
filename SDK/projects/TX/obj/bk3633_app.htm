@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\bk3633_app.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\bk3633_app.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 10 14:05:38 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 10 15:26:15 2025
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -192,8 +192,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get_input
 </UL>
-<BR>[Address Reference Count : 2]<UL><LI> application_main.o(.text)
-<LI> user_handle.o(.text)
+<BR>[Address Reference Count : 2]<UL><LI> user_handle.o(.text)
+<LI> application_main.o(.text)
 </UL>
 <P><STRONG><a name="[46]"></a>rwip_aes_encrypt</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, aes.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -266,7 +266,7 @@ Global Symbols
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 </UL>
 
-<P><STRONG><a name="[5d]"></a>receive_action</STRONG> (Thumb, 234 bytes, Stack size 0 bytes, user_handle.o(.text))
+<P><STRONG><a name="[5d]"></a>receive_action</STRONG> (Thumb, 254 bytes, Stack size 0 bytes, user_handle.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
@@ -275,18 +275,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 </UL>
 
-<P><STRONG><a name="[60]"></a>user_application_normal_mode</STRONG> (Thumb, 234 bytes, Stack size 0 bytes, user_handle.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
+<P><STRONG><a name="[60]"></a>user_application_normal_mode</STRONG> (Thumb, 622 bytes, Stack size 0 bytes, user_handle.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key_loop
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driver_rf_data_send_ACK
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SwitchToTxMode
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SwitchToRxMode
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_action
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jump_frequency
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse_send
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_action
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_rf_receive_package
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_rf_receive_set
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_fn24_main
 </UL>
@@ -297,7 +300,7 @@ Global Symbols
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 </UL>
 
-<P><STRONG><a name="[64]"></a>user_application_page_mode</STRONG> (Thumb, 1034 bytes, Stack size 0 bytes, user_handle.o(.text))
+<P><STRONG><a name="[64]"></a>user_application_page_mode</STRONG> (Thumb, 772 bytes, Stack size 0 bytes, user_handle.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcpy_2461
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write_some_data
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_read_data
@@ -316,7 +319,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_fn24_main
 </UL>
 
-<P><STRONG><a name="[31]"></a>user_fn24_main</STRONG> (Thumb, 234 bytes, Stack size 0 bytes, user_handle.o(.text))
+<P><STRONG><a name="[31]"></a>user_fn24_main</STRONG> (Thumb, 592 bytes, Stack size 0 bytes, user_handle.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xvr_reg_initial_24
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_config
@@ -347,7 +350,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key_press
 </UL>
 
-<P><STRONG><a name="[70]"></a>key_long_release_handler</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, app_key.o(.text))
+<P><STRONG><a name="[70]"></a>key_long_release_handler</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, app_key.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8 (via BLX)
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_action
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
@@ -355,7 +358,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key_release
 </UL>
 
-<P><STRONG><a name="[71]"></a>key_short_release_handler</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, app_key.o(.text))
+<P><STRONG><a name="[71]"></a>key_short_release_handler</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, app_key.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8 (via BLX)
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_action
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
@@ -502,7 +505,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 </UL>
 
-<P><STRONG><a name="[96]"></a>calculate_acc_angle</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[96]"></a>calculate_acc_angle</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
@@ -520,7 +523,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_fn24_main
 </UL>
 
-<P><STRONG><a name="[62]"></a>mouse</STRONG> (Thumb, 282 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
+<P><STRONG><a name="[62]"></a>mouse</STRONG> (Thumb, 420 bytes, Stack size 0 bytes, app_gyroscope.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
@@ -534,6 +537,7 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_final_data_get
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_displacement
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 </UL>
@@ -738,6 +742,7 @@ Global Symbols
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pll_clk_calibration
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_page_mode
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_rf_receive_page_set
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jump_frequency
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_rf_receive_set
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xvr_reg_initial
@@ -1138,6 +1143,7 @@ Global Symbols
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_acc_angle
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fReadRFAddr
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_page_mode
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_action
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_rf_receive_set
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_aes_test
@@ -2261,6 +2267,7 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_write
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_read
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write_some_data
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_application_normal_mode
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_aes_test
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rwip_aes_encrypt
 </UL>
@@ -2415,6 +2422,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotate_point
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mouse
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_action
 </UL>
 

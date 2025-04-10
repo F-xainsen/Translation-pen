@@ -3,8 +3,8 @@
 .\obj\application_mode_test.o: .\app\src\2.4\define_system.h
 .\obj\application_mode_test.o: ..\..\src\driver\usb_driver\Types.h
 .\obj\application_mode_test.o: ..\..\src\driver\uart2\uart2.h
-.\obj\application_mode_test.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\application_mode_test.o: C:\Users\ThinkPad\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\application_mode_test.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\application_mode_test.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\application_mode_test.o: ..\..\src\driver\uart\uart.h
 .\obj\application_mode_test.o: .\system\user_config.h
 .\obj\application_mode_test.o: ..\..\src\driver\uart2\uart2.h
