@@ -11,70 +11,12 @@
 #include <string.h>
 
 imu_t imu_9;
-float numbers[100];
 uint8_t cursor_speed = 1;
 extern int16_t mouse_X;
 extern int16_t mouse_Y;
-int16_t acc_raw[3], gyro_raw[3], gyro_filter[3];
-
-float acc_g[3], gyro_g[3], angular_displacement[3], linear_displacement[3];
+//int16_t acc_raw[3], gyro_raw[3];
+float angular_displacement[3], linear_displacement[3];
 float new_ax, new_az;
-float init_angle = 0;
-
-int16_t angle_Tab2[46] = // 4gmax  8bit  1=31.25mg
-    {
-        8192, // 90
-        8187, // 88°
-        8172, // 86°
-        8147, // 84°
-        8113, // 82°
-        8067, // 80°
-        8013, // 78°
-        7949, // 76°
-
-        7875, // 74°
-        7791, // 72°
-        7698, // 70°
-        7596, // 68°
-        7483, // 66°
-        7363, // 64°
-        7233, // 62°
-        7094, // 60°
-
-        6947, // 58°
-        6791, // 56°
-        6627, // 54°
-        6455, // 52
-        6275, // 50°
-        6087, // 48°
-        5893, // 46°
-        5691, // 44°
-
-        5481, // 42°
-        5266, // 40°
-        5044, // 38°
-        4815, // 36°
-        4581, // 34°
-        4341, // 32°
-        4096, // 30°
-        3946, // 28°
-
-        3591, // 26°
-        3332, // 24°
-        3069, // 22°
-        2802, // 20°
-        2531, // 18°
-        2258, // 16°
-        1982, // 14°
-        1703, // 12°
-
-        1422, // 10°
-        1140, // 8°
-        856,  // 6°
-        572,  // 4°
-        286,  // 2°
-        0     // 0°
-};
 
 static const int sinTable[91] = {0, 2, 3, 5, 7, 9, 10, 12, 14, 16, 17, 19, 21, 22, 24, 26, 28, 29, 31,
                                  33, 34, 36, 37, 39, 41, 42, 44, 45, 47, 48, 50, 52, 53, 54, 56, 57, 59, 60, 62, 63, 64, 66, 67, 68,
@@ -129,6 +71,7 @@ void get_gyro_data(int16_t *gyro_raw, int16_t *acc_raw)
     gyro_raw[0] = (gyro_raw_8[0] << 8) + gyro_raw_8[1];
     gyro_raw[1] = (gyro_raw_8[2] << 8) + gyro_raw_8[3];
     gyro_raw[2] = (gyro_raw_8[4] << 8) + gyro_raw_8[5];
+	
 }
 
 // 原始数据转物理量
@@ -168,19 +111,6 @@ void calculate_displacement(float *gyro_g, float *angular_displacement, float *l
         // 更新上一次的角速度值
         prev_gyro[i] = current_gyro;
     }
-}
-static float last_angle = 0.0f;
-static int last_ax = 0, last_az = 0;
-
-//一阶互补滤波
-float K1 =0.1; // 对加速度计取值的权重
-float dt=0.001;//注意：dt的取值为滤波器采样时间
-float angle_P;
-
-float yijiehubu_P(float angle_m, float gyro_m)//采集后计算的角度和角加速度
-{
-     angle_P = K1 * angle_m + (1-K1) * (angle_P + gyro_m * dt);
-         return angle_P;
 }
 
 
@@ -273,7 +203,6 @@ int16_t window_filter(int16_t data, int16_t *buf, uint8_t len)
 int16_t window_ax[WIN_NUM];
 int16_t window_ay[WIN_NUM];
 int16_t window_az[WIN_NUM];
-
 int16_t window_gx[WIN_NUM];
 int16_t window_gy[WIN_NUM];
 int16_t window_gz[WIN_NUM];
@@ -319,7 +248,7 @@ typedef struct
     float Q;//过程噪声协方差 初始化值为0.001
     float R;//观测噪声协方差 初始化值为0.543
 }KFP;//Kalman Filter parameter
-#define Kp 20.0f                  // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
+#define Kp 15.0f                  // 这里的KpKi是用于调整加速度计修正陀螺仪的速度
 #define Ki 0.002f
 #define dt   0.005
 #define halfT 0.01f
@@ -401,21 +330,22 @@ void algorithm(float ax,float ay,float az,float gx,float gy,float gz){
 	g5=q0*q0+q1*q1-q2*q2-q3*q3;
 	
   pitch=-asinf(g1)*57.3f;
-	roll=atanf(g2/g3)*57.3f;
-	yaw=atanf(g4/g5)*57.3f;
-  //uart_printf("%d, roll:%d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
+//	roll=atanf(g2/g3)*57.3f;
+//	yaw=atanf(g4/g5)*57.3f;
+		roll=atan2f(g2,g3)*57.3f;
+		yaw=atan2f(g4,g5)*57.3f;
+  uart_printf("%d, %d, %d\r\n",(int16_t)(pitch),(int16_t)(roll),(int16_t)(yaw));
 }
 
-int16_t value;
+
 // 根据加速度计 X 与 Z 数据计算 pitch 角（单位?）
 float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
-	int ax, az, temp;
-		ax = acc_raw[0];
-    az = acc_raw[2];
+	int ax, az;
+		ax = imu_9.i_acc[0];
+    az = imu_9.i_acc[2];
 
 				roll = fabs(pitch);
 				//uart_printf("fabs_roll:%d\r\n",(int16_t)(roll * 10));
-			//float value =  ax * 90.0 / 8192;
 			if(ax > 0 && az < 0){                // 1
 				roll = roll;
 			}else if(ax > 0 && az > 0){      // 2
@@ -462,7 +392,6 @@ void mouse_init()
 double az_sum = 0;
 double ax_sum = 0;
 double pos_t = 0;
-
 double pre_x = 0;
 double pre_y = 0;
 float ax,ay,az,gx,gy,gz;
