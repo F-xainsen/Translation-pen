@@ -1,7 +1,7 @@
 .\obj\usb.o: ..\..\src\driver\usb_driver\usb\usb.c
-.\obj\usb.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\usb.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\obj\usb.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\usb.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\usb.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\usb.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\usb.o: ..\..\src\driver\usb_driver\usb\usbclass.h
 .\obj\usb.o: ..\..\src\driver\usb_driver\usb\usb_cls_hid.h
 .\obj\usb.o: ..\..\src\driver\usb_driver\usb\usb_cls_audio.h
@@ -11,8 +11,8 @@
 .\obj\usb.o: ..\..\src\driver\usb_driver\driver_usb.h
 .\obj\usb.o: .\system\user_config.h
 .\obj\usb.o: ..\..\src\driver\uart2\uart2.h
-.\obj\usb.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\usb.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\usb.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\usb.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\usb.o: ..\..\src\driver\uart\uart.h
 .\obj\usb.o: .\system\user_config.h
 .\obj\usb.o: ..\..\src\modules\ke\api\ke_mem.h

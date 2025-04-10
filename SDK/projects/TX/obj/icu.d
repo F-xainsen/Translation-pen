@@ -1,9 +1,9 @@
 .\obj\icu.o: ..\..\Src\driver\icu\icu.c
-.\obj\icu.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\icu.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\icu.o: .\system\rwip_config.h
 .\obj\icu.o: ..\..\src\driver\uart2\uart2.h
-.\obj\icu.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\icu.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\icu.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\icu.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\icu.o: ..\..\src\driver\uart\uart.h
 .\obj\icu.o: .\system\user_config.h
 .\obj\icu.o: ..\..\src\driver\uart2\uart2.h
@@ -25,11 +25,11 @@
 .\obj\icu.o: ..\..\src\plf\rwip\api\rwip_task.h
 .\obj\icu.o: ..\..\Src\ip\ble\hl\api\gap.h
 .\obj\icu.o: ..\..\src\modules\common\api\co_math.h
-.\obj\icu.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\icu.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\icu.o: ..\..\src\plf\rwip\import\reg\reg_ipcore.h
 .\obj\icu.o: ..\..\src\plf\rwip\import\reg\_reg_ipcore.h
 .\obj\icu.o: ..\..\src\driver\reg\reg_access.h
-.\obj\icu.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\icu.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\icu.o: ..\..\src\modules\common\api\co_utils.h
 .\obj\icu.o: ..\..\src\modules\common\api\co_bt.h
 .\obj\icu.o: ..\..\src\modules\common\api\co_bt_defines.h

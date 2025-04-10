@@ -3,13 +3,13 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.38.0.0
-Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: zghsdth lenovo, jfgjfgh, LIC=8VRJ7-EB8TV-MMZ9I-TM04J-3VTY5-1B1TX
+IDE-Version: ¦ÌVision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ERHGDSFH 8618822864327, SDFHSFGH, LIC=MPPLD-8N5RN-Y8RFK-ZYZEJ-ZGP9Q-YJ70L
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.40.0.3
-Toolchain Path:  D:\development\Keil_v5\ARM\ARMCC\Bin
+Toolchain Path:  D:\Arm\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
 Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
@@ -18,27 +18,31 @@ Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
 CPU DLL:         SARM.DLL V5.40.0.0
 Dialog DLL:      DARMP3.DLL 
 <h2>Project:</h2>
-D:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX\prj3633.uvproj
-Project File Date:  03/18/2025
+C:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX\prj3633.uvproj
+Project File Date:  04/07/2025
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\development\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Arm\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target1'
 compiling app_gyroscope.c...
 .\app\api\app_gyroscope.h(78): warning:  #1295-D: Deprecated declaration Filter_threshold - give arg types
   void Filter_threshold();
+app\src\app_gyroscope.c(412): warning:  #177-D: variable "temp"  was declared but never referenced
+  	int ax, az, temp;
 app\src\app_gyroscope.c(172): warning:  #177-D: variable "last_angle"  was declared but never referenced
   static float last_angle = 0.0f;
 app\src\app_gyroscope.c(173): warning:  #177-D: variable "last_ax"  was declared but never referenced
   static int last_ax = 0, last_az = 0;
 app\src\app_gyroscope.c(173): warning:  #177-D: variable "last_az"  was declared but never referenced
   static int last_ax = 0, last_az = 0;
-app\src\app_gyroscope.c: 4 warnings, 0 errors
+app\src\app_gyroscope.c(352): warning:  #550-D: variable "yaw"  was set but never used
+  static float yaw = 0, pitch = 0, roll = 0;
+app\src\app_gyroscope.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=41008 RO-data=1756 RW-data=788 ZI-data=37372  
+Program Size: Code=37068 RO-data=1516 RW-data=684 ZI-data=37372  
 After Build - User command #1: fromelf --bin --output .\output\app\bk3633_app.bin .\obj\bk3633_app.axf
 After Build - User command #2: .\output\translate.bat
-D:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x7800 -l 0x7900 -v 0x0026 -rom_v 0x0014 -e 00000000 00000000 00000000 00000000 
+C:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x7800 -l 0x7900 -v 0x0026 -rom_v 0x0014 -e 00000000 00000000 00000000 00000000 
 cmd_bin_oad.stack_file_addr :0x7800
 binary version hex:0x26; dec:38
 Arm Image Binary will be converted to OAD format binary file.....
@@ -46,19 +50,19 @@ cmd_bin_oad.stack_file_addr=7800
 boot_bin_len=2fcc
 add stack bin start
         Encrypt Seccessfully!
-        File Size: 0x135fc
-oad_stack_app_bin_len=b700
-oad_app_bin_len=b5f0
-af d9 a0 bc 26 00 7c 2d 42 42 42 42 ff ff 14 00 /**< @CREATE_FILE_SUCCESS */
+        File Size: 0x12430
+oad_stack_app_bin_len=a500
+oad_app_bin_len=a3f0
+8b f0 ef 82 26 00 fc 28 42 42 42 42 ff ff 14 00 /**< @CREATE_FILE_SUCCESS */
 /**< @Download flash file:.\output\app\bk3633_app_merge_crc.bin
-/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0x585ab678
-/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0xbca0d9af
+/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0xb3e4d071
+/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0x82eff08b
 /**< @author <gang.cheng@bekencorp.com> */
 /**< @version v0.3 */
-D:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX>del .\output\app\bk3633_app_merge_boot_stack.out 
-D:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX>del .\output\app\bk3633_app_stack_oad.bin 
-".\obj\bk3633_app.axf" - 0 Error(s), 4 Warning(s).
-Build Time Elapsed:  00:00:01
+C:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX>del .\output\app\bk3633_app_merge_boot_stack.out 
+C:\HTK_project\Translation pen\Translation-pen\SDK\projects\TX>del .\output\app\bk3633_app_stack_oad.bin 
+".\obj\bk3633_app.axf" - 0 Error(s), 6 Warning(s).
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

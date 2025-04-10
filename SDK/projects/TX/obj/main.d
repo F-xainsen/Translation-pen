@@ -1,10 +1,10 @@
 .\obj\main.o: app\src\main.c
-.\obj\main.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\obj\main.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\obj\main.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\main.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\obj\main.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\main.o: D:\development\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\obj\main.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\main.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\main.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\main.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\main.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\main.o: D:\Arm\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\main.o: .\app\api\intc.h
 .\obj\main.o: ..\..\src\driver\uart\uart.h
 .\obj\main.o: .\system\user_config.h

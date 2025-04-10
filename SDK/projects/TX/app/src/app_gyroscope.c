@@ -284,11 +284,12 @@ void imu_final_data_get(void)
 
 	  get_gyro_data(imu_9.i_gyro,imu_9.i_acc); //采样得到九轴原始数据
 		Filter_threshold();
+		
 	  //原始数据窗口滤波
 	  filter_ax = window_filter(imu_9.i_acc[0],window_ax,WIN_NUM);
 	  filter_ay = window_filter(imu_9.i_acc[1],window_ay,WIN_NUM);
 	  filter_az = window_filter(imu_9.i_acc[2],window_az,WIN_NUM);
-
+		
 	  filter_gx = window_filter(imu_9.i_gyro[0],window_gx,WIN_NUM);
 	  filter_gy = window_filter(imu_9.i_gyro[1],window_gy,WIN_NUM);
 	  filter_gz = window_filter(imu_9.i_gyro[2],window_gz,WIN_NUM);
@@ -349,76 +350,6 @@ KFP KFP_gyroZ={0.02,0,0,0,0.001,0.543};
  }
  
 static float yaw = 0, pitch = 0, roll = 0;
-void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az) // g表陀螺仪，a表加计
-{
-    float q0temp, q1temp, q2temp, q3temp; // 四元数暂存变量，求解微分方程时要用
-    float norm;                           // 矢量的模或四元数的范数
-    float vx, vy, vz;                     // 当前姿态计算得来的重力在三轴上的分量
-    float ex, ey, ez;                     // 当前加计测得的重力加速度在三轴上的分量
-																					// 与用当前姿态计算得来的重力在三轴上的分量的误差
-		float q0 = 1, q1 = 0, q2 = 0, q3 = 0;  // 初始姿态四元数，由上篇博文提到的变换四元数公式得来
-		float exInt = 0, eyInt = 0, ezInt = 0; // 当前加计测得的重力加速度在三轴上的分量
-    // 先把这些用得到的值算好
-    float q0q0 = q0 * q0;
-    float q0q1 = q0 * q1;
-    float q0q2 = q0 * q2;
-    float q1q1 = q1 * q1;
-    float q1q3 = q1 * q3;
-    float q2q2 = q2 * q2;
-    float q2q3 = q2 * q3;
-    float q3q3 = q3 * q3;
-
-    norm = sqrt(ax * ax + ay * ay + az * az); // 单位化加速度计
-		if(norm == 0)return;
-	
-    ax = ax / norm;                           // 这样变更了量程也不需要修改KP参数，因为这里归一化了
-    ay = ay / norm;
-    az = az / norm;
-    // 用当前姿态计算出重力在三个轴上的分量，
-    // 参考坐标n系转化到载体坐标b系的用四元数表示的方向余弦矩阵第三列即是（博文一中有提到）
-    vx = 2 * (q1q3 - q0q2);
-    vy = 2 * (q0q1 + q2q3);
-    vz = q0q0 - q1q1 - q2q2 + q3q3;
-    // 计算测得的重力与计算得重力间的误差，向量外积可以表示这一误差
-    // 原因我理解是因为两个向量是单位向量且sin0等于0
-    // 不过要是夹角是180度呢~这个还没理解
-    ex = (ay * vz - az * vy);
-    ey = (az * vx - ax * vz);
-    ez = (ax * vy - ay * vx);
-		// 积分误差修正（Ki控制漂移抑制强度）
-    exInt = exInt + ex * Ki; // 对误差进行积分
-    eyInt = eyInt + ey * Ki;
-    ezInt = ezInt + ez * Ki;
-		//更新陀螺仪测量值（Kp控制加速度计权重）
-    // adjusted gyroscope measurements
-    gx = gx + Kp * ex + exInt; // 将误差PI后补偿到陀螺仪，即补偿零点漂移
-    gy = gy + Kp * ey + eyInt;
-    gz = gz + Kp * ez + ezInt; // 这里的gz由于没有观测者进行矫正会产生漂移，表现出来的就是积分自增或自减
-    // 下面进行姿态的更新，也就是四元数微分方程的求解
-    q0temp = q0; // 暂存当前值用于计算
-    q1temp = q1; // 网上传的这份算法大多没有注意这个问题，在此更正
-    q2temp = q2;
-    q3temp = q3;
-    // 采用一阶毕卡解法，相关知识可参见《惯性器件与惯性导航系统》P212
-    q0 = q0temp + (-q1temp * gx - q2temp * gy - q3temp * gz) * halfT;
-    q1 = q1temp + (q0temp * gx + q2temp * gz - q3temp * gy) * halfT;
-    q2 = q2temp + (q0temp * gy - q1temp * gz + q3temp * gx) * halfT;
-    q3 = q3temp + (q0temp * gz + q1temp * gy - q2temp * gx) * halfT;
-    // 单位化四元数在空间旋转时不会拉伸，仅有旋转角度，这类似线性代数里的正交变换
-    norm = sqrt(q0 * q0 + q1 * q1 + q2 * q2 + q3 * q3);
-    q0 = q0 / norm;
-    q1 = q1 / norm;
-    q2 = q2 / norm;
-    q3 = q3 / norm;
-    // 四元数到欧拉角的转换，公式推导见博文一
-    // 其中YAW航向角由于加速度计对其没有修正作用，因此此处直接用陀螺仪积分代替
-		
-    yaw = atan2(2 * q1 * q2 + 2 * q0 * q3, -2 * q2 * q2 - 2 * q3 * q3 + 1) * 57.3;  // unit:degree
-    pitch = asin(-2 * q1 * q3 + 2 * q0 * q2) * 57.3;                                // unit:degree
-    roll = atan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2 * q2 + 1) * 57.3; // unit:degree
-}
-
-
 //a加速度 g角速度  a——>g   g->dps
 float q0 = 1, q1 = 0, q2 = 0, q3 = 0;
 void algorithm(float ax,float ay,float az,float gx,float gy,float gz){
@@ -472,7 +403,7 @@ void algorithm(float ax,float ay,float az,float gx,float gy,float gz){
   pitch=-asinf(g1)*57.3f;
 	roll=atanf(g2/g3)*57.3f;
 	yaw=atanf(g4/g5)*57.3f;
-//  uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
+  //uart_printf("%d, roll:%d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
 }
 
 int16_t value;
@@ -481,30 +412,20 @@ float calculate_acc_angle(int16_t* acc_raw , int16_t* gyro_raw) {  // 0->x, 2->z
 	int ax, az, temp;
 		ax = acc_raw[0];
     az = acc_raw[2];
-        // 原有的逻辑
-        for (int i = 0; i < 46; i++) {
-            temp = abs(ax);
-            if (temp >= angle_Tab2[i + 1] && temp < angle_Tab2[i]) {
-                value = 90 - i * 2;
-                break;
-            }
-        }
-	
+
+				roll = fabs(pitch);
+				uart_printf("fabs_roll:%d\r\n",(int16_t)(roll * 10));
 			//float value =  ax * 90.0 / 8192;
-			if(ax > 0 && az < 0){
-				 value = value;                // 1
+			if(ax > 0 && az < 0){                // 1
 				roll = roll;
 			}else if(ax > 0 && az > 0){      // 2
-				 value = 180 - value;
 				roll = 180 - roll;
 			}else if(ax < 0 && az > 0){      // 3
-				 value = 180 + value;
 				roll = 180 + roll;
-			}else if(ax < 0 && az < 0){            // 4
-				 value = 360 - value;
+			}else if(ax < 0 && az < 0){       // 4
 				roll = 360 - roll;
 			}
-			
+			//uart_printf("roll:%d\r\n",(int16_t)(roll * 10));
 			return roll;
 	 }
 
@@ -594,8 +515,8 @@ void mouse()
 		krm[5]=kalmanFilter(&KFP_gyroZ,imu_9.f_gyro[2]);
 		algorithm(krm[0],krm[1],krm[2],krm[3],krm[4],krm[5]);//采用卡尔曼滤波
 
-		roll = calculate_acc_angle(acc_raw, gyro_raw);
-		uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
+		roll = calculate_acc_angle((int16_t *)imu_9.i_acc, (int16_t *)imu_9.i_gyro);
+		//uart_printf("%d, %d, %d\r\n",(int16_t)(pitch * 100),(int16_t)(roll * 100),(int16_t)(yaw * 100));
     calculate_displacement(imu_9.f_gyro, angular_displacement, linear_displacement);
 		
     rotate_point(linear_displacement[2], linear_displacement[0], roll, &new_ax, &new_az);
